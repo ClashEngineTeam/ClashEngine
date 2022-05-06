@@ -10,6 +10,8 @@ Charlie's Flash
 
 1. Random : 1.4.1
 
+1. Kaguya : [my branch](https://github.com/zmcj21/kaguya)
+
 1. olcPixelGameEngine : 2.17
 
 ### Third Party Links :
