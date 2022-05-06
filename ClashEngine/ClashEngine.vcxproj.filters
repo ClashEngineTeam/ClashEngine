@@ -112,6 +112,9 @@
     <Filter Include="olcPixelGameEngine">
       <UniqueIdentifier>{698d0794-1c3c-4172-9735-ac9298fb1318}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{33f33086-d0cc-4b7b-b652-00ad7026d3c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LuaSourceCode\lapi.h">
