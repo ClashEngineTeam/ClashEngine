@@ -176,6 +176,7 @@
     <ClCompile Include="LuaSourceCode\lvm.c" />
     <ClCompile Include="LuaSourceCode\lzio.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Kaguya\kaguya.hpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="LuaSourceCode\lzio.h" />
     <ClInclude Include="olcPixelGameEngine\olcPixelGameEngine.h" />
     <ClInclude Include="Random\random.hpp" />
+    <ClInclude Include="WinAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

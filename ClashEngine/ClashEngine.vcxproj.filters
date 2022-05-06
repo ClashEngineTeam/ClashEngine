@@ -98,6 +98,9 @@
     <ClCompile Include="LuaSourceCode\lzio.c">
       <Filter>LuaSourceCode</Filter>
     </ClCompile>
+    <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp">
+      <Filter>olcPixelGameEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -209,6 +212,9 @@
     </ClInclude>
     <ClInclude Include="Kaguya\kaguya.hpp">
       <Filter>Kaguya</Filter>
+    </ClInclude>
+    <ClInclude Include="WinAPI.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
