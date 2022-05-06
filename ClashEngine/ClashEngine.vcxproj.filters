@@ -103,6 +103,15 @@
     <Filter Include="LuaSourceCode">
       <UniqueIdentifier>{0d3f1265-3c3b-4355-a5a6-9b4f125410bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Kaguya">
+      <UniqueIdentifier>{5fec5e97-da93-466d-bfe4-353fe0cb171a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Random">
+      <UniqueIdentifier>{c80e3d1d-54f0-4543-80e0-e539a1ff5bd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcPixelGameEngine">
+      <UniqueIdentifier>{698d0794-1c3c-4172-9735-ac9298fb1318}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LuaSourceCode\lapi.h">
@@ -188,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="LuaSourceCode\lzio.h">
       <Filter>LuaSourceCode</Filter>
+    </ClInclude>
+    <ClInclude Include="Random\random.hpp">
+      <Filter>Random</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
