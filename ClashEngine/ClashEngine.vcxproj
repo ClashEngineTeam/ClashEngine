@@ -178,6 +178,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Kaguya\kaguya.hpp" />
     <ClInclude Include="LuaSourceCode\lapi.h" />
     <ClInclude Include="LuaSourceCode\lauxlib.h" />
     <ClInclude Include="LuaSourceCode\lcode.h" />

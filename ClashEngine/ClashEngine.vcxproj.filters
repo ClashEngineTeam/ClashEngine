@@ -204,5 +204,8 @@
     <ClInclude Include="olcPixelGameEngine\olcPixelGameEngine.h">
       <Filter>olcPixelGameEngine</Filter>
     </ClInclude>
+    <ClInclude Include="Kaguya\kaguya.hpp">
+      <Filter>Kaguya</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

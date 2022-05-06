@@ -3,6 +3,8 @@
 
 #include "Random/random.hpp"
 
+#include "Kaguya/kaguya.hpp"
+
 int main()
 {
     return 0;
