@@ -2,9 +2,9 @@
 
 Charlie's Flash
 
-### License MIT
+### License : MIT
 
-### Third Party Links
+### Third Party Links :
 
 1. [Download Lua Source Code](http://www.lua.org/ftp/lua-5.4.4.tar.gz)
 

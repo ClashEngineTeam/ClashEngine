@@ -143,7 +143,69 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LuaSourceCode\lapi.c" />
+    <ClCompile Include="LuaSourceCode\lauxlib.c" />
+    <ClCompile Include="LuaSourceCode\lbaselib.c" />
+    <ClCompile Include="LuaSourceCode\lcode.c" />
+    <ClCompile Include="LuaSourceCode\lcorolib.c" />
+    <ClCompile Include="LuaSourceCode\lctype.c" />
+    <ClCompile Include="LuaSourceCode\ldblib.c" />
+    <ClCompile Include="LuaSourceCode\ldebug.c" />
+    <ClCompile Include="LuaSourceCode\ldo.c" />
+    <ClCompile Include="LuaSourceCode\ldump.c" />
+    <ClCompile Include="LuaSourceCode\lfunc.c" />
+    <ClCompile Include="LuaSourceCode\lgc.c" />
+    <ClCompile Include="LuaSourceCode\linit.c" />
+    <ClCompile Include="LuaSourceCode\liolib.c" />
+    <ClCompile Include="LuaSourceCode\llex.c" />
+    <ClCompile Include="LuaSourceCode\lmathlib.c" />
+    <ClCompile Include="LuaSourceCode\lmem.c" />
+    <ClCompile Include="LuaSourceCode\loadlib.c" />
+    <ClCompile Include="LuaSourceCode\lobject.c" />
+    <ClCompile Include="LuaSourceCode\lopcodes.c" />
+    <ClCompile Include="LuaSourceCode\loslib.c" />
+    <ClCompile Include="LuaSourceCode\lparser.c" />
+    <ClCompile Include="LuaSourceCode\lstate.c" />
+    <ClCompile Include="LuaSourceCode\lstring.c" />
+    <ClCompile Include="LuaSourceCode\lstrlib.c" />
+    <ClCompile Include="LuaSourceCode\ltable.c" />
+    <ClCompile Include="LuaSourceCode\ltablib.c" />
+    <ClCompile Include="LuaSourceCode\ltm.c" />
+    <ClCompile Include="LuaSourceCode\lundump.c" />
+    <ClCompile Include="LuaSourceCode\lutf8lib.c" />
+    <ClCompile Include="LuaSourceCode\lvm.c" />
+    <ClCompile Include="LuaSourceCode\lzio.c" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LuaSourceCode\lapi.h" />
+    <ClInclude Include="LuaSourceCode\lauxlib.h" />
+    <ClInclude Include="LuaSourceCode\lcode.h" />
+    <ClInclude Include="LuaSourceCode\lctype.h" />
+    <ClInclude Include="LuaSourceCode\ldebug.h" />
+    <ClInclude Include="LuaSourceCode\ldo.h" />
+    <ClInclude Include="LuaSourceCode\lfunc.h" />
+    <ClInclude Include="LuaSourceCode\lgc.h" />
+    <ClInclude Include="LuaSourceCode\ljumptab.h" />
+    <ClInclude Include="LuaSourceCode\llex.h" />
+    <ClInclude Include="LuaSourceCode\llimits.h" />
+    <ClInclude Include="LuaSourceCode\lmem.h" />
+    <ClInclude Include="LuaSourceCode\lobject.h" />
+    <ClInclude Include="LuaSourceCode\lopcodes.h" />
+    <ClInclude Include="LuaSourceCode\lopnames.h" />
+    <ClInclude Include="LuaSourceCode\lparser.h" />
+    <ClInclude Include="LuaSourceCode\lprefix.h" />
+    <ClInclude Include="LuaSourceCode\lstate.h" />
+    <ClInclude Include="LuaSourceCode\lstring.h" />
+    <ClInclude Include="LuaSourceCode\ltable.h" />
+    <ClInclude Include="LuaSourceCode\ltm.h" />
+    <ClInclude Include="LuaSourceCode\lua.h" />
+    <ClInclude Include="LuaSourceCode\lua.hpp" />
+    <ClInclude Include="LuaSourceCode\luaconf.h" />
+    <ClInclude Include="LuaSourceCode\lualib.h" />
+    <ClInclude Include="LuaSourceCode\lundump.h" />
+    <ClInclude Include="LuaSourceCode\lvm.h" />
+    <ClInclude Include="LuaSourceCode\lzio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
