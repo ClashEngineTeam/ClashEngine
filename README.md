@@ -16,7 +16,7 @@ Charlie's Flash
 
 ### Third Party Links :
 
-1. [Download Lua Source Code](http://www.lua.org/ftp/lua-5.4.4.tar.gz)
+1. [Download Lua Source Code](https://www.lua.org/versions.html#5.4)
 
 1. [Random](https://github.com/effolkronium/random)
 
