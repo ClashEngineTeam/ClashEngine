@@ -206,6 +206,7 @@
     <ClInclude Include="LuaSourceCode\lundump.h" />
     <ClInclude Include="LuaSourceCode\lvm.h" />
     <ClInclude Include="LuaSourceCode\lzio.h" />
+    <ClInclude Include="olcPixelGameEngine\olcPixelGameEngine.h" />
     <ClInclude Include="Random\random.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

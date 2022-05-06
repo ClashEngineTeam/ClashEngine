@@ -201,5 +201,8 @@
     <ClInclude Include="Random\random.hpp">
       <Filter>Random</Filter>
     </ClInclude>
+    <ClInclude Include="olcPixelGameEngine\olcPixelGameEngine.h">
+      <Filter>olcPixelGameEngine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
