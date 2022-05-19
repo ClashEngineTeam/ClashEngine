@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-//https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-170
+//Predefined macros:https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-170
 
 #if defined(_MT) && !defined(_DLL) && !defined(_DEBUG)
 #define MT

@@ -224,6 +224,9 @@
     <ClCompile Include="Engine\WinVersion.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Point.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -469,6 +472,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\WinVersion.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Point.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

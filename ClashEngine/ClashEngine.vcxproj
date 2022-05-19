@@ -173,6 +173,7 @@
     <ClCompile Include="Engine\Navigation.cpp" />
     <ClCompile Include="Engine\OLCSprite.cpp" />
     <ClCompile Include="Engine\PaletteSystem.cpp" />
+    <ClCompile Include="Engine\Point.cpp" />
     <ClCompile Include="Engine\Process.cpp" />
     <ClCompile Include="Engine\Random.cpp" />
     <ClCompile Include="Engine\Renderer.cpp" />
@@ -252,6 +253,7 @@
     <ClInclude Include="Engine\ObjectPool.hpp" />
     <ClInclude Include="Engine\OLCSprite.hpp" />
     <ClInclude Include="Engine\PaletteSystem.hpp" />
+    <ClInclude Include="Engine\Point.hpp" />
     <ClInclude Include="Engine\Process.hpp" />
     <ClInclude Include="Engine\Random.hpp" />
     <ClInclude Include="Engine\Renderer.hpp" />
