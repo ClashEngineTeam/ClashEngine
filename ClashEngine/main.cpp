@@ -1,7 +1,6 @@
-﻿#include "WinAPI.h"
-#include "Kaguya/kaguya.hpp"
-#include "Random/random.hpp"
+﻿#include "Kaguya/kaguya.hpp"
 #include "olcPixelGameEngine/olcPixelGameEngine.h"
+#include "Random/random.hpp"
 
 int main()
 {

@@ -101,6 +101,129 @@
     <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp">
       <Filter>olcPixelGameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Audio.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\AudioPool.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CellRenderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CharacterController.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Chess.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Clipboard.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ConRegistry.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Console.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ConsoleEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ConsoleGameEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Database.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\EventSystem.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\File.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\FileDialog.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GDIRenderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GridRenderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Input.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Maze.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MessageBox.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MinConsoleNative.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\NativeRenderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Navigation.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\OLCSprite.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\PaletteSystem.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Process.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Random.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\String.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\TcpListener.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\TermSet.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\TextLayout.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Timer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UnusualMethods.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Vector2.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Vector3.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\VTConverter.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Window.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\WinNetwork.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\WinVersion.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -213,7 +336,139 @@
     <ClInclude Include="Kaguya\kaguya.hpp">
       <Filter>Kaguya</Filter>
     </ClInclude>
-    <ClInclude Include="WinAPI.h">
+    <ClInclude Include="Engine\Audio.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\AudioPool.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\CellRenderer.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\CharacterController.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Chess.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Clipboard.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ConRegistry.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Console.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ConsoleEngine.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ConsoleGameEngine.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Database.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EventSystem.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\File.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\FileDialog.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GDIRenderer.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GridRenderer.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Maze.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\MessageBox.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\MinConsoleNative.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\MinDefines.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\NativeRenderer.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Navigation.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ObjectPool.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\OLCSprite.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\PaletteSystem.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Process.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Random.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Singleton.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\String.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\TcpListener.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\TermSet.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\TextLayout.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Timer.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UnusualMethods.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vector.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vector2.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vector3.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\VTConverter.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Window.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\WinNetwork.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\WinVersion.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

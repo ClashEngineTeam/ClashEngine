@@ -92,6 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,6 +147,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Audio.cpp" />
+    <ClCompile Include="Engine\AudioPool.cpp" />
+    <ClCompile Include="Engine\CellRenderer.cpp" />
+    <ClCompile Include="Engine\CharacterController.cpp" />
+    <ClCompile Include="Engine\Chess.cpp" />
+    <ClCompile Include="Engine\Clipboard.cpp" />
+    <ClCompile Include="Engine\ConRegistry.cpp" />
+    <ClCompile Include="Engine\Console.cpp" />
+    <ClCompile Include="Engine\ConsoleEngine.cpp" />
+    <ClCompile Include="Engine\ConsoleGameEngine.cpp" />
+    <ClCompile Include="Engine\Database.cpp" />
+    <ClCompile Include="Engine\Debug.cpp" />
+    <ClCompile Include="Engine\EventSystem.cpp" />
+    <ClCompile Include="Engine\File.cpp" />
+    <ClCompile Include="Engine\FileDialog.cpp" />
+    <ClCompile Include="Engine\GDIRenderer.cpp" />
+    <ClCompile Include="Engine\GridRenderer.cpp" />
+    <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\Math.cpp" />
+    <ClCompile Include="Engine\Maze.cpp" />
+    <ClCompile Include="Engine\MessageBox.cpp" />
+    <ClCompile Include="Engine\MinConsoleNative.cpp" />
+    <ClCompile Include="Engine\NativeRenderer.cpp" />
+    <ClCompile Include="Engine\Navigation.cpp" />
+    <ClCompile Include="Engine\OLCSprite.cpp" />
+    <ClCompile Include="Engine\PaletteSystem.cpp" />
+    <ClCompile Include="Engine\Process.cpp" />
+    <ClCompile Include="Engine\Random.cpp" />
+    <ClCompile Include="Engine\Renderer.cpp" />
+    <ClCompile Include="Engine\String.cpp" />
+    <ClCompile Include="Engine\TcpListener.cpp" />
+    <ClCompile Include="Engine\TermSet.cpp" />
+    <ClCompile Include="Engine\TextLayout.cpp" />
+    <ClCompile Include="Engine\Timer.cpp" />
+    <ClCompile Include="Engine\UnusualMethods.cpp" />
+    <ClCompile Include="Engine\Vector2.cpp" />
+    <ClCompile Include="Engine\Vector3.cpp" />
+    <ClCompile Include="Engine\VTConverter.cpp" />
+    <ClCompile Include="Engine\Window.cpp" />
+    <ClCompile Include="Engine\WinNetwork.cpp" />
+    <ClCompile Include="Engine\WinVersion.cpp" />
     <ClCompile Include="LuaSourceCode\lapi.c" />
     <ClCompile Include="LuaSourceCode\lauxlib.c" />
     <ClCompile Include="LuaSourceCode\lbaselib.c" />
@@ -179,6 +224,51 @@
     <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Audio.hpp" />
+    <ClInclude Include="Engine\AudioPool.hpp" />
+    <ClInclude Include="Engine\CellRenderer.hpp" />
+    <ClInclude Include="Engine\CharacterController.hpp" />
+    <ClInclude Include="Engine\Chess.hpp" />
+    <ClInclude Include="Engine\Clipboard.hpp" />
+    <ClInclude Include="Engine\ConRegistry.hpp" />
+    <ClInclude Include="Engine\Console.hpp" />
+    <ClInclude Include="Engine\ConsoleEngine.hpp" />
+    <ClInclude Include="Engine\ConsoleGameEngine.hpp" />
+    <ClInclude Include="Engine\Database.hpp" />
+    <ClInclude Include="Engine\Debug.hpp" />
+    <ClInclude Include="Engine\EventSystem.hpp" />
+    <ClInclude Include="Engine\File.hpp" />
+    <ClInclude Include="Engine\FileDialog.hpp" />
+    <ClInclude Include="Engine\GDIRenderer.hpp" />
+    <ClInclude Include="Engine\GridRenderer.hpp" />
+    <ClInclude Include="Engine\Input.hpp" />
+    <ClInclude Include="Engine\Math.hpp" />
+    <ClInclude Include="Engine\Maze.hpp" />
+    <ClInclude Include="Engine\MessageBox.hpp" />
+    <ClInclude Include="Engine\MinConsoleNative.hpp" />
+    <ClInclude Include="Engine\MinDefines.hpp" />
+    <ClInclude Include="Engine\NativeRenderer.hpp" />
+    <ClInclude Include="Engine\Navigation.hpp" />
+    <ClInclude Include="Engine\ObjectPool.hpp" />
+    <ClInclude Include="Engine\OLCSprite.hpp" />
+    <ClInclude Include="Engine\PaletteSystem.hpp" />
+    <ClInclude Include="Engine\Process.hpp" />
+    <ClInclude Include="Engine\Random.hpp" />
+    <ClInclude Include="Engine\Renderer.hpp" />
+    <ClInclude Include="Engine\Singleton.hpp" />
+    <ClInclude Include="Engine\String.hpp" />
+    <ClInclude Include="Engine\TcpListener.hpp" />
+    <ClInclude Include="Engine\TermSet.hpp" />
+    <ClInclude Include="Engine\TextLayout.hpp" />
+    <ClInclude Include="Engine\Timer.hpp" />
+    <ClInclude Include="Engine\UnusualMethods.hpp" />
+    <ClInclude Include="Engine\Vector.hpp" />
+    <ClInclude Include="Engine\Vector2.hpp" />
+    <ClInclude Include="Engine\Vector3.hpp" />
+    <ClInclude Include="Engine\VTConverter.hpp" />
+    <ClInclude Include="Engine\Window.hpp" />
+    <ClInclude Include="Engine\WinNetwork.hpp" />
+    <ClInclude Include="Engine\WinVersion.hpp" />
     <ClInclude Include="Kaguya\kaguya.hpp" />
     <ClInclude Include="LuaSourceCode\lapi.h" />
     <ClInclude Include="LuaSourceCode\lauxlib.h" />
@@ -210,7 +300,6 @@
     <ClInclude Include="LuaSourceCode\lzio.h" />
     <ClInclude Include="olcPixelGameEngine\olcPixelGameEngine.h" />
     <ClInclude Include="Random\random.hpp" />
-    <ClInclude Include="WinAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
