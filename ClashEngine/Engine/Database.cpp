@@ -3,7 +3,7 @@
 #include "String.hpp"
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     const std::wstring DNULL = L"null";
 

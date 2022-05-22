@@ -5,7 +5,7 @@
 
 //See Docs:https://docs.microsoft.com/zh-cn/windows/win32/winsock/windows-sockets-start-page-2
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(bool) MinInitWinSocket();
 

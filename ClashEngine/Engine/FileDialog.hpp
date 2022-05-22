@@ -7,7 +7,7 @@
 // Doc:https://docs.microsoft.com/en-us/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew
 // 参考:https://blog.csdn.net/fx_odyssey/article/details/77481939
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     struct FileFilter
     {

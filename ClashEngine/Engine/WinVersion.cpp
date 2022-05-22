@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(bool) MinGetWinVersion(uint* MajorVer, uint* MinorVer, uint* BuildNumber)
     {

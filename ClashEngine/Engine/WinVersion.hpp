@@ -2,7 +2,7 @@
 #include "Singleton.hpp"
 #include <string>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     //FROM:https://github.com/zhongyang219/ConsoleMusicPlayer/blob/master/MusicPlayer/WinVersionHelper.h
     EXPORT_FUNC_EX(bool) MinGetWinVersion(_OUT_ uint* MajorVer, _OUT_ uint* MinorVer, _OUT_ uint* BuildNumber);

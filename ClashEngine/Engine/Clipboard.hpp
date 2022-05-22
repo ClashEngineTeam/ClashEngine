@@ -7,7 +7,7 @@
 //相似的库:https://github.com/Arian8j2/ClipboardXX/blob/master/include/ClipboardXX.hpp
 //微软的示例:https://docs.microsoft.com/en-us/windows/win32/dataxchg/using-the-clipboard#copying-information-to-the-clipboard
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     //如果失败则会返回nullptr
     //参考:https://stackoverflow.com/questions/14762456/getclipboarddatacf-text

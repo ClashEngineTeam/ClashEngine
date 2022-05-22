@@ -1,6 +1,6 @@
 ﻿#include "GDIRenderer.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(bool) MinPutPixel(HWND hwnd, int x, int y, Color24 color)
     {

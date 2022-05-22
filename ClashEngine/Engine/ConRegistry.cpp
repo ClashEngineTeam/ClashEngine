@@ -4,7 +4,7 @@
 #include "String.hpp"
 #include <strsafe.h>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     //*************************************************************
     //

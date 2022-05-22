@@ -67,7 +67,7 @@
 #define EXPORT_DELEGATE
 #define EXPORT_CONSTEXPR constexpr
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     typedef wchar_t wchar;
 

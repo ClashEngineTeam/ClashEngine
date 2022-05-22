@@ -2,7 +2,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(AudioPool*) MinCreatAudioPool(_IN_ const wchar* path, int allocCount)
     {

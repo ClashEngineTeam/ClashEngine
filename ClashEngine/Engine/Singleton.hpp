@@ -3,7 +3,7 @@
 #include "MinDefines.hpp"
 #include <memory>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     template<typename T>
     class Singleton

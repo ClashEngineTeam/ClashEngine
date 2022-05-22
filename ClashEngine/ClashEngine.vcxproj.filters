@@ -128,9 +128,6 @@
     <ClCompile Include="Engine\ConsoleEngine.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ConsoleGameEngine.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Database.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -164,9 +161,6 @@
     <ClCompile Include="Engine\MessageBox.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\MinConsoleNative.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\NativeRenderer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -183,9 +177,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Random.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Renderer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\String.cpp">
@@ -369,9 +360,6 @@
     <ClInclude Include="Engine\ConsoleEngine.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ConsoleGameEngine.hpp">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Database.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -405,9 +393,6 @@
     <ClInclude Include="Engine\MessageBox.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\MinConsoleNative.hpp">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\MinDefines.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -430,9 +415,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Random.hpp">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Renderer.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Singleton.hpp">

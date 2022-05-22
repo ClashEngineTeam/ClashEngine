@@ -3,7 +3,7 @@
 #include "MinDefines.hpp"
 #include <vector>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     template<typename T>
     class Vector

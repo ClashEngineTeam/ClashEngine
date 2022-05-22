@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     static int LastMCIResult = 0;
     static const std::wstring MCIAlias = L"MIN_MCI_ALIAS_";

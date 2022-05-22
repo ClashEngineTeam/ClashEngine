@@ -2,7 +2,7 @@
 #include "TextLayout.hpp"
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     GridRenderer::GridRenderer(int logicalWidth, int logicalHeight, GridRendererMode mode)
     {

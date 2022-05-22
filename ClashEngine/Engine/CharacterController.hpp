@@ -3,7 +3,7 @@
 #include "MinDefines.hpp"
 #include "Vector2.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class CharacterControllerKeyboardLayout
     {

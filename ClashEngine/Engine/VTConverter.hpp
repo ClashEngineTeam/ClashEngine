@@ -24,7 +24,7 @@
 #define BELL "\x07"
 #endif
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     constexpr int VT_STR_LEN = 64;
 
@@ -133,9 +133,9 @@ namespace MinConsoleNative
 
         static std::wstring VTTerminalColor(int color);
 
-        static std::wstring VTTerminalForeColor(MinConsoleNative::TerminalColor tcolor);
+        static std::wstring VTTerminalForeColor(TerminalColor tcolor);
 
-        static std::wstring VTTerminalBackColor(MinConsoleNative::TerminalColor tcolor);
+        static std::wstring VTTerminalBackColor(TerminalColor tcolor);
 
         static std::wstring VTTerminalSize(COORD size);
 

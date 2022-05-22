@@ -1,6 +1,6 @@
 ﻿#include "Timer.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     const double TimerMultiplier = 1.0e6;
 

@@ -5,7 +5,7 @@
 
 //SEE:https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_ENUM_CLASS MessageBoxButtons
     {

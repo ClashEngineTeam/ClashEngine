@@ -6,7 +6,7 @@
 
 //类似的计时器:https://github.com/GiovanniDicanio/StopwatchWin32/blob/master/Stopwatch/Stopwatch.h
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_STRUCT MinTimer
     {

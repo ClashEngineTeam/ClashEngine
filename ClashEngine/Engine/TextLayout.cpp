@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     wstring TextLayout::CombineWchar(wchar a1, wchar a2)
     {

@@ -1,7 +1,7 @@
 ﻿#include "FileDialog.hpp"
 #include <commdlg.h>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     std::wstring FileDialog::Open(const std::vector<FileFilter>* filters)
     {

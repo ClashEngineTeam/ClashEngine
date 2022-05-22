@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     COORD EventSystem::preMousePos = { -1, -1 };
     COORD EventSystem::preConsoleWindowSize;

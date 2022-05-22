@@ -2,7 +2,7 @@
 #include "Input.hpp"
 #include "Math.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     CharacterController::CharacterController(Vector2 position, float speed, CharacterControllerKeyboardLayout layout)
     {

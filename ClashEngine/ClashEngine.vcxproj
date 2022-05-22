@@ -156,7 +156,6 @@
     <ClCompile Include="Engine\ConRegistry.cpp" />
     <ClCompile Include="Engine\Console.cpp" />
     <ClCompile Include="Engine\ConsoleEngine.cpp" />
-    <ClCompile Include="Engine\ConsoleGameEngine.cpp" />
     <ClCompile Include="Engine\Database.cpp" />
     <ClCompile Include="Engine\Debug.cpp" />
     <ClCompile Include="Engine\EventSystem.cpp" />
@@ -169,7 +168,6 @@
     <ClCompile Include="Engine\Math.cpp" />
     <ClCompile Include="Engine\Maze.cpp" />
     <ClCompile Include="Engine\MessageBox.cpp" />
-    <ClCompile Include="Engine\MinConsoleNative.cpp" />
     <ClCompile Include="Engine\NativeRenderer.cpp" />
     <ClCompile Include="Engine\Navigation.cpp" />
     <ClCompile Include="Engine\OLCSprite.cpp" />
@@ -177,7 +175,6 @@
     <ClCompile Include="Engine\Point.cpp" />
     <ClCompile Include="Engine\Process.cpp" />
     <ClCompile Include="Engine\Random.cpp" />
-    <ClCompile Include="Engine\Renderer.cpp" />
     <ClCompile Include="Engine\String.cpp" />
     <ClCompile Include="Engine\TcpListener.cpp" />
     <ClCompile Include="Engine\TermSet.cpp" />
@@ -235,7 +232,6 @@
     <ClInclude Include="Engine\ConRegistry.hpp" />
     <ClInclude Include="Engine\Console.hpp" />
     <ClInclude Include="Engine\ConsoleEngine.hpp" />
-    <ClInclude Include="Engine\ConsoleGameEngine.hpp" />
     <ClInclude Include="Engine\Database.hpp" />
     <ClInclude Include="Engine\Debug.hpp" />
     <ClInclude Include="Engine\EventSystem.hpp" />
@@ -248,7 +244,6 @@
     <ClInclude Include="Engine\Math.hpp" />
     <ClInclude Include="Engine\Maze.hpp" />
     <ClInclude Include="Engine\MessageBox.hpp" />
-    <ClInclude Include="Engine\MinConsoleNative.hpp" />
     <ClInclude Include="Engine\MinDefines.hpp" />
     <ClInclude Include="Engine\NativeRenderer.hpp" />
     <ClInclude Include="Engine\Navigation.hpp" />
@@ -258,7 +253,6 @@
     <ClInclude Include="Engine\Point.hpp" />
     <ClInclude Include="Engine\Process.hpp" />
     <ClInclude Include="Engine\Random.hpp" />
-    <ClInclude Include="Engine\Renderer.hpp" />
     <ClInclude Include="Engine\Singleton.hpp" />
     <ClInclude Include="Engine\String.hpp" />
     <ClInclude Include="Engine\TcpListener.hpp" />

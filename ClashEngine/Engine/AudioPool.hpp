@@ -10,7 +10,7 @@
 //因此暂时放弃使用多线程操作MCI
 //详情参考:https://blog.csdn.net/daeba/article/details/43229115?spm=1001.2014.3001.5502
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class AudioPool;
 

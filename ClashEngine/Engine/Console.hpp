@@ -12,7 +12,7 @@
 #define CONSOLE_OUTPUT_STRING L"CONOUT$"
 #define CONSOLE_GENERIC       L"CON"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     extern const int MAX_INPUT_CHAR_COUNT;
 

@@ -5,7 +5,7 @@
 #include <ctime>
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     void Debug::Output(const std::wstring& msg)
     {

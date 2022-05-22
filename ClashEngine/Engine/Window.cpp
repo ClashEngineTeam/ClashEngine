@@ -1,6 +1,6 @@
 ﻿#include "Window.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(HWND) MinGetForegroundWindow()
     {

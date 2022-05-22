@@ -6,7 +6,7 @@
 #include <map>
 #include <vector>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     //color count limit
     constexpr int WINCON_PALETTE_COLOR_LIMIT = 16;

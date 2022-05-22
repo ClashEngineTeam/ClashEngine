@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class Encoding
     {

@@ -2,7 +2,7 @@
 #include "String.hpp"
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(wchar*) MinToShortPathName(_IN_ const wchar* path)
     {
@@ -321,9 +321,9 @@ namespace MinConsoleNative
         return text;
     }
 
-    std::vector<MinConsoleNative::byte> File::ReadAllBytes(const std::wstring& path)
+    std::vector<byte> File::ReadAllBytes(const std::wstring& path)
     {
-        std::vector<MinConsoleNative::byte> bytes;
+        std::vector<byte> bytes;
 
         if (!Exists(path))
         {
@@ -343,7 +343,7 @@ namespace MinConsoleNative
         DWORD size = 0;
         size = GetFileSize(fileHandle, nullptr);
 
-        MinConsoleNative::byte* arr = new MinConsoleNative::byte[size];
+        byte* arr = new byte[size];
         ::ZeroMemory(arr, size * sizeof(char));
 
         DWORD written = 0;
@@ -428,7 +428,7 @@ namespace MinConsoleNative
         return write_suc && close_suc;
     }
 
-    bool File::WriteAllBytes(const std::wstring& path, const std::vector<MinConsoleNative::byte>& bytes, WriteMode write_mode)
+    bool File::WriteAllBytes(const std::wstring& path, const std::vector<byte>& bytes, WriteMode write_mode)
     {
         if (!Exists(path))
         {

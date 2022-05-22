@@ -54,7 +54,7 @@
 #define CONSOLE_REGISTRY_TERMINALSCROLLING              L"TerminalScrolling"
 // end V2 console settings
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     //来源:https://docs.microsoft.com/en-us/windows/win32/sysinfo/deleting-a-key-with-subkeys
     bool RegDelnodeRecurse(HKEY hKeyRoot, LPTSTR lpSubKey);

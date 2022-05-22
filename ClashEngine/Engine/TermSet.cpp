@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     std::wstring TermSet::GetWTSettingFilePath()
     {

@@ -5,7 +5,7 @@
 #include "Vector2.hpp"
 #include <string>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class CellRendererMode
     {

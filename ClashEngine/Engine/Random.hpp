@@ -2,7 +2,7 @@
 
 #include "MinDefines.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     //random range[minimum(inclusive), maximum(inclusive)]
     EXPORT_FUNC_EX(uint) MinGetRandomValue(uint minimum, uint maximum);

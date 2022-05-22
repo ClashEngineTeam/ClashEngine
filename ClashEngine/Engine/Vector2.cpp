@@ -2,7 +2,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     const Vector2 Vector2::zero = { 0, 0 };
     const Vector2 Vector2::up = Vector2(0, 1);

@@ -1,7 +1,7 @@
 ﻿#include "Clipboard.hpp"
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(wchar*) MinReadFromClipboard()
     {

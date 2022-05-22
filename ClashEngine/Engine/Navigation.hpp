@@ -4,7 +4,7 @@
 #include "Vector2.hpp"
 #include <vector>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
 #define NAV_UNLIMITED_DEPTH (-1)
 

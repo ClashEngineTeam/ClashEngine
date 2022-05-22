@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class ChessboardType
     {

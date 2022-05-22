@@ -3,7 +3,7 @@
 #include "Timer.hpp"
 #include "Window.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     void ConsoleEngine::OnStart()
     {

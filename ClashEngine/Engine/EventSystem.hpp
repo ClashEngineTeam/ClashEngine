@@ -11,7 +11,7 @@
 //Special thanks to Hamayama(https://github.com/Hamayama) for inspiration.
 //April 15, 2021 in Minsk.
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class EventSystemTarget
     {

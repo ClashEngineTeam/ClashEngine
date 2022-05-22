@@ -2,7 +2,7 @@
 #include "Vector.hpp"
 #include "Random.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     void MazeGenerator::LinkTo(Vector2& point, std::vector<Vector2>& keyPoints, std::vector<Vector2>& arrivedPoints, std::vector<Vector2>& emptyPoints)
     {

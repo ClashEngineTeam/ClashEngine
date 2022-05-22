@@ -2,7 +2,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(MessageBoxResult) MinShowMessageBox(const wchar* text, const wchar* title, MessageBoxButtons buttons, MessageBoxDefaultButton defButton, MessageBoxIcon iconType)
     {

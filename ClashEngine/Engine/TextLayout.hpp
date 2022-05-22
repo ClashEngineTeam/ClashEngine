@@ -7,7 +7,7 @@
 #include <vector>
 #include <map>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class TextLayout
     {

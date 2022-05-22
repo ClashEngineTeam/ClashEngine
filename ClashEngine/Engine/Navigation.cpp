@@ -1,7 +1,7 @@
 ﻿#include "Navigation.hpp"
 #include "Vector.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     SearchResult Navigation::Navigate(Vector2 startPos, Vector2 endPos, SearchDirection searchDir, int depthLimit, const std::vector<Vector2>& obstacles, SearchMethod searchMethod)
     {

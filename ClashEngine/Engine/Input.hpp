@@ -8,7 +8,8 @@
 #define MIDDLE_BUTTON   4
 
 //See VirtualKeys:https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
-namespace MinConsoleNative
+
+namespace ClashEngine
 {
     EXPORT_ENUM_CLASS MouseAxis
     {

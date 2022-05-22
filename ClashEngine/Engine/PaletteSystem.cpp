@@ -1,6 +1,6 @@
 ﻿#include "PaletteSystem.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     PaletteSystem::PaletteSystem()
     {

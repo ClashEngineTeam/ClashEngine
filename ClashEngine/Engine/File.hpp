@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class FileMode
     {
@@ -74,13 +74,13 @@ namespace MinConsoleNative
 
         static std::wstring ReadAllText(const std::wstring& path);
 
-        static std::vector<MinConsoleNative::byte> ReadAllBytes(const std::wstring& path);
+        static std::vector<byte> ReadAllBytes(const std::wstring& path);
 
         static bool WriteAllLines(const std::wstring& path, std::vector<std::wstring> lines, WriteMode write_mode = WriteMode::Cover, Encoding encoding = Encoding::UTF8);
 
         static bool WriteAllText(const std::wstring& path, const std::wstring& text, WriteMode write_mode = WriteMode::Cover, Encoding encoding = Encoding::UTF8);
 
-        static bool WriteAllBytes(const std::wstring& path, const std::vector<MinConsoleNative::byte>& bytes, WriteMode write_mode = WriteMode::Cover);
+        static bool WriteAllBytes(const std::wstring& path, const std::vector<byte>& bytes, WriteMode write_mode = WriteMode::Cover);
 
         static bool Clear(const std::wstring& path);
     };

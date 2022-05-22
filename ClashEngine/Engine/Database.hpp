@@ -3,7 +3,7 @@
 #include "MinDefines.hpp"
 #include <string>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     extern const std::wstring DNULL;
 

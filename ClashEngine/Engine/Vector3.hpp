@@ -5,7 +5,7 @@
 
 //参考《3D数学基础：图形与游戏开发》中第6章的C++Vector3类
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class Vector3
     {

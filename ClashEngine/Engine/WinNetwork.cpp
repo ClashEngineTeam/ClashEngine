@@ -1,7 +1,7 @@
 ﻿#include "WinNetwork.hpp"
 #pragma comment(lib, "ws2_32.lib")
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_FUNC_EX(bool) MinInitWinSocket()
     {

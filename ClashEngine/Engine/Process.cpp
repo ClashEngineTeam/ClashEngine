@@ -1,7 +1,7 @@
 ﻿#include "Process.hpp"
 #include <shellapi.h>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     HINSTANCE Process::Execute(const std::wstring& file, const std::wstring& param, const std::wstring& directory)
     {

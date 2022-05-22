@@ -2,7 +2,7 @@
 #include "Console.hpp"
 #include <stdint.h>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     static const int KEY_COUNT = 256;
 

@@ -1,6 +1,6 @@
 ﻿#include "UnusualMethods.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     bool UnusualMethods::GetFuncFromDll(const wchar* dllName, const char* funcName, FARPROC* funcPtr)
     {

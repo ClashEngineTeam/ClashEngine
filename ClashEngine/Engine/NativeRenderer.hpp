@@ -4,7 +4,7 @@
 #include "Vector2.hpp"
 #include "Console.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class NativeRenderer
     {

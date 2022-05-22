@@ -2,7 +2,7 @@
 
 #include "MinDefines.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class Math
     {

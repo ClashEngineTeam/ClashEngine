@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     bool IsVTInput(const INPUT_RECORD* record)
     {
@@ -484,7 +484,7 @@ namespace MinConsoleNative
         return wstr;
     }
 
-    std::wstring VTConverter::VTTerminalForeColor(MinConsoleNative::TerminalColor tcolor)
+    std::wstring VTConverter::VTTerminalForeColor(TerminalColor tcolor)
     {
         wstring wstr;
 
@@ -496,7 +496,7 @@ namespace MinConsoleNative
         return wstr;
     }
 
-    std::wstring VTConverter::VTTerminalBackColor(MinConsoleNative::TerminalColor tcolor)
+    std::wstring VTConverter::VTTerminalBackColor(TerminalColor tcolor)
     {
         wstring wstr;
 

@@ -1,7 +1,7 @@
 ﻿#include "Math.hpp"
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     const int Math::PrimeNumbers[29] =
     {

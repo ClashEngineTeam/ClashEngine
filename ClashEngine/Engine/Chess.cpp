@@ -1,7 +1,7 @@
 ﻿#include "Chess.hpp"
 #include "TextLayout.hpp"
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     wchar Chess::FirstLineLeft = L'┌';
     wchar Chess::FirstLineMiddle = L'┬';

@@ -4,7 +4,7 @@
 
 //Here are some functions with very low usage.
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class UnusualMethods
     {

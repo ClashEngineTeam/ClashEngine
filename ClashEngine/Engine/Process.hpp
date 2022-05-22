@@ -3,7 +3,7 @@
 #include "MinDefines.hpp"
 #include <string>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class Process
     {

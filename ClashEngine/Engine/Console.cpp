@@ -9,7 +9,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     const int MAX_INPUT_CHAR_COUNT = 2048;
 

@@ -10,7 +10,7 @@
 //Should I free/delete char* returned by getenv():
 //https://stackoverflow.com/questions/4237812/should-i-free-delete-char-returned-by-getenv
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     class TermSet
     {

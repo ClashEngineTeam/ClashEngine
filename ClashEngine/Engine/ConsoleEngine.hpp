@@ -5,7 +5,7 @@
 #include "PaletteSystem.hpp"
 #include <string>
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     enum class FontName
     {

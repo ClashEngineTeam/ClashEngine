@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     CHAR_INFO NativeRenderer::defaultCharInfo = { L' ', 0x00 };
 

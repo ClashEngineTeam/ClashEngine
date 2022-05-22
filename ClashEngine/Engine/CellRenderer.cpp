@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     CellRenderer::CellRenderer(int consoleWidth, int consoleHeight, CellRendererMode mode)
     {

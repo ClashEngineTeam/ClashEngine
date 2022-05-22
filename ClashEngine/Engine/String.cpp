@@ -1,7 +1,7 @@
 ﻿#include "String.hpp"
 using namespace std;
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     std::wstring String::Trim(const std::wstring& wstr)
     {

@@ -11,7 +11,7 @@
 //所以尽量避免在要求性能的游戏中使用本套音频API。
 //2.MCI在播放某些.mp3文件时可能会出现错误。
 
-namespace MinConsoleNative
+namespace ClashEngine
 {
     EXPORT_CONSTEXPR int MCI_MIN_VOLUME = 0;
     EXPORT_CONSTEXPR int MCI_MAX_VOLUME = 1000;
