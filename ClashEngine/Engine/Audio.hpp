@@ -64,6 +64,7 @@ namespace ClashEngine
     //---------------------------------MCIAudio functions---------------------------------
 
     //注意:如果在C#中调用该语句请确保Main方法设置了[STAThread]
+    //注意:要求的音频路径为绝对路径
     EXPORT_FUNC_EX(MCIAudio*) MinInitMCIAudio(_IN_ const wchar* path);
 
     EXPORT_FUNC_EX(void) MinDeinitMCIAudio(_IN_ MCIAudio* mciAudio);

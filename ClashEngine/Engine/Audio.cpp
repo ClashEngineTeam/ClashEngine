@@ -125,7 +125,22 @@ namespace ClashEngine
     {
         if (mciAudio == nullptr) return false;
 
-        return MinPlayMCIAudioEx(mciAudio, repeat, wait, 0, mciAudio->TotalMilliSecond);
+        //Use alias instead of path as parameter to implement API:PlayOneShot!
+        wstring cmd = _T("play ") + wstring(mciAudio->Alias);
+
+        //NOTICE:if play .wav music, repeat is useless. If file is .wav and repeat is on, it will fail. Seems it's a bug in MCI.
+        if (repeat && !String::CompareIgnoreCase(L".wav", mciAudio->Extension))
+        {
+            cmd += L" repeat";
+        }
+        //wait will block the thread.
+        if (wait)
+        {
+            cmd += L" wait";
+        }
+
+        bool suc = Audio::MCISendString(cmd);
+        return suc;
     }
 
     EXPORT_FUNC_EX(bool) MinPlayMCIAudioEx(_IN_ MCIAudio* mciAudio, bool repeat, bool wait, int from, int to)
