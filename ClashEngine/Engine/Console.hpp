@@ -5,6 +5,9 @@
 #include <utility>
 #include <string>
 
+//Windows10中的控制台更新
+//https://blogs.windows.com/windowsdeveloper/2014/10/07/console-improvements-in-the-windows-10-technical-preview/
+
 #define CONSOLE_INPUT_STRING  L"CONIN$"
 #define CONSOLE_OUTPUT_STRING L"CONOUT$"
 #define CONSOLE_GENERIC       L"CON"

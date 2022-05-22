@@ -6,6 +6,11 @@
 //Audio support is developed based on Windows MCI
 //SEE:https://docs.microsoft.com/en-us/windows/win32/multimedia/mci
 
+//注意事项:
+//1.MCI存在性能问题, 调用Play方法后会卡顿一会, 在性能差的机器上尤其如此。
+//所以尽量避免在要求性能的游戏中使用本套音频API。
+//2.MCI在播放某些.mp3文件时可能会出现错误。
+
 namespace MinConsoleNative
 {
     EXPORT_CONSTEXPR int MCI_MIN_VOLUME = 0;

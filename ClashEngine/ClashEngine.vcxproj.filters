@@ -227,6 +227,9 @@
     <ClCompile Include="Engine\Point.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\LuaBinding.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -475,6 +478,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Point.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\LuaBinding.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

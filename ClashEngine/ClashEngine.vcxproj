@@ -165,6 +165,7 @@
     <ClCompile Include="Engine\GDIRenderer.cpp" />
     <ClCompile Include="Engine\GridRenderer.cpp" />
     <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\LuaBinding.cpp" />
     <ClCompile Include="Engine\Math.cpp" />
     <ClCompile Include="Engine\Maze.cpp" />
     <ClCompile Include="Engine\MessageBox.cpp" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Engine\GDIRenderer.hpp" />
     <ClInclude Include="Engine\GridRenderer.hpp" />
     <ClInclude Include="Engine\Input.hpp" />
+    <ClInclude Include="Engine\LuaBinding.hpp" />
     <ClInclude Include="Engine\Math.hpp" />
     <ClInclude Include="Engine\Maze.hpp" />
     <ClInclude Include="Engine\MessageBox.hpp" />
