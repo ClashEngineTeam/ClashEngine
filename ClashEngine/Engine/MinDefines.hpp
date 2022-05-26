@@ -47,11 +47,15 @@
 #define NEW_LINE "\r\n"
 #define NEW_LINEW L"\r\n"
 
+#if defined(ENABLE_EXPORT_FUNC)
 //Macros for export functions
 #if defined(__cplusplus)
 #define EXPORT_FUNC_EX(return_type) extern "C" __declspec(dllexport) return_type __stdcall
 #else
 #define EXPORT_FUNC_EX(return_type) extern __declspec(dllexport) return_type __stdcall
+#endif
+#else
+#define EXPORT_FUNC_EX(return_type) return_type
 #endif
 
 //Macros for EXPORT_FUNC_EX
