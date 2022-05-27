@@ -1,3 +1,6 @@
+x = 0
+y = 0
+
 function start()
     audio = init_audio("res/audios/sgs_background_music_default.mp3")
     qinghe = init_image("res/images/characters/QingHe2.png")
@@ -5,7 +8,22 @@ function start()
 end
 
 function update()
-    draw_image(0, 0, qinghe)
+    clear()
+
+    if get_key(1) then
+        x = x - 1
+    end
+    if get_key(4) then
+        x = x + 1
+    end
+    if get_key(23) then
+        y = y - 1
+    end
+    if get_key(19) then
+        y = y + 1
+    end
+
+    draw_image(x, y, qinghe)
 end
 
 function destroy()

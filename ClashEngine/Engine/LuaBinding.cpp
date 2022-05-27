@@ -112,6 +112,18 @@ namespace ClashEngine
         LuaBinding::inited = false;
     }
 
+    //=====================Draw APIs=====================
+
+    static void clear()
+    {
+        LuaBinding::engine->Clear(olc::BLACK);
+    }
+
+    static void draw_pixel(int x, int y, int r, int g, int b)
+    {
+        LuaBinding::engine->Draw(x, y, olc::Pixel(r, g, b));
+    }
+
     //=====================Image APIs=====================
 
     //支持相对路径与绝对路径
@@ -132,11 +144,21 @@ namespace ClashEngine
         LuaBinding::engine->DrawSprite(x, y, sprite);
     }
 
-    //=====================Draw APIs=====================
+    //=====================Input APIs=====================
 
-    static void draw_pixel(int x, int y, int r, int g, int b)
+    static bool get_key(int key)
     {
-        LuaBinding::engine->Draw(x, y, olc::Pixel(r, g, b));
+        return LuaBinding::engine->GetKey((olc::Key)key).bHeld;
+    }
+
+    static bool get_key_down(int key)
+    {
+        return LuaBinding::engine->GetKey((olc::Key)key).bPressed;
+    }
+
+    static bool get_key_up(int key)
+    {
+        return LuaBinding::engine->GetKey((olc::Key)key).bReleased;
     }
 
     int LuaBinding::screenWidth = 0;
@@ -172,12 +194,16 @@ namespace ClashEngine
         //Engine APIs:
         (*this->vm)["init_engine"] = &init_engine;
         (*this->vm)["deinit_engine"] = &deinit_engine;
+        //Draw APIs:
+        (*this->vm)["clear"] = &clear;
+        (*this->vm)["draw_pixel"] = &draw_pixel;
         //Image APIs:
         (*this->vm)["init_image"] = &init_image;
         (*this->vm)["deinit_image"] = &deinit_image;
         (*this->vm)["draw_image"] = &draw_image;
-        //Draw functions:
-        (*this->vm)["draw_pixel"] = &draw_pixel;
-        //Input functions:
+        //Input APIs:
+        (*this->vm)["get_key"] = &get_key;
+        (*this->vm)["get_key_down"] = &get_key_down;
+        (*this->vm)["get_key_up"] = &get_key_up;
     }
 }
