@@ -2,6 +2,7 @@
 #include "Audio.hpp"
 #include "String.hpp"
 #include "File.hpp"
+#include <string>
 
 using namespace std;
 
@@ -9,7 +10,6 @@ namespace ClashEngine
 {
     //=====================Audio API=====================
 
-    //local functions:
     //支持相对路径与绝对路径
     static MCIAudio* init_audio(const char* path)
     {
@@ -114,9 +114,37 @@ namespace ClashEngine
         return true;
     }
 
+    //支持相对路径与绝对路径
+    static olc::Sprite* init_image(const char* path)
+    {
+        wstring wpath = String::StringToWstring(path, Encoding::UTF8);
+
+        //先判断是否是相对路径:
+        if (!File::Exists(wpath))
+        {
+            //获取程序当前目录
+            wstring dir = File::GetDirectoryPath();
+            wpath = File::Combine(dir, wpath);
+        }
+
+        olc::Sprite* sprite = new olc::Sprite(String::WstringToString(wpath));
+        return sprite;
+    }
+
+    static void deinit_image(olc::Sprite* sprite)
+    {
+        delete sprite;
+    }
+
+    static void draw_image(olc::Sprite* sprite, int x, int y)
+    {
+        LuaBinding::engine->DrawSprite(x, y, sprite);
+    }
+
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
+    olc::PixelGameEngine* LuaBinding::engine = nullptr;
 
     LuaBinding::LuaBinding(kaguya::State* vm)
     {
@@ -145,5 +173,9 @@ namespace ClashEngine
         (*this->vm)["audio_is_over_ex"] = &audio_is_over_ex;
         //Initialization functions:
         (*this->vm)["init_engine"] = &init_engine;
+        //Draw functions:
+        (*this->vm)["init_image"] = &init_image;
+        (*this->vm)["deinit_image"] = &deinit_image;
+        (*this->vm)["draw_image"] = &draw_image;
     }
 }

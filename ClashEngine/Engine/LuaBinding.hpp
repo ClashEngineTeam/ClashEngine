@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "../Kaguya/kaguya.hpp"
+#include "../olcPixelGameEngine/olcPixelGameEngine.h"
 
 namespace ClashEngine
 {
@@ -13,6 +14,7 @@ namespace ClashEngine
         static int screenWidth;
         static int screenHeight;
         static bool inited;
+        static olc::PixelGameEngine* engine;
 
     public:
         LuaBinding(kaguya::State* vm);

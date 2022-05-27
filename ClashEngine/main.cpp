@@ -1,23 +1,67 @@
-﻿#include "Kaguya/kaguya.hpp"
+﻿#define WGUI
+
+#include "Kaguya/kaguya.hpp"
+#include "olcPixelGameEngine/olcPixelGameEngine.h"
+#include "Random/random.hpp"
 #include "Engine/LuaBinding.hpp"
 #include "Engine/Console.hpp"
+#include "Engine/String.hpp"
+#include "Engine/File.hpp"
 
 using namespace ClashEngine;
 
-int main(int argc, const char** argv)
+class Program : public olc::PixelGameEngine
 {
-    kaguya::State state;
-    
-    LuaBinding binding(&state);
-    binding.Registe();
+private:
+    kaguya::State* vm;
 
-    if (argc > 1)
+public:
+    Program(kaguya::State* vm)
     {
-        const char* luaFilePath = argv[1];
-        state.dofile(luaFilePath);
-        console.WriteLine(L"work success!", Color24(255, 0, 0));
+        this->vm = vm;
     }
 
-    system("pause");
+    bool OnUserCreate() override
+    {
+        (*vm)["start"].call<void>();
+        return true;
+    }
+
+    bool OnUserUpdate(float fElapsedTime) override
+    {
+        (*vm)["update"].call<void>();
+        return true;
+    }
+
+    bool OnUserDestroy() override
+    {
+        (*vm)["destroy"].call<void>();
+        return true;
+    }
+};
+
+#if defined(WGUI)
+int main
+{
+    kaguya::State state;
+    LuaBinding luaBinding(&state);
+    luaBinding.Registe();
+
+    std::string path = String::WstringToString(File::Combine(File::GetDirectoryPath(), L"game.lua"));
+    kaguya::LuaFunction code = state.loadfile(path.c_str());
+    code(); //execute
+
+    if (LuaBinding::inited)
+    {
+        Program program(&state);
+        LuaBinding::engine = &program;
+        olc::rcode r = program.Construct(LuaBinding::screenWidth, LuaBinding::screenHeight, 1, 1);
+        if (r == olc::OK)
+        {
+            program.Start();
+        }
+    }
+
     return 0;
 }
+#endif
