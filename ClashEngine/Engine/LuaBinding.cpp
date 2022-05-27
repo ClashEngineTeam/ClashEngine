@@ -7,6 +7,8 @@ using namespace std;
 
 namespace ClashEngine
 {
+    //=====================Audio API=====================
+
     //local functions:
     //支持相对路径与绝对路径
     static MCIAudio* init_audio(const char* path)
@@ -104,6 +106,18 @@ namespace ClashEngine
         return MinGetMCIAudioIsOverEx(audio, length);
     }
 
+    static bool init_engine(int screenWidth, int screenHeight)
+    {
+        LuaBinding::screenWidth = screenWidth;
+        LuaBinding::screenHeight = screenHeight;
+        LuaBinding::inited = true;
+        return true;
+    }
+
+    int LuaBinding::screenWidth = 0;
+    int LuaBinding::screenHeight = 0;
+    bool LuaBinding::inited = false;
+
     LuaBinding::LuaBinding(kaguya::State* vm)
     {
         this->vm = vm;
@@ -129,5 +143,7 @@ namespace ClashEngine
         (*this->vm)["audio_is_playing"] = &audio_is_playing;
         (*this->vm)["audio_is_over"] = &audio_is_over;
         (*this->vm)["audio_is_over_ex"] = &audio_is_over_ex;
+        //Initialization functions:
+        (*this->vm)["init_engine"] = &init_engine;
     }
 }

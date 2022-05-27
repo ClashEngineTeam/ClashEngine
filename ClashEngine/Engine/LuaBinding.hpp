@@ -10,6 +10,11 @@ namespace ClashEngine
         kaguya::State* vm;
 
     public:
+        static int screenWidth;
+        static int screenHeight;
+        static bool inited;
+
+    public:
         LuaBinding(kaguya::State* vm);
 
         void Registe();
