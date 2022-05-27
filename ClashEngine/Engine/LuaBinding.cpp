@@ -16,7 +16,7 @@ namespace ClashEngine
     //=====================Audio APIs=====================
 
     //支持相对路径与绝对路径
-    static MCIAudio* init_audio(const char* path)
+    static MCIAudio* init_audio(const string& path)
     {
         wstring wpath = String::StringToWstring(path, Encoding::UTF8);
         return MinInitMCIAudio(File::GetAbsolutePath(wpath).c_str());
@@ -151,7 +151,7 @@ namespace ClashEngine
     //=====================Image APIs=====================
 
     //支持相对路径与绝对路径
-    static olc::Sprite* init_image(const char* path)
+    static olc::Sprite* init_image(const string& path)
     {
         wstring wpath = String::StringToWstring(path, Encoding::UTF8);
         olc::Sprite* sprite = new olc::Sprite(String::WstringToString(File::GetAbsolutePath(wpath)));
@@ -332,7 +332,7 @@ namespace ClashEngine
         delete console;
     }
 
-    static void write_console(Console* console, const char* s)
+    static void write_console(Console* console, const string& s)
     {
         console->Write(String::StringToWstring(s, Encoding::UTF8));
     }
