@@ -2,6 +2,7 @@
 
 //Predefined macros:https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-170
 
+//MT/MT_DEBUG/MD/MD_DEBUG
 #if defined(_MT) && !defined(_DLL) && !defined(_DEBUG)
 #define MT
 #elif defined(_MT) && !defined(_DLL) && defined(_DEBUG)
@@ -70,6 +71,27 @@
 #define EXPORT_STRUCT_MEMBER
 #define EXPORT_DELEGATE
 #define EXPORT_CONSTEXPR constexpr
+
+//CUI/WCUI/GUI/WGUI
+#if defined(CUI)        //(Command User Interface)
+#pragma comment(linker, "/SUBSYSTEM:CONSOLE")
+#define main main(int argc, const char** argv)
+#endif
+
+#if defined(WCUI)       //(Command User Interface, wide character version)
+#pragma comment(linker, "/SUBSYSTEM:CONSOLE")
+#define main wmain(int argc, const wchar_t** argv)
+#endif
+
+#if defined(GUI)        //(Graphical User Interface)
+#pragma comment(linker, "/SUBSYSTEM:WINDOWS")
+#define main WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char* pCmdLine, int nCmdShow)
+#endif
+
+#if defined(WGUI)       //(Graphical User Interface, wide character version)
+#pragma comment(linker, "/SUBSYSTEM:WINDOWS")
+#define main WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, wchar_t* pCmdLine, int nCmdShow)
+#endif
 
 namespace ClashEngine
 {
