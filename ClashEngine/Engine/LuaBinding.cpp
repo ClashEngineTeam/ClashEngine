@@ -2,7 +2,9 @@
 #include "Audio.hpp"
 #include "String.hpp"
 #include "File.hpp"
+#include "Vector2.hpp"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -124,6 +126,25 @@ namespace ClashEngine
         LuaBinding::engine->Draw(x, y, olc::Pixel(r, g, b));
     }
 
+    static void draw_line(int x1, int y1, int x2, int y2, int r, int g, int b)
+    {
+        LuaBinding::engine->DrawLine(x1, y1, x2, y2, olc::Pixel(r, g, b));
+    }
+
+    static void draw_line_bold(int x1, int y1, int x2, int y2, int r, int g, int b, int thick)
+    {
+        Vector2 start(x1 - thick, y1 - thick);
+        Vector2 end(x2 - thick, y2 - thick);
+        int count = 1 + 2 * thick;
+        for (int i = 0; i < count; i++)
+        {
+            for (int j = 0; j < count; j++)
+            {
+                LuaBinding::engine->DrawLine(start.x + j, start.y + i, end.x + j, end.y + i, olc::Pixel(r, g, b));
+            }
+        }
+    }
+
     //=====================Image APIs=====================
 
     //支持相对路径与绝对路径
@@ -176,6 +197,21 @@ namespace ClashEngine
         return LuaBinding::engine->GetMouse(mouse).bReleased;
     }
 
+    static int get_mouse_x()
+    {
+        return LuaBinding::engine->GetMouseX();
+    }
+
+    static int get_mouse_y()
+    {
+        return LuaBinding::engine->GetMouseY();
+    }
+
+    static int get_mouse_wheel()
+    {
+        return LuaBinding::engine->GetMouseWheel();
+    }
+
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
@@ -212,6 +248,8 @@ namespace ClashEngine
         //Draw APIs:
         (*this->vm)["clear"] = &clear;
         (*this->vm)["draw_pixel"] = &draw_pixel;
+        (*this->vm)["draw_line"] = &draw_line;
+        (*this->vm)["draw_line_bold"] = &draw_line_bold;
         //Image APIs:
         (*this->vm)["init_image"] = &init_image;
         (*this->vm)["deinit_image"] = &deinit_image;
@@ -223,6 +261,9 @@ namespace ClashEngine
         (*this->vm)["get_mouse"] = &get_mouse;
         (*this->vm)["get_mouse_down"] = &get_mouse_down;
         (*this->vm)["get_mouse_up"] = &get_mouse_up;
+        (*this->vm)["get_mouse_x"] = &get_mouse_x;
+        (*this->vm)["get_mouse_y"] = &get_mouse_y;
+        (*this->vm)["get_mouse_wheel"] = &get_mouse_wheel;
         //Mouse Buttons:
         (*this->vm)("MOUSE_LEFT = " + std::to_string(olc::Mouse::LEFT));
         (*this->vm)("MOUSE_RIGHT = " + std::to_string(olc::Mouse::RIGHT));

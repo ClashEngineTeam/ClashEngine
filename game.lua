@@ -23,7 +23,24 @@ function update()
         y = y + 1
     end
 
+    xx = get_mouse_x()
+    yy = get_mouse_y()
+    ww = get_mouse_wheel()
+
+    --鼠标上滑
+    if ww > 0 then
+        y = y + 10
+    end
+
+    --鼠标下滑
+    if ww < 0 then
+        y = y - 10
+    end
+    
+    --draw_image(xx, yy, qinghe)
     draw_image(x, y, qinghe)
+    --draw_line(0,0, 1000,700, 0,0,0)
+    draw_line_bold(0,0, 1000,700, 0,0,0,3)
 end
 
 function destroy()
