@@ -10,16 +10,16 @@ end
 function update()
     clear()
 
-    if get_key(1) then
+    if get_key(KEY_A) then
         x = x - 1
     end
-    if get_key(4) then
+    if get_key(KEY_D) then
         x = x + 1
     end
-    if get_key(23) then
+    if get_key(KEY_W) then
         y = y - 1
     end
-    if get_key(19) then
+    if get_key(KEY_S) then
         y = y + 1
     end
 
