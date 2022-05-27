@@ -14,16 +14,7 @@ namespace ClashEngine
     static MCIAudio* init_audio(const char* path)
     {
         wstring wpath = String::StringToWstring(path, Encoding::UTF8);
-
-        //先判断是否是相对路径:
-        if (!File::Exists(wpath))
-        {
-            //获取程序当前目录
-            wstring dir = File::GetDirectoryPath();
-            wpath = File::Combine(dir, wpath);
-        }
-
-        return MinInitMCIAudio(wpath.c_str());
+        return MinInitMCIAudio(File::GetAbsolutePath(wpath).c_str());
     }
 
     static void deinit_audio(MCIAudio* audio)
@@ -127,16 +118,7 @@ namespace ClashEngine
     static olc::Sprite* init_image(const char* path)
     {
         wstring wpath = String::StringToWstring(path, Encoding::UTF8);
-
-        //先判断是否是相对路径:
-        if (!File::Exists(wpath))
-        {
-            //获取程序当前目录
-            wstring dir = File::GetDirectoryPath();
-            wpath = File::Combine(dir, wpath);
-        }
-
-        olc::Sprite* sprite = new olc::Sprite(String::WstringToString(wpath));
+        olc::Sprite* sprite = new olc::Sprite(String::WstringToString(File::GetAbsolutePath(wpath)));
         return sprite;
     }
 

@@ -7,8 +7,10 @@
 #include "Engine/Console.hpp"
 #include "Engine/String.hpp"
 #include "Engine/File.hpp"
+#include "Engine/Database.hpp"
 
 using namespace ClashEngine;
+using namespace std;
 
 class Program : public olc::PixelGameEngine
 {
@@ -47,7 +49,16 @@ int main
     LuaBinding luaBinding(&state);
     luaBinding.Registe();
 
-    std::string path = String::WstringToString(File::Combine(File::GetDirectoryPath(), L"game.lua"));
+    Database config(L"config.txt");
+    wstring mainPath = config.GetString(L"main", L"");
+
+    if (String::CompareIgnoreCase(mainPath, L""))
+    {
+        return 0;
+    }
+
+    std::string path = String::WstringToString(File::GetAbsolutePath(mainPath));
+    
     kaguya::LuaFunction code = state.loadfile(path.c_str());
     code(); //execute
 

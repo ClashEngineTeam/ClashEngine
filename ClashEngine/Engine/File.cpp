@@ -16,6 +16,19 @@ namespace ClashEngine
         return wstr;
     }
 
+    std::wstring File::GetAbsolutePath(const std::wstring& path)
+    {
+        //如果给定路径的文件不存在则认为是相对路径:
+        if (!File::Exists(path))
+        {
+            return File::Combine(File::GetDirectoryPath(), path);
+        }
+        else
+        {
+            return path;
+        }
+    }
+
     std::wstring File::ToShortPathName(const std::wstring& path)
     {
         wchar short_path_name[MAX_PATH];

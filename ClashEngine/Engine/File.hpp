@@ -31,6 +31,9 @@ namespace ClashEngine
         }
 
     public:
+        //获取相对路径的绝对路径
+        static std::wstring GetAbsolutePath(const std::wstring& path);
+
         //Convert absolute path to short path
         static std::wstring ToShortPathName(const std::wstring& path);
 
