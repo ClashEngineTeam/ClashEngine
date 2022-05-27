@@ -161,6 +161,21 @@ namespace ClashEngine
         return LuaBinding::engine->GetKey((olc::Key)key).bReleased;
     }
 
+    static bool get_mouse(int mouse)
+    {
+        return LuaBinding::engine->GetMouse(mouse).bHeld;
+    }
+
+    static bool get_mouse_down(int mouse)
+    {
+        return LuaBinding::engine->GetMouse(mouse).bPressed;
+    }
+
+    static bool get_mouse_up(int mouse)
+    {
+        return LuaBinding::engine->GetMouse(mouse).bReleased;
+    }
+
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
@@ -205,6 +220,13 @@ namespace ClashEngine
         (*this->vm)["get_key"] = &get_key;
         (*this->vm)["get_key_down"] = &get_key_down;
         (*this->vm)["get_key_up"] = &get_key_up;
+        (*this->vm)["get_mouse"] = &get_mouse;
+        (*this->vm)["get_mouse_down"] = &get_mouse_down;
+        (*this->vm)["get_mouse_up"] = &get_mouse_up;
+        //Mouse Buttons:
+        (*this->vm)("MOUSE_LEFT = " + std::to_string(olc::Mouse::LEFT));
+        (*this->vm)("MOUSE_RIGHT = " + std::to_string(olc::Mouse::RIGHT));
+        (*this->vm)("MOUSE_MIDDLE = " + std::to_string(olc::Mouse::MIDDLE));
         //KEYS:
         //按键A-Z:
         (*this->vm)("KEY_A = " + std::to_string(olc::Key::A));
