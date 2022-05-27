@@ -4,6 +4,7 @@
 #include "File.hpp"
 #include "Vector2.hpp"
 #include "Debug.hpp"
+#include "Console.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -214,7 +215,7 @@ namespace ClashEngine
     }
 
     //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
-    static void draw_image_scaling2(int x, int y, olc::Sprite* sprite, double sx, double sy)
+    static void draw_image_scalingf(int x, int y, olc::Sprite* sprite, double sx, double sy)
     {
         double scalingRatioX = abs(sx);
         double scalingRatioY = abs(sy);
@@ -257,6 +258,16 @@ namespace ClashEngine
                 LuaBinding::engine->Draw(x + j, y + i, pixel);
             }
         }
+    }
+
+    static int get_image_width(olc::Sprite* sprite)
+    {
+        return sprite->width;
+    }
+
+    static int get_image_height(olc::Sprite* sprite)
+    {
+        return sprite->height;
     }
 
     //=====================Input APIs=====================
@@ -306,6 +317,38 @@ namespace ClashEngine
         return LuaBinding::engine->GetMouseWheel();
     }
 
+    //=====================Console APIs=====================
+
+    static Console* init_console()
+    {
+        ConsoleSession session = Console::AllocConsole();
+        Console* console = new Console(session);
+        return console;
+    }
+
+    static void deinit_console(Console* console)
+    {
+        Console::FreeConsole();
+        delete console;
+    }
+
+    static void write_console(Console* console, const char* s)
+    {
+        console->Write(String::StringToWstring(s, Encoding::UTF8));
+    }
+
+    static char readkey_console(Console* console)
+    {
+        wchar wc = console->ReadKey().KeyChar;
+        return String::WcharToChar(wc, Encoding::UTF8);
+    }
+
+    static string readline_console(Console* console)
+    {
+        wstring ws = console->ReadLine();
+        return String::WstringToString(ws, Encoding::UTF8);
+    }
+
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
@@ -349,7 +392,9 @@ namespace ClashEngine
         (*this->vm)["deinit_image"] = &deinit_image;
         (*this->vm)["draw_image"] = &draw_image;
         (*this->vm)["draw_image_scaling"] = &draw_image_scaling;
-        (*this->vm)["draw_image_scaling2"] = &draw_image_scaling2;
+        (*this->vm)["draw_image_scalingf"] = &draw_image_scalingf;
+        (*this->vm)["get_image_width"] = &get_image_width;
+        (*this->vm)["get_image_height"] = &get_image_height;
         //Input APIs:
         (*this->vm)["get_key"] = &get_key;
         (*this->vm)["get_key_down"] = &get_key_down;
@@ -410,5 +455,11 @@ namespace ClashEngine
         (*this->vm)("KEY_DOWN = " + std::to_string(olc::Key::DOWN));
         (*this->vm)("KEY_LEFT = " + std::to_string(olc::Key::LEFT));
         (*this->vm)("KEY_RIGHT = " + std::to_string(olc::Key::RIGHT));
+        //Console APIs:
+        (*this->vm)["init_console"] = &init_console;
+        (*this->vm)["deinit_console"] = &deinit_console;
+        (*this->vm)["write_console"] = &write_console;
+        (*this->vm)["readkey_console"] = &readkey_console;
+        (*this->vm)["readline_console"] = &readline_console;
     }
 }
