@@ -24,19 +24,19 @@ public:
     bool OnUserCreate() override
     {
         (*vm)["start"].call<void>();
-        return true;
+        return LuaBinding::inited;
     }
 
     bool OnUserUpdate(float fElapsedTime) override
     {
         (*vm)["update"].call<void>();
-        return true;
+        return LuaBinding::inited;
     }
 
     bool OnUserDestroy() override
     {
         (*vm)["destroy"].call<void>();
-        return true;
+        return LuaBinding::inited;
     }
 };
 

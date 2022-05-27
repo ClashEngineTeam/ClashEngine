@@ -114,6 +114,11 @@ namespace ClashEngine
         return true;
     }
 
+    static void deinit_engine()
+    {
+        LuaBinding::inited = false;
+    }
+
     //支持相对路径与绝对路径
     static olc::Sprite* init_image(const char* path)
     {
@@ -173,6 +178,7 @@ namespace ClashEngine
         (*this->vm)["audio_is_over_ex"] = &audio_is_over_ex;
         //Initialization functions:
         (*this->vm)["init_engine"] = &init_engine;
+        (*this->vm)["deinit_engine"] = &deinit_engine;
         //Draw functions:
         (*this->vm)["init_image"] = &init_image;
         (*this->vm)["deinit_image"] = &deinit_image;
