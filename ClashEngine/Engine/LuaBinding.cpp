@@ -8,7 +8,7 @@ using namespace std;
 
 namespace ClashEngine
 {
-    //=====================Audio API=====================
+    //=====================Audio APIs=====================
 
     //支持相对路径与绝对路径
     static MCIAudio* init_audio(const char* path)
@@ -106,6 +106,8 @@ namespace ClashEngine
         return MinGetMCIAudioIsOverEx(audio, length);
     }
 
+    //=====================Engine APIs=====================
+
     static bool init_engine(int screenWidth, int screenHeight)
     {
         LuaBinding::screenWidth = screenWidth;
@@ -118,6 +120,8 @@ namespace ClashEngine
     {
         LuaBinding::inited = false;
     }
+
+    //=====================Image APIs=====================
 
     //支持相对路径与绝对路径
     static olc::Sprite* init_image(const char* path)
@@ -141,9 +145,16 @@ namespace ClashEngine
         delete sprite;
     }
 
-    static void draw_image(olc::Sprite* sprite, int x, int y)
+    static void draw_image(int x, int y, olc::Sprite* sprite)
     {
         LuaBinding::engine->DrawSprite(x, y, sprite);
+    }
+
+    //=====================Draw APIs=====================
+
+    static void draw_pixel(int x, int y, int r, int g, int b)
+    {
+        LuaBinding::engine->Draw(x, y, olc::Pixel(r, g, b));
     }
 
     int LuaBinding::screenWidth = 0;
@@ -158,7 +169,7 @@ namespace ClashEngine
 
     void LuaBinding::Registe()
     {
-        //Audio functions:
+        //Audio APIs:
         (*this->vm)["init_audio"] = &init_audio;
         (*this->vm)["deinit_audio"] = &deinit_audio;
         (*this->vm)["play_audio"] = &play_audio;
@@ -176,12 +187,15 @@ namespace ClashEngine
         (*this->vm)["audio_is_playing"] = &audio_is_playing;
         (*this->vm)["audio_is_over"] = &audio_is_over;
         (*this->vm)["audio_is_over_ex"] = &audio_is_over_ex;
-        //Initialization functions:
+        //Engine APIs:
         (*this->vm)["init_engine"] = &init_engine;
         (*this->vm)["deinit_engine"] = &deinit_engine;
-        //Draw functions:
+        //Image APIs:
         (*this->vm)["init_image"] = &init_image;
         (*this->vm)["deinit_image"] = &deinit_image;
         (*this->vm)["draw_image"] = &draw_image;
+        //Draw functions:
+        (*this->vm)["draw_pixel"] = &draw_pixel;
+        //Input functions:
     }
 }

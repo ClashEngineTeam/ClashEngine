@@ -5,10 +5,11 @@ function start()
 end
 
 function update()
-    draw_image(qinghe, 0, 0)
+    draw_image(0, 0, qinghe)
 end
 
 function destroy()
+    deinit_audio(audio)
     deinit_image(qinghe)
 end
 
