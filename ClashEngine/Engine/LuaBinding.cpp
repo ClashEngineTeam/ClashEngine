@@ -118,6 +118,11 @@ namespace ClashEngine
         LuaBinding::inited = false;
     }
 
+    static float get_delta_time()
+    {
+        return LuaBinding::engine->GetElapsedTime();
+    }
+
     //=====================Draw APIs=====================
 
     static void clear()
@@ -389,6 +394,11 @@ namespace ClashEngine
         console->Write(String::StringToWstring(s, Encoding::UTF8));
     }
 
+    static void writeline_console(Console* console, const string& s)
+    {
+        console->WriteLine(String::StringToWstring(s, Encoding::UTF8));
+    }
+
     static char readkey_console(Console* console)
     {
         wchar wc = console->ReadKey().KeyChar;
@@ -481,6 +491,7 @@ namespace ClashEngine
         //Engine APIs:
         (*this->vm)["init_engine"] = &init_engine;
         (*this->vm)["deinit_engine"] = &deinit_engine;
+        (*this->vm)["get_delta_time"] = &get_delta_time;
         //Draw APIs:
         (*this->vm)["clear"] = &clear;
         (*this->vm)["draw_pixel"] = &draw_pixel;
@@ -640,6 +651,7 @@ namespace ClashEngine
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
         (*this->vm)["write_console"] = &write_console;
+        (*this->vm)["writeline_console"] = &writeline_console;
         (*this->vm)["readkey_console"] = &readkey_console;
         (*this->vm)["readline_console"] = &readline_console;
         //Font APIs:
