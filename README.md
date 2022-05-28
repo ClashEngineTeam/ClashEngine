@@ -14,6 +14,10 @@ Charlie's Flash
 
 1. olcPixelGameEngine : 2.17
 
+1. olcPGEX_TTF : [newest](https://github.com/gorbit99/olcPGEX_TTF)
+
+1. freetype-windows-binaries : 2.12.1
+
 ### Third Party Links :
 
 1. [Download Lua Source Code](https://www.lua.org/versions.html#5.4)
@@ -23,6 +27,10 @@ Charlie's Flash
 1. [C++ binding to Lua](https://github.com/satoren/kaguya)
 
 1. [olcPixelGameEngine](https://github.com/OneLoneCoder/olcPixelGameEngine)
+
+1. [olcPGEX_TTF](https://github.com/gorbit99/olcPGEX_TTF)
+
+1. [freetype-windows-binaries](https://github.com/ubawurinna/freetype-windows-binaries)
 
 ## Links : 
 
