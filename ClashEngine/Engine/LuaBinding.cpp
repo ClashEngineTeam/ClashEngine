@@ -490,6 +490,34 @@ namespace ClashEngine
         (*this->vm)("KEY_DOWN = " + std::to_string(olc::Key::DOWN));
         (*this->vm)("KEY_LEFT = " + std::to_string(olc::Key::LEFT));
         (*this->vm)("KEY_RIGHT = " + std::to_string(olc::Key::RIGHT));
+        //Keys:
+        //A-Z:
+        (*this->vm)("Key_A = " + std::to_string((int)('A')));
+        (*this->vm)("Key_B = " + std::to_string((int)('B')));
+        (*this->vm)("Key_C = " + std::to_string((int)('C')));
+        (*this->vm)("Key_D = " + std::to_string((int)('D')));
+        (*this->vm)("Key_E = " + std::to_string((int)('E')));
+        (*this->vm)("Key_F = " + std::to_string((int)('F')));
+        (*this->vm)("Key_G = " + std::to_string((int)('G')));
+        (*this->vm)("Key_H = " + std::to_string((int)('H')));
+        (*this->vm)("Key_I = " + std::to_string((int)('I')));
+        (*this->vm)("Key_J = " + std::to_string((int)('J')));
+        (*this->vm)("Key_K = " + std::to_string((int)('K')));
+        (*this->vm)("Key_L = " + std::to_string((int)('L')));
+        (*this->vm)("Key_M = " + std::to_string((int)('M')));
+        (*this->vm)("Key_N = " + std::to_string((int)('N')));
+        (*this->vm)("Key_O = " + std::to_string((int)('O')));
+        (*this->vm)("Key_P = " + std::to_string((int)('P')));
+        (*this->vm)("Key_Q = " + std::to_string((int)('Q')));
+        (*this->vm)("Key_R = " + std::to_string((int)('R')));
+        (*this->vm)("Key_S = " + std::to_string((int)('S')));
+        (*this->vm)("Key_T = " + std::to_string((int)('T')));
+        (*this->vm)("Key_U = " + std::to_string((int)('U')));
+        (*this->vm)("Key_V = " + std::to_string((int)('V')));
+        (*this->vm)("Key_W = " + std::to_string((int)('W')));
+        (*this->vm)("Key_X = " + std::to_string((int)('X')));
+        (*this->vm)("Key_Y = " + std::to_string((int)('Y')));
+        (*this->vm)("Key_Z = " + std::to_string((int)('Z')));
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
