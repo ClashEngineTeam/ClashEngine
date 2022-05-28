@@ -399,6 +399,30 @@ namespace ClashEngine
         font->DrawString(StringConverter::To_UTF32(s), x, y, olc::Pixel(r, g, b));
     }
 
+    static int get_font_width(olc::Font* font, const string& s)
+    {
+        olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
+        return rect.size.x;
+    }
+
+    static int get_font_height(olc::Font* font, const string& s)
+    {
+        olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
+        return rect.size.y;
+    }
+
+    static int get_font_offset_x(olc::Font* font, const string& s)
+    {
+        olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
+        return rect.offset.x;
+    }
+
+    static int get_font_offset_y(olc::Font* font, const string& s)
+    {
+        olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
+        return rect.offset.y;
+    }
+
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
@@ -599,5 +623,9 @@ namespace ClashEngine
         (*this->vm)["init_font"] = &init_font;
         (*this->vm)["deinit_font"] = &deinit_font;
         (*this->vm)["draw_font"] = &draw_font;
+        (*this->vm)["get_font_width"] = &get_font_width;
+        (*this->vm)["get_font_height"] = &get_font_height;
+        (*this->vm)["get_font_offset_x"] = &get_font_offset_x;
+        (*this->vm)["get_font_offset_y"] = &get_font_offset_y;
     }
 }
