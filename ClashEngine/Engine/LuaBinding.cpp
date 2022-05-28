@@ -518,6 +518,24 @@ namespace ClashEngine
         (*this->vm)("Key_X = " + std::to_string((int)('X')));
         (*this->vm)("Key_Y = " + std::to_string((int)('Y')));
         (*this->vm)("Key_Z = " + std::to_string((int)('Z')));
+        //按键F1-F12:
+        (*this->vm)("Key_F1 = " + std::to_string(VK_F1));
+        (*this->vm)("Key_F2 = " + std::to_string(VK_F2));
+        (*this->vm)("Key_F3 = " + std::to_string(VK_F3));
+        (*this->vm)("Key_F4 = " + std::to_string(VK_F4));
+        (*this->vm)("Key_F5 = " + std::to_string(VK_F5));
+        (*this->vm)("Key_F6 = " + std::to_string(VK_F6));
+        (*this->vm)("Key_F7 = " + std::to_string(VK_F7));
+        (*this->vm)("Key_F8 = " + std::to_string(VK_F8));
+        (*this->vm)("Key_F9 = " + std::to_string(VK_F9));
+        (*this->vm)("Key_F10 = " + std::to_string(VK_F10));
+        (*this->vm)("Key_F11 = " + std::to_string(VK_F11));
+        (*this->vm)("Key_F12 = " + std::to_string(VK_F12));
+        //方向键:
+        (*this->vm)("Key_Up = " + std::to_string(VK_UP));
+        (*this->vm)("Key_Down = " + std::to_string(VK_DOWN));
+        (*this->vm)("Key_Left = " + std::to_string(VK_LEFT));
+        (*this->vm)("Key_Right = " + std::to_string(VK_RIGHT));
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
