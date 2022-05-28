@@ -546,8 +546,28 @@ namespace ClashEngine
         (*this->vm)("Key_Ctrl = " + std::to_string(VK_CONTROL));
         (*this->vm)("Key_Caps = " + std::to_string(VK_CAPITAL));
         (*this->vm)("Key_Alt = " + std::to_string(VK_MENU));
-        //主键盘的0-9:
-
+        //大键盘的0-9
+        (*this->vm)("Key_1 = " + std::to_string((int)('1')));
+        (*this->vm)("Key_2 = " + std::to_string((int)('2')));
+        (*this->vm)("Key_3 = " + std::to_string((int)('3')));
+        (*this->vm)("Key_4 = " + std::to_string((int)('4')));
+        (*this->vm)("Key_5 = " + std::to_string((int)('5')));
+        (*this->vm)("Key_6 = " + std::to_string((int)('6')));
+        (*this->vm)("Key_7 = " + std::to_string((int)('7')));
+        (*this->vm)("Key_8 = " + std::to_string((int)('8')));
+        (*this->vm)("Key_9 = " + std::to_string((int)('9')));
+        (*this->vm)("Key_0 = " + std::to_string((int)('0')));
+        //小键盘的0-9:
+        (*this->vm)("Key_Number1  = " + std::to_string(VK_NUMPAD1));
+        (*this->vm)("Key_Number2  = " + std::to_string(VK_NUMPAD2));
+        (*this->vm)("Key_Number3  = " + std::to_string(VK_NUMPAD3));
+        (*this->vm)("Key_Number4  = " + std::to_string(VK_NUMPAD4));
+        (*this->vm)("Key_Number5  = " + std::to_string(VK_NUMPAD5));
+        (*this->vm)("Key_Number6  = " + std::to_string(VK_NUMPAD6));
+        (*this->vm)("Key_Number7  = " + std::to_string(VK_NUMPAD7));
+        (*this->vm)("Key_Number8  = " + std::to_string(VK_NUMPAD8));
+        (*this->vm)("Key_Number9  = " + std::to_string(VK_NUMPAD9));
+        (*this->vm)("Key_Number0  = " + std::to_string(VK_NUMPAD0));
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
