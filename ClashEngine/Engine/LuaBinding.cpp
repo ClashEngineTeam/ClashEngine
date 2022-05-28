@@ -4,6 +4,7 @@
 #include "File.hpp"
 #include "Vector2.hpp"
 #include "Debug.hpp"
+#include "Input.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -316,6 +317,23 @@ namespace ClashEngine
         return LuaBinding::engine->GetMouseWheel();
     }
 
+    //=====================new Input APIs=====================
+
+    static bool GetKey(int key)
+    {
+        return Input::GetKey(key);
+    }
+
+    static bool GetKeyDown(int key)
+    {
+        return Input::GetKeyDown(key);
+    }
+
+    static bool GetKeyUp(int key)
+    {
+        return Input::GetKeyUp(key);
+    }
+
     //=====================Console APIs=====================
 
     static Console* init_console()
@@ -415,6 +433,10 @@ namespace ClashEngine
         (*this->vm)["get_mouse_x"] = &get_mouse_x;
         (*this->vm)["get_mouse_y"] = &get_mouse_y;
         (*this->vm)["get_mouse_wheel"] = &get_mouse_wheel;
+        //new Input APIs:
+        (*this->vm)["GetKey"] = &GetKey;
+        (*this->vm)["GetKeyDown"] = &GetKeyDown;
+        (*this->vm)["GetKeyUp"] = &GetKeyUp;
         //Mouse Buttons:
         (*this->vm)("MOUSE_LEFT = " + std::to_string(olc::Mouse::LEFT));
         (*this->vm)("MOUSE_RIGHT = " + std::to_string(olc::Mouse::RIGHT));
