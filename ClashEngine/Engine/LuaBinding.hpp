@@ -17,6 +17,7 @@ namespace ClashEngine
         static bool inited;
         static olc::PixelGameEngine* engine;
         static Console* console;
+        static bool console_active;
 
     public:
         LuaBinding(kaguya::State* vm);

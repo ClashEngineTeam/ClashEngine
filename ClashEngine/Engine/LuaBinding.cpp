@@ -346,16 +346,18 @@ namespace ClashEngine
         else
         {
             LuaBinding::console = new Console(session);
+            LuaBinding::console_active = true;
         }
         return LuaBinding::console;
     }
 
     static void deinit_console(Console* console)
     {
-        if (console != nullptr)
+        if (console != nullptr && LuaBinding::console_active)
         {
             Console::FreeConsole();
             delete console;
+            LuaBinding::console_active = false;
         }
     }
 
@@ -381,6 +383,7 @@ namespace ClashEngine
     bool LuaBinding::inited = false;
     olc::PixelGameEngine* LuaBinding::engine = nullptr;
     Console* LuaBinding::console = nullptr;
+    bool LuaBinding::console_active = false;
 
     LuaBinding::LuaBinding(kaguya::State* vm)
     {
