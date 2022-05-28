@@ -58,7 +58,7 @@ int main
     }
 
     std::string path = String::WstringToString(File::GetAbsolutePath(mainPath));
-    
+
     kaguya::LuaFunction code = state.loadfile(path.c_str());
     code(); //execute
 

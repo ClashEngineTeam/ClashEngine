@@ -93,10 +93,12 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
+      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -108,12 +110,14 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
+      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,10 +127,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
+      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,12 +144,14 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
+      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -220,6 +228,7 @@
     <ClCompile Include="LuaSourceCode\lvm.c" />
     <ClCompile Include="LuaSourceCode\lzio.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="olcPGEX_TTF\olcPGEX_TTF.cpp" />
     <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +305,7 @@
     <ClInclude Include="LuaSourceCode\lundump.h" />
     <ClInclude Include="LuaSourceCode\lvm.h" />
     <ClInclude Include="LuaSourceCode\lzio.h" />
+    <ClInclude Include="olcPGEX_TTF\olcPGEX_TTF.h" />
     <ClInclude Include="olcPixelGameEngine\olcPixelGameEngine.h" />
     <ClInclude Include="Random\random.hpp" />
   </ItemGroup>

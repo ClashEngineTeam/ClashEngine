@@ -221,6 +221,9 @@
     <ClCompile Include="Engine\LuaBinding.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="olcPGEX_TTF\olcPGEX_TTF.cpp">
+      <Filter>olcPGEX_TTF</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -237,6 +240,9 @@
     </Filter>
     <Filter Include="Engine">
       <UniqueIdentifier>{33f33086-d0cc-4b7b-b652-00ad7026d3c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcPGEX_TTF">
+      <UniqueIdentifier>{6f9d91b2-a6b1-4cbf-9df3-f694b6c48ee0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -464,6 +470,9 @@
     </ClInclude>
     <ClInclude Include="Engine\LuaBinding.hpp">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="olcPGEX_TTF\olcPGEX_TTF.h">
+      <Filter>olcPGEX_TTF</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
