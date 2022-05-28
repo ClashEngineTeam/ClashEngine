@@ -536,6 +536,16 @@ namespace ClashEngine
         (*this->vm)("Key_Down = " + std::to_string(VK_DOWN));
         (*this->vm)("Key_Left = " + std::to_string(VK_LEFT));
         (*this->vm)("Key_Right = " + std::to_string(VK_RIGHT));
+        //Space, Enter, Shift, Tab, Backspace, Escape, Ctrl, Alt, Caps:
+        
+
+
+
+
+         
+        
+
+
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
