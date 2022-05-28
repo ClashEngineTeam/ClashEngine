@@ -3,6 +3,7 @@
 #include "Kaguya/kaguya.hpp"
 #include "olcPixelGameEngine/olcPixelGameEngine.h"
 #include "Random/random.hpp"
+#include "olcPGEX_TTF/olcPGEX_TTF.h"
 #include "Engine/LuaBinding.hpp"
 #include "Engine/Console.hpp"
 #include "Engine/String.hpp"
@@ -45,23 +46,28 @@ public:
 #if defined(WGUI)
 int main
 {
+    //init lua:
     kaguya::State state;
     LuaBinding luaBinding(&state);
     luaBinding.Registe();
 
+    //read config:
     Database config(L"config.txt");
     wstring mainPath = config.GetString(L"main", L"");
-
     if (String::CompareIgnoreCase(mainPath, L""))
     {
         return 0;
     }
 
-    std::string path = String::WstringToString(File::GetAbsolutePath(mainPath));
+    //init olc font:
+    olc::Font::init();
 
+    //load and execute lua code:
+    std::string path = String::WstringToString(File::GetAbsolutePath(mainPath));
     kaguya::LuaFunction code = state.loadfile(path.c_str());
     code(); //execute
 
+    //start engine:
     if (LuaBinding::inited)
     {
         Program program(&state);

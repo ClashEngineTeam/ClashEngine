@@ -2,6 +2,7 @@
 
 #include "../Kaguya/kaguya.hpp"
 #include "../olcPixelGameEngine/olcPixelGameEngine.h"
+#include "../olcPGEX_TTF/olcPGEX_TTF.h"
 #include "Console.hpp"
 
 namespace ClashEngine

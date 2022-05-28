@@ -5,6 +5,7 @@
 #include "Vector2.hpp"
 #include "Debug.hpp"
 #include "Input.hpp"
+#include "StringConverter.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -378,6 +379,26 @@ namespace ClashEngine
         return String::WstringToString(ws, Encoding::UTF8);
     }
 
+    //=====================Font APIs=====================
+
+    //支持相对路径与绝对路径
+    static olc::Font* init_font(const string& path, int fontSize)
+    {
+        wstring wpath = File::GetAbsolutePath(String::StringToWstring(path, Encoding::UTF8));
+        olc::Font* font = new olc::Font(String::WstringToString(wpath), fontSize);
+        return font;
+    }
+
+    static void deinit_font(olc::Font* font)
+    {
+        delete font;
+    }
+
+    static void draw_font(olc::Font* font, const string& s, int x, int y, int r, int g, int b)
+    {
+        font->DrawString(StringConverter::To_UTF32(s), x, y, olc::Pixel(r, g, b));
+    }
+
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
@@ -574,5 +595,9 @@ namespace ClashEngine
         (*this->vm)["write_console"] = &write_console;
         (*this->vm)["readkey_console"] = &readkey_console;
         (*this->vm)["readline_console"] = &readline_console;
+        //Font APIs:
+        (*this->vm)["init_font"] = &init_font;
+        (*this->vm)["deinit_font"] = &deinit_font;
+        (*this->vm)["draw_font"] = &draw_font;
     }
 }

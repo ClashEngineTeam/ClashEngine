@@ -184,6 +184,7 @@
     <ClCompile Include="Engine\Process.cpp" />
     <ClCompile Include="Engine\Random.cpp" />
     <ClCompile Include="Engine\String.cpp" />
+    <ClCompile Include="Engine\StringConverter.cpp" />
     <ClCompile Include="Engine\TcpListener.cpp" />
     <ClCompile Include="Engine\TermSet.cpp" />
     <ClCompile Include="Engine\TextLayout.cpp" />
@@ -264,6 +265,7 @@
     <ClInclude Include="Engine\Random.hpp" />
     <ClInclude Include="Engine\Singleton.hpp" />
     <ClInclude Include="Engine\String.hpp" />
+    <ClInclude Include="Engine\StringConverter.hpp" />
     <ClInclude Include="Engine\TcpListener.hpp" />
     <ClInclude Include="Engine\TermSet.hpp" />
     <ClInclude Include="Engine\TextLayout.hpp" />

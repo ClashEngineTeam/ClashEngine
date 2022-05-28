@@ -224,6 +224,9 @@
     <ClCompile Include="olcPGEX_TTF\olcPGEX_TTF.cpp">
       <Filter>olcPGEX_TTF</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\StringConverter.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -473,6 +476,9 @@
     </ClInclude>
     <ClInclude Include="olcPGEX_TTF\olcPGEX_TTF.h">
       <Filter>olcPGEX_TTF</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\StringConverter.hpp">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
