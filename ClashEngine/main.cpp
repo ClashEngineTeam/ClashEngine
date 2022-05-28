@@ -43,7 +43,6 @@ public:
     }
 };
 
-#if defined(WGUI)
 int main
 {
     //init lua:
@@ -81,4 +80,3 @@ int main
 
     return 0;
 }
-#endif

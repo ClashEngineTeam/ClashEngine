@@ -339,16 +339,34 @@ namespace ClashEngine
 
     static Console* init_console()
     {
-        ConsoleSession session = Console::AllocConsole();
-        //初始化失败则不赋值
-        if (session.consoleInput == 0 && session.consoleOutput == 0 && session.consoleWindow == 0)
+        if (LuaBinding::console == nullptr)
         {
+            //首先判断当前程序是否附加了控制台
+            HWND consoleWindow = Console::GetConsoleWindow();
+            //没有附加控制台
+            if (consoleWindow == nullptr)
+            {
+                ConsoleSession session = Console::AllocConsole();
+                //初始化成功
+                if (session.consoleInput != 0 && session.consoleOutput != 0 && session.consoleWindow != 0)
+                {
+                    LuaBinding::console = new Console(session);
+                    LuaBinding::console_active = true;
+                }
+                else
+                {
+                    LuaBinding::console = nullptr;
+                    LuaBinding::console_active = false;
+                }
+            }
+            //已经附加了控制台
+            else
+            {
+                LuaBinding::console = &ClashEngine::console;
+                LuaBinding::console_active = true;
+            }
         }
-        else
-        {
-            LuaBinding::console = new Console(session);
-            LuaBinding::console_active = true;
-        }
+
         return LuaBinding::console;
     }
 
