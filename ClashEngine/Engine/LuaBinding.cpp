@@ -130,6 +130,11 @@ namespace ClashEngine
         LuaBinding::engine->Clear(olc::BLACK);
     }
 
+    static void clear_color(int r, int g, int b)
+    {
+        LuaBinding::engine->Clear(olc::Pixel(r, g, b));
+    }
+
     static void draw_pixel(int x, int y, int r, int g, int b)
     {
         LuaBinding::engine->Draw(x, y, olc::Pixel(r, g, b));
@@ -494,6 +499,7 @@ namespace ClashEngine
         (*this->vm)["get_delta_time"] = &get_delta_time;
         //Draw APIs:
         (*this->vm)["clear"] = &clear;
+        (*this->vm)["clear_color"] = &clear_color;
         (*this->vm)["draw_pixel"] = &draw_pixel;
         (*this->vm)["draw_line"] = &draw_line;
         (*this->vm)["draw_line_bold"] = &draw_line_bold;
