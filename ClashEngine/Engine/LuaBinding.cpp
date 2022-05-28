@@ -546,6 +546,8 @@ namespace ClashEngine
         (*this->vm)("Key_Ctrl = " + std::to_string(VK_CONTROL));
         (*this->vm)("Key_Caps = " + std::to_string(VK_CAPITAL));
         (*this->vm)("Key_Alt = " + std::to_string(VK_MENU));
+        //主键盘的0-9:
+
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
