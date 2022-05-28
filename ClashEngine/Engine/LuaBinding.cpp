@@ -159,6 +159,22 @@ namespace ClashEngine
         }
     }
 
+    static void draw_rect(int x, int y, int w, int h, int r, int g, int b)
+    {
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                LuaBinding::engine->Draw(j + x, i + y, olc::Pixel(r, g, b));
+            }
+        }
+    }
+
+    static void draw_frame(int x, int y, int w, int h, int r, int g, int b)
+    {
+        LuaBinding::engine->DrawRect(x, y, w, h, olc::Pixel(r, g, b));
+    }
+
     //=====================Image APIs=====================
 
     //支持相对路径与绝对路径
@@ -503,6 +519,8 @@ namespace ClashEngine
         (*this->vm)["draw_pixel"] = &draw_pixel;
         (*this->vm)["draw_line"] = &draw_line;
         (*this->vm)["draw_line_bold"] = &draw_line_bold;
+        (*this->vm)["draw_rect"] = &draw_rect;
+        (*this->vm)["draw_frame"] = &draw_frame;
         //Image APIs:
         (*this->vm)["init_image"] = &init_image;
         (*this->vm)["deinit_image"] = &deinit_image;
