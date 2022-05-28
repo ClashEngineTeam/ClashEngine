@@ -4,7 +4,6 @@
 #include "File.hpp"
 #include "Vector2.hpp"
 #include "Debug.hpp"
-#include "Console.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -322,14 +321,24 @@ namespace ClashEngine
     static Console* init_console()
     {
         ConsoleSession session = Console::AllocConsole();
-        Console* console = new Console(session);
-        return console;
+        //初始化失败则不赋值
+        if (session.consoleInput == 0 && session.consoleOutput == 0 && session.consoleWindow == 0)
+        {
+        }
+        else
+        {
+            LuaBinding::console = new Console(session);
+        }
+        return LuaBinding::console;
     }
 
     static void deinit_console(Console* console)
     {
-        Console::FreeConsole();
-        delete console;
+        if (console != nullptr)
+        {
+            Console::FreeConsole();
+            delete console;
+        }
     }
 
     static void write_console(Console* console, const string& s)
@@ -353,6 +362,7 @@ namespace ClashEngine
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
     olc::PixelGameEngine* LuaBinding::engine = nullptr;
+    Console* LuaBinding::console = nullptr;
 
     LuaBinding::LuaBinding(kaguya::State* vm)
     {
