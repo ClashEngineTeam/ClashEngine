@@ -216,6 +216,13 @@ namespace ClashEngine
         LuaBinding::engine->DrawSprite(x, y, sprite);
     }
 
+    static void draw_png_image(int x, int y, olc::Sprite* sprite)
+    {
+        LuaBinding::engine->SetPixelMode(olc::Pixel::ALPHA);
+        LuaBinding::engine->DrawSprite(x, y, sprite);
+        LuaBinding::engine->SetPixelMode(olc::Pixel::NORMAL);
+    }
+
     //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
     static void draw_image_scaling(int x, int y, olc::Sprite* sprite, int w, int h)
     {
@@ -473,6 +480,13 @@ namespace ClashEngine
         font->DrawString(StringConverter::To_UTF32(s), x, y, olc::Pixel(r, g, b));
     }
 
+    //!!!注意:渲染该olc::Sprite*需要开启Alpha混合
+    //!!!需要回收返回值
+    static olc::Sprite* render_font_to_sprite(olc::Font* font, const string& s, int r, int g, int b)
+    {
+        return font->RenderStringToSprite(StringConverter::To_UTF32(s), olc::Pixel(r, g, b));
+    }
+
     static int get_font_width(olc::Font* font, const string& s)
     {
         olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
@@ -675,6 +689,7 @@ namespace ClashEngine
         (*this->vm)["init_image"] = &init_image;
         (*this->vm)["deinit_image"] = &deinit_image;
         (*this->vm)["draw_image"] = &draw_image;
+        (*this->vm)["draw_png_image"] = &draw_png_image;
         (*this->vm)["draw_image_scaling"] = &draw_image_scaling;
         (*this->vm)["draw_image_scalingf"] = &draw_image_scalingf;
         (*this->vm)["get_image_width"] = &get_image_width;
@@ -832,6 +847,7 @@ namespace ClashEngine
         (*this->vm)["init_font"] = &init_font;
         (*this->vm)["deinit_font"] = &deinit_font;
         (*this->vm)["draw_font"] = &draw_font;
+        (*this->vm)["render_font_to_sprite"] = &render_font_to_sprite;
         (*this->vm)["get_font_width"] = &get_font_width;
         (*this->vm)["get_font_height"] = &get_font_height;
         (*this->vm)["get_font_offset_x"] = &get_font_offset_x;
