@@ -3650,8 +3650,7 @@ namespace olc
 		{
 			nLastFPS = nFrameCount;
 			fFrameTimer -= 1.0f;
-			std::string sTitle = "OneLoneCoder.com - Pixel Game Engine - " + sAppName + " - FPS: " + std::to_string(nFrameCount);
-			platform->SetWindowTitle(sTitle);
+			platform->SetWindowTitle(std::string(sAppName) + std::string(" - FPS: ") + std::to_string(nFrameCount));
 			nFrameCount = 0;
 		}
 	}
@@ -5141,10 +5140,40 @@ namespace olc
 			return olc::OK;
 		}
 
+		enum class Encoding
+		{
+			Unknown = 0,
+			Default = 1,
+			UTF8 = 2,
+		};
+
+		std::wstring StringToWstring(const std::string& str, Encoding encoding = Encoding::Default)
+		{
+			using namespace std;
+			int codePage = 0;
+			switch (encoding)
+			{
+			case Encoding::Default:
+				codePage = CP_ACP;
+				break;
+			case Encoding::UTF8:
+				codePage = CP_UTF8;
+				break;
+			}
+
+			int len = MultiByteToWideChar(codePage, 0, str.c_str(), -1, NULL, 0);
+			wchar_t* wstr = new wchar_t[len];
+			MultiByteToWideChar(codePage, 0, str.c_str(), -1, wstr, len);
+
+			wstring return_wstr(wstr);
+			delete[] wstr;
+			return return_wstr;
+		}
+
 		virtual olc::rcode SetWindowTitle(const std::string& s) override
 		{
 #ifdef UNICODE
-			SetWindowText(olc_hWnd, ConvertS2W(s).c_str());
+			SetWindowText(olc_hWnd, StringToWstring(s).c_str());
 #else
 			SetWindowText(olc_hWnd, s.c_str());
 #endif

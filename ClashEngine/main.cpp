@@ -21,6 +21,8 @@ private:
 public:
     Program(kaguya::State* vm)
     {
+        //set window title:
+        this->sAppName = "冲突杀";
         this->vm = vm;
     }
 
