@@ -157,7 +157,8 @@ namespace ClashEngine
                     }
                     else
                     {
-                        (*state)[on_mouse_enter].call<void>();
+                        //执行Lua回调函数:
+                        (*state)[on_mouse_enter].call<void>(this);
                     }
                     entered = true;
                 }
@@ -169,7 +170,8 @@ namespace ClashEngine
                 }
                 else
                 {
-                    (*state)[on_mouse_stay].call<void>();
+                    //执行Lua回调函数:
+                    (*state)[on_mouse_stay].call<void>(this);
                 }
 
                 bool click_down = engine->GetMouse(olc::Mouse::LEFT).bPressed;
@@ -182,7 +184,8 @@ namespace ClashEngine
                     }
                     else
                     {
-                        (*state)[on_mouse_click].call<void>();
+                        //执行Lua回调函数:
+                        (*state)[on_mouse_click].call<void>(this);
                     }
                 }
             }
@@ -198,7 +201,8 @@ namespace ClashEngine
                     }
                     else
                     {
-                        (*state)[on_mouse_exit].call<void>();
+                        //执行Lua回调函数:
+                        (*state)[on_mouse_exit].call<void>(this);
                     }
                     entered = false;
                 }

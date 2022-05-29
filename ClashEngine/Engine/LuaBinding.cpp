@@ -564,7 +564,8 @@ namespace ClashEngine
         }
         else
         {
-            (*LuaBinding::state)[ui->on_draw].call<void>();
+            //执行Lua回调函数:
+            (*LuaBinding::state)[ui->on_draw].call<void>(ui);
         }
     }
 
