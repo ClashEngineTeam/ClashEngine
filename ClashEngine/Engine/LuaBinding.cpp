@@ -1,4 +1,5 @@
-﻿#include "LuaBinding.hpp"
+﻿#include "../Random/random.hpp"
+#include "LuaBinding.hpp"
 #include "Audio.hpp"
 #include "String.hpp"
 #include "File.hpp"
@@ -13,6 +14,8 @@
 #include <cmath>
 
 using namespace std;
+
+using __Random = effolkronium::random_static;
 
 namespace ClashEngine
 {
@@ -103,6 +106,14 @@ namespace ClashEngine
     static bool audio_is_over_ex(MCIAudio* audio, int length)
     {
         return MinGetMCIAudioIsOverEx(audio, length);
+    }
+
+    //=====================Random APIs=====================
+
+    //get a random int value [min, max]
+    static int random_range(int min, int max)
+    {
+        return __Random::get(min, max);
     }
 
     //=====================Engine APIs=====================
@@ -576,6 +587,8 @@ namespace ClashEngine
         (*this->vm)["audio_is_playing"] = &audio_is_playing;
         (*this->vm)["audio_is_over"] = &audio_is_over;
         (*this->vm)["audio_is_over_ex"] = &audio_is_over_ex;
+        //Random APIs:
+        (*this->vm)["random_range"] = &random_range;
         //Engine APIs:
         (*this->vm)["init_engine"] = &init_engine;
         (*this->vm)["deinit_engine"] = &deinit_engine;
