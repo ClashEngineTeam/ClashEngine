@@ -227,6 +227,12 @@
     <ClCompile Include="Engine\StringConverter.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\UIObject.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIButton.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -478,6 +484,12 @@
       <Filter>olcPGEX_TTF</Filter>
     </ClInclude>
     <ClInclude Include="Engine\StringConverter.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UIObject.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UIButton.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

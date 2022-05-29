@@ -26,18 +26,26 @@ public:
 
     bool OnUserCreate() override
     {
+        //game logic:
         (*vm)["start"].call<void>();
         return LuaBinding::inited;
     }
 
     bool OnUserUpdate(float fElapsedTime) override
     {
+        //ui event:
+        for (const auto& item : LuaBinding::ui_objects)
+        {
+            item->Update(LuaBinding::engine, LuaBinding::state);
+        }
+        //game logic:
         (*vm)["update"].call<void>();
         return LuaBinding::inited;
     }
 
     bool OnUserDestroy() override
     {
+        //game logic:
         (*vm)["destroy"].call<void>();
         return LuaBinding::inited;
     }
@@ -47,6 +55,7 @@ int main
 {
     //init lua:
     kaguya::State state;
+    LuaBinding::state = &state;
     LuaBinding luaBinding(&state);
     luaBinding.Registe();
 

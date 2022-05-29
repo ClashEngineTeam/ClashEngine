@@ -6,6 +6,8 @@
 #include "Debug.hpp"
 #include "Input.hpp"
 #include "StringConverter.hpp"
+#include "UIObject.hpp"
+#include "UIButton.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -476,6 +478,62 @@ namespace ClashEngine
         return rect.offset.y;
     }
 
+    //=====================UI APIs=====================
+
+    static void draw_ui(UIObject* ui)
+    {
+        if (!ui->active) return;
+        //如果没有提供重写的OnDraw函数则调用默认的OnDraw函数
+        if (String::Compare(ui->on_draw, ""))
+        {
+            ui->OnDraw(LuaBinding::engine);
+        }
+        else
+        {
+            (*LuaBinding::state)[ui->on_draw].call<void>();
+        }
+    }
+
+    static void bind_mouse_enter(UIObject* ui, const string& function)
+    {
+        ui->on_mouse_enter = function;
+    }
+
+    static void bind_mouse_stay(UIObject* ui, const string& function)
+    {
+        ui->on_mouse_stay = function;
+    }
+
+    static void bind_mouse_exit(UIObject* ui, const string& function)
+    {
+        ui->on_mouse_exit = function;
+    }
+
+    static void bind_mouse_click(UIObject* ui, const string& function)
+    {
+        ui->on_mouse_click = function;
+    }
+
+    static void bind_draw(UIObject* ui, const string& function)
+    {
+        ui->on_draw = function;
+    }
+
+    //=====================Button APIs=====================
+
+    static UIButton* init_button(int x, int y, int w, int h)
+    {
+        UIButton* button = new UIButton(Vector2(x, y), Vector2(w, h));
+        LuaBinding::ui_objects.push_back(button);
+        return button;
+    }
+
+    static void deinit_button(UIButton* button)
+    {
+        delete button;
+    }
+
+    kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
     bool LuaBinding::inited = false;
@@ -483,6 +541,7 @@ namespace ClashEngine
     Console* LuaBinding::console = nullptr;
     bool LuaBinding::console_active = false;
     bool LuaBinding::attched_console = false;
+    std::vector<UIObject*> LuaBinding::ui_objects;
 
     LuaBinding::LuaBinding(kaguya::State* vm)
     {
@@ -686,5 +745,15 @@ namespace ClashEngine
         (*this->vm)["get_font_height"] = &get_font_height;
         (*this->vm)["get_font_offset_x"] = &get_font_offset_x;
         (*this->vm)["get_font_offset_y"] = &get_font_offset_y;
+        //UI APIs:
+        (*this->vm)["draw_ui"] = &draw_ui;
+        (*this->vm)["bind_mouse_enter"] = &bind_mouse_enter;
+        (*this->vm)["bind_mouse_stay"] = &bind_mouse_stay;
+        (*this->vm)["bind_mouse_exit"] = &bind_mouse_exit;
+        (*this->vm)["bind_mouse_click"] = &bind_mouse_click;
+        (*this->vm)["bind_draw"] = &bind_draw;
+        //Button APIs:
+        (*this->vm)["init_button"] = &init_button;
+        (*this->vm)["deinit_button"] = &deinit_button;
     }
 }

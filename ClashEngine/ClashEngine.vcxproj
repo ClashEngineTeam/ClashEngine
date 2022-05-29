@@ -189,6 +189,8 @@
     <ClCompile Include="Engine\TermSet.cpp" />
     <ClCompile Include="Engine\TextLayout.cpp" />
     <ClCompile Include="Engine\Timer.cpp" />
+    <ClCompile Include="Engine\UIButton.cpp" />
+    <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\UnusualMethods.cpp" />
     <ClCompile Include="Engine\Vector2.cpp" />
     <ClCompile Include="Engine\Vector3.cpp" />
@@ -270,6 +272,8 @@
     <ClInclude Include="Engine\TermSet.hpp" />
     <ClInclude Include="Engine\TextLayout.hpp" />
     <ClInclude Include="Engine\Timer.hpp" />
+    <ClInclude Include="Engine\UIButton.hpp" />
+    <ClInclude Include="Engine\UIObject.hpp" />
     <ClInclude Include="Engine\UnusualMethods.hpp" />
     <ClInclude Include="Engine\Vector.hpp" />
     <ClInclude Include="Engine\Vector2.hpp" />
