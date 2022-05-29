@@ -14,6 +14,7 @@ namespace ClashEngine
     //所有UI物体的基类
     //特性:
     //disable(禁用)某个物体会导致该物体的所有子物体也不会被渲染
+    //parent(父物体可以为空), 当一个物体设置了父物体后, 其localPosition代表Position - parent.Position
     //localPosition(本地坐标)是相对于父物体的坐标，如果没有父物体则表示相对于原点(左上角)的坐标
     //position(坐标)是相对于原点(左上角)的坐标
     class UIObject
