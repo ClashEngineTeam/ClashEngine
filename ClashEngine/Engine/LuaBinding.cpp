@@ -144,6 +144,16 @@ namespace ClashEngine
         LuaBinding::engine->sAppName = String::WstringToString(wtitle, Encoding::Default);
     }
 
+    static int get_screen_width()
+    {
+        return LuaBinding::engine->ScreenWidth();
+    }
+
+    static int get_screen_height()
+    {
+        return LuaBinding::engine->ScreenHeight();
+    }
+
     //=====================Draw APIs=====================
 
     static void clear()
@@ -677,6 +687,8 @@ namespace ClashEngine
         (*this->vm)["deinit_engine"] = &deinit_engine;
         (*this->vm)["get_delta_time"] = &get_delta_time;
         (*this->vm)["set_window_title"] = &set_window_title;
+        (*this->vm)["get_screen_width"] = &get_screen_width;
+        (*this->vm)["get_screen_height"] = &get_screen_height;
         //Draw APIs:
         (*this->vm)["clear"] = &clear;
         (*this->vm)["clear_color"] = &clear_color;
