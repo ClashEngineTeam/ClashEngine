@@ -128,7 +128,9 @@ namespace ClashEngine
     //该API需要写在start里面以防止engine为nullptr的情况
     static void set_window_title(const string& title)
     {
-        LuaBinding::engine->sAppName = title;
+        //UTF8 => UTF16, UTF16=>Default
+        wstring wtitle = String::StringToWstring(title, Encoding::UTF8);
+        LuaBinding::engine->sAppName = String::WstringToString(wtitle, Encoding::Default);
     }
 
     //=====================Draw APIs=====================
