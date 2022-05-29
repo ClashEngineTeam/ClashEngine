@@ -524,6 +524,36 @@ namespace ClashEngine
         ui->SetParent(parent);
     }
 
+    static Vector2 get_ui_local_pos(UIObject* ui)
+    {
+        return ui->GetLocalPosition();
+    }
+
+    static void set_ui_local_pos(UIObject* ui, int x, int y)
+    {
+        ui->SetLocalPosition(Vector2(x, y));
+    }
+
+    static Vector2 get_ui_pos(UIObject* ui)
+    {
+        return ui->GetPosition();
+    }
+
+    static void set_ui_pos(UIObject* ui, int x, int y)
+    {
+        ui->SetPosition(Vector2(x, y));
+    }
+
+    static Vector2 get_ui_size(UIObject* ui)
+    {
+        return ui->GetSize();
+    }
+
+    static void set_ui_size(UIObject* ui, Vector2 size)
+    {
+        ui->SetSize(size);
+    }
+
     static void draw_ui(UIObject* ui)
     {
         if (!ui->GetActive()) return;
@@ -811,6 +841,12 @@ namespace ClashEngine
         (*this->vm)["disable_ui"] = &disable_ui;
         (*this->vm)["get_ui_parent"] = &get_ui_parent;
         (*this->vm)["set_ui_parent"] = &set_ui_parent;
+        (*this->vm)["get_ui_local_pos"] = &get_ui_local_pos;
+        (*this->vm)["set_ui_local_pos"] = &set_ui_local_pos;
+        (*this->vm)["get_ui_pos"] = &get_ui_pos;
+        (*this->vm)["set_ui_pos"] = &set_ui_pos;
+        (*this->vm)["get_ui_size"] = &get_ui_size;
+        (*this->vm)["set_ui_size"] = &set_ui_size;
         (*this->vm)["draw_ui"] = &draw_ui;
         (*this->vm)["bind_mouse_enter"] = &bind_mouse_enter;
         (*this->vm)["bind_mouse_stay"] = &bind_mouse_stay;
