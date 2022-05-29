@@ -594,6 +594,19 @@ namespace ClashEngine
 
     void LuaBinding::Registe()
     {
+        //Registering Vector2:
+        //usage:
+        //default  Constructor  : pos = Vector2.new()
+        //int, int Constructor2 : pos = Vector2.new(10, 10)
+        //x value               : pos_x = pos:x()
+        //y value               : pos_y = pos:y()
+        (*this->vm)["Vector2"].setClass
+        (
+            kaguya::UserdataMetatable<Vector2>()
+            .setConstructors<Vector2(), Vector2(int, int)>()
+            .addFunction("x", &Vector2::x)
+            .addFunction("y", &Vector2::y)
+        );
         //Audio APIs:
         (*this->vm)["init_audio"] = &init_audio;
         (*this->vm)["deinit_audio"] = &deinit_audio;
