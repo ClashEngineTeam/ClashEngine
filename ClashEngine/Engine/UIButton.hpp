@@ -53,6 +53,7 @@ namespace ClashEngine
         void OnDraw(olc::PixelGameEngine* engine) override
         {
             Vector2 pos = GetPosition();
+            Vector2 size = GetSize();
             for (int i = 0; i < size.y; i++)
             {
                 for (int j = 0; j < size.x; j++)

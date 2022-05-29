@@ -501,22 +501,32 @@ namespace ClashEngine
 
     static bool ui_active(UIObject* ui)
     {
-        return ui->active;
+        return ui->GetActive();
     }
 
     static void enable_ui(UIObject* ui)
     {
-        ui->active = true;
+        ui->SetActive(true);
     }
 
     static void disable_ui(UIObject* ui)
     {
-        ui->active = false;
+        ui->SetActive(false);
+    }
+
+    static UIObject* get_ui_parent(UIObject* ui)
+    {
+        return ui->GetParent();
+    }
+
+    static void set_ui_parent(UIObject* ui, UIObject* parent)
+    {
+        ui->SetParent(parent);
     }
 
     static void draw_ui(UIObject* ui)
     {
-        if (!ui->active) return;
+        if (!ui->GetActive()) return;
         //如果没有提供重写的OnDraw函数则调用默认的OnDraw函数
         if (String::Compare(ui->on_draw, ""))
         {
@@ -786,6 +796,8 @@ namespace ClashEngine
         (*this->vm)["ui_active"] = &ui_active;
         (*this->vm)["enable_ui"] = &enable_ui;
         (*this->vm)["disable_ui"] = &disable_ui;
+        (*this->vm)["get_ui_parent"] = &get_ui_parent;
+        (*this->vm)["set_ui_parent"] = &set_ui_parent;
         (*this->vm)["draw_ui"] = &draw_ui;
         (*this->vm)["bind_mouse_enter"] = &bind_mouse_enter;
         (*this->vm)["bind_mouse_stay"] = &bind_mouse_stay;
