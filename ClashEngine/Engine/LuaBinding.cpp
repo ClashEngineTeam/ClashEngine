@@ -499,6 +499,21 @@ namespace ClashEngine
 
     //=====================UI APIs=====================
 
+    static bool ui_active(UIObject* ui)
+    {
+        return ui->active;
+    }
+
+    static void enable_ui(UIObject* ui)
+    {
+        ui->active = true;
+    }
+
+    static void disable_ui(UIObject* ui)
+    {
+        ui->active = false;
+    }
+
     static void draw_ui(UIObject* ui)
     {
         if (!ui->active) return;
@@ -768,6 +783,9 @@ namespace ClashEngine
         (*this->vm)["get_font_offset_x"] = &get_font_offset_x;
         (*this->vm)["get_font_offset_y"] = &get_font_offset_y;
         //UI APIs:
+        (*this->vm)["ui_active"] = &ui_active;
+        (*this->vm)["enable_ui"] = &enable_ui;
+        (*this->vm)["disable_ui"] = &disable_ui;
         (*this->vm)["draw_ui"] = &draw_ui;
         (*this->vm)["bind_mouse_enter"] = &bind_mouse_enter;
         (*this->vm)["bind_mouse_stay"] = &bind_mouse_stay;
