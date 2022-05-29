@@ -125,6 +125,12 @@ namespace ClashEngine
         return LuaBinding::engine->GetElapsedTime();
     }
 
+    //该API需要写在start里面以防止engine为nullptr的情况
+    static void set_window_title(const string& title)
+    {
+        LuaBinding::engine->sAppName = title;
+    }
+
     //=====================Draw APIs=====================
 
     static void clear()
@@ -572,6 +578,7 @@ namespace ClashEngine
         (*this->vm)["init_engine"] = &init_engine;
         (*this->vm)["deinit_engine"] = &deinit_engine;
         (*this->vm)["get_delta_time"] = &get_delta_time;
+        (*this->vm)["set_window_title"] = &set_window_title;
         //Draw APIs:
         (*this->vm)["clear"] = &clear;
         (*this->vm)["clear_color"] = &clear_color;
