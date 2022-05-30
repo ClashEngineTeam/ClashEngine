@@ -1315,6 +1315,19 @@ namespace olc
 		void olc_Reanimate();
 		bool olc_IsRunning();
 
+	public:
+		typedef void (*OnWindowInputChar)(WCHAR c);
+		OnWindowInputChar onWindowInputChar = nullptr;
+
+		//ZMCJ21 Functions:
+		void Windows_GetWindowCharInput(WCHAR c)
+		{
+			if (onWindowInputChar != nullptr)
+			{
+				onWindowInputChar(c);
+			}
+		}
+
 		// At the very end of this file, chooses which
 		// components to compile
 		virtual void olc_ConfigureSystem();
@@ -5226,6 +5239,17 @@ namespace olc
 			case WM_MBUTTONUP:	ptrPGE->olc_UpdateMouseState(2, false);                                 return 0;
 			case WM_CLOSE:		ptrPGE->olc_Terminate();                                                return 0;
 			case WM_DESTROY:	PostQuitMessage(0); DestroyWindow(hWnd);								return 0;
+			//ZMCJ21新增:
+			case WM_CHAR:
+			{
+				ptrPGE->Windows_GetWindowCharInput(wParam);
+				return 0;
+			}
+			case WM_IME_CHAR:
+			{
+				ptrPGE->Windows_GetWindowCharInput(wParam);
+				return 0;
+			}
 			}
 			return DefWindowProc(hWnd, uMsg, wParam, lParam);
 		}
