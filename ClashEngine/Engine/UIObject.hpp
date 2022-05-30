@@ -140,6 +140,8 @@ namespace ClashEngine
     public:
         void Update(olc::PixelGameEngine* engine, kaguya::State* state)
         {
+            if (!GetActive()) return;
+
             int mouseX = engine->GetMouseX();
             int mouseY = engine->GetMouseY();
             int posX = this->GetPosition().x;
