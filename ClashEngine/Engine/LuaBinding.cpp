@@ -332,6 +332,22 @@ namespace ClashEngine
         }
     }
 
+    //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
+    static void draw_png_image_scaling(int x, int y, olc::Sprite* sprite, int w, int h)
+    {
+        LuaBinding::engine->SetPixelMode(olc::Pixel::ALPHA);
+        draw_image_scaling(x, y, sprite, w, h);
+        LuaBinding::engine->SetPixelMode(olc::Pixel::NORMAL);
+    }
+
+    //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
+    static void draw_png_image_scalingf(int x, int y, olc::Sprite* sprite, double sx, double sy)
+    {
+        LuaBinding::engine->SetPixelMode(olc::Pixel::ALPHA);
+        draw_image_scalingf(x, y, sprite, sx, sy);
+        LuaBinding::engine->SetPixelMode(olc::Pixel::NORMAL);
+    }
+
     static int get_image_width(olc::Sprite* sprite)
     {
         return sprite->width;
@@ -521,6 +537,60 @@ namespace ClashEngine
     static olc::Sprite* render_font_to_sprite(olc::Font* font, const string& s, int r, int g, int b)
     {
         return font->RenderStringToSprite(StringConverter::To_UTF32(s), olc::Pixel(r, g, b));
+    }
+
+    //!!!注意:渲染该olc::Sprite*需要开启Alpha混合
+    //!!!需要回收返回值
+    //interval:字符与字符之间间隔的像素数量
+    static olc::Sprite* render_font_to_sprite_ex(olc::Font* font, const string& s, int r, int g, int b, int interval)
+    {
+        wstring ws = String::StringToWstring(s, Encoding::UTF8);
+        int fontWidth = font->GetStringBounds(StringConverter::To_UTF32(s)).size.x;
+        int fontHeight = font->GetStringBounds(StringConverter::To_UTF32(s)).size.y;
+
+        int spriteWidth = fontWidth + (ws.size() - 1) * interval;
+        int spriteHeight = fontHeight;
+        olc::Sprite* fontSprite = new olc::Sprite(spriteWidth, spriteHeight);
+
+        int x = 0;
+        for (const wchar& item : ws)
+        {
+            string str = String::WstringToString(wstring(1, item), Encoding::UTF8);
+            u32string u32String = StringConverter::To_UTF32(str);
+            //new:
+            olc::Sprite* charSprite = font->RenderStringToSprite(u32String, olc::Pixel(r, g, b));
+            //draw char:
+            for (int i = 0; i < spriteHeight; i++)
+            {
+                for (int j = 0; j < charSprite->width; j++)
+                {
+                    olc::Pixel pixel;
+                    if (i < charSprite->height)
+                    {
+                        pixel = charSprite->GetPixel(j, i);
+                    }
+                    else
+                    {
+                        pixel = olc::Pixel(0, 0, 0, 0);
+                    }
+                    fontSprite->SetPixel(j + x, i, pixel);
+                }
+            }
+            x += charSprite->width;
+            //draw interval:
+            for (int i = 0; i < spriteHeight; i++)
+            {
+                for (int j = 0; j < spriteWidth; j++)
+                {
+                    fontSprite->SetPixel(j + x, i, olc::Pixel(0, 0, 0, 0));
+                }
+            }
+            x += interval;
+            //delete:
+            delete charSprite;
+        }
+
+        return fontSprite;
     }
 
     static int get_font_width(olc::Font* font, const string& s)
@@ -732,6 +802,8 @@ namespace ClashEngine
         (*this->vm)["draw_png_image"] = &draw_png_image;
         (*this->vm)["draw_image_scaling"] = &draw_image_scaling;
         (*this->vm)["draw_image_scalingf"] = &draw_image_scalingf;
+        (*this->vm)["draw_png_image_scaling"] = &draw_png_image_scaling;
+        (*this->vm)["draw_png_image_scalingf"] = &draw_png_image_scalingf;
         (*this->vm)["get_image_width"] = &get_image_width;
         (*this->vm)["get_image_height"] = &get_image_height;
         //Input APIs:
@@ -889,6 +961,7 @@ namespace ClashEngine
         (*this->vm)["draw_font"] = &draw_font;
         (*this->vm)["draw_font_ex"] = &draw_font_ex;
         (*this->vm)["render_font_to_sprite"] = &render_font_to_sprite;
+        (*this->vm)["render_font_to_sprite_ex"] = &render_font_to_sprite_ex;
         (*this->vm)["get_font_width"] = &get_font_width;
         (*this->vm)["get_font_height"] = &get_font_height;
         (*this->vm)["get_font_offset_x"] = &get_font_offset_x;
