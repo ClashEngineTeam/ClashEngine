@@ -1,5 +1,7 @@
 ﻿//Ref:https://stackoverflow.com/questions/31302506/stdu32string-conversion-to-from-stdstring-and-stdu16string
 
+#pragma once
+
 #include <string>
 #include <codecvt>
 
