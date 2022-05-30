@@ -9,6 +9,8 @@
 #include "StringConverter.hpp"
 #include "UIObject.hpp"
 #include "UIButton.hpp"
+#include "UIInputField.hpp"
+#include "Vector.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -725,7 +727,23 @@ namespace ClashEngine
 
     static void deinit_button(UIButton* button)
     {
+        Vector<UIObject*>::Remove(LuaBinding::ui_objects, button);
         delete button;
+    }
+
+    //=====================InputField APIs=====================
+
+    static UIInputField* init_input_field(int x, int y, int w, int h)
+    {
+        UIInputField* inputField = new UIInputField(Vector2(x, y), Vector2(w, h));
+        LuaBinding::ui_objects.push_back(inputField);
+        return inputField;
+    }
+
+    static void deinit_input_field(UIInputField* inputField)
+    {
+        Vector<UIObject*>::Remove(LuaBinding::ui_objects, inputField);
+        delete inputField;
     }
 
     kaguya::State* LuaBinding::state = nullptr;
@@ -987,5 +1005,8 @@ namespace ClashEngine
         //Button APIs:
         (*this->vm)["init_button"] = &init_button;
         (*this->vm)["deinit_button"] = &deinit_button;
+        //InputField APIs:
+        (*this->vm)["init_input_field"] = &init_input_field;
+        (*this->vm)["deinit_input_field"] = &deinit_input_field;
     }
 }

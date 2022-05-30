@@ -190,6 +190,7 @@
     <ClCompile Include="Engine\TextLayout.cpp" />
     <ClCompile Include="Engine\Timer.cpp" />
     <ClCompile Include="Engine\UIButton.cpp" />
+    <ClCompile Include="Engine\UIInputField.cpp" />
     <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\UnusualMethods.cpp" />
     <ClCompile Include="Engine\Vector2.cpp" />
@@ -273,6 +274,7 @@
     <ClInclude Include="Engine\TextLayout.hpp" />
     <ClInclude Include="Engine\Timer.hpp" />
     <ClInclude Include="Engine\UIButton.hpp" />
+    <ClInclude Include="Engine\UIInputField.hpp" />
     <ClInclude Include="Engine\UIObject.hpp" />
     <ClInclude Include="Engine\UnusualMethods.hpp" />
     <ClInclude Include="Engine\Vector.hpp" />

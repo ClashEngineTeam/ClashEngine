@@ -142,6 +142,9 @@ namespace ClashEngine
         {
             if (!GetActive()) return;
 
+            //调用OnUpdate:
+            this->OnUpdate(engine);
+
             int mouseX = engine->GetMouseX();
             int mouseY = engine->GetMouseY();
             int posX = this->GetPosition().x;
@@ -228,5 +231,9 @@ namespace ClashEngine
         }
 
         virtual void OnDraw(olc::PixelGameEngine* engine) = 0;
+
+        virtual void OnUpdate(olc::PixelGameEngine* engine)
+        {
+        }
     };
 }
