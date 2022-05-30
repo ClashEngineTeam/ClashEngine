@@ -214,6 +214,10 @@ namespace ClashEngine
             }
         }
 
+        virtual void OnKeyInput(olc::PixelGameEngine* engine, WCHAR c)
+        {
+        }
+
         virtual void OnMouseEnter(olc::PixelGameEngine* engine)
         {
         }

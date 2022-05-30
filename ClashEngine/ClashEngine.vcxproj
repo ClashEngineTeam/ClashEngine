@@ -166,6 +166,7 @@
     <ClCompile Include="Engine\ConsoleEngine.cpp" />
     <ClCompile Include="Engine\Database.cpp" />
     <ClCompile Include="Engine\Debug.cpp" />
+    <ClCompile Include="Engine\EngineAPI.cpp" />
     <ClCompile Include="Engine\EventSystem.cpp" />
     <ClCompile Include="Engine\File.cpp" />
     <ClCompile Include="Engine\FileDialog.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Engine\ConsoleEngine.hpp" />
     <ClInclude Include="Engine\Database.hpp" />
     <ClInclude Include="Engine\Debug.hpp" />
+    <ClInclude Include="Engine\EngineAPI.hpp" />
     <ClInclude Include="Engine\EventSystem.hpp" />
     <ClInclude Include="Engine\File.hpp" />
     <ClInclude Include="Engine\FileDialog.hpp" />

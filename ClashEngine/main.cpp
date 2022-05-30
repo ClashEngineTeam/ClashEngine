@@ -13,6 +13,15 @@
 using namespace ClashEngine;
 using namespace std;
 
+static void on_key_input(WCHAR c)
+{
+    //ui event:
+    for (const auto& item : LuaBinding::ui_objects)
+    {
+        item->OnKeyInput(LuaBinding::engine, c);
+    }
+}
+
 class Program : public olc::PixelGameEngine
 {
 private:
@@ -79,6 +88,9 @@ int main
     if (LuaBinding::inited)
     {
         Program program(&state);
+        //bind on_key_input:
+        program.onWindowInputChar = on_key_input;
+        //init global pointer:
         LuaBinding::engine = &program;
         olc::rcode r = program.Construct(LuaBinding::screenWidth, LuaBinding::screenHeight, 1, 1);
         if (r == olc::OK)
