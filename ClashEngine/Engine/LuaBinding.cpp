@@ -19,6 +19,13 @@ using __Random = effolkronium::random_static;
 
 namespace ClashEngine
 {
+    //=====================Math APIs=====================
+
+    static int double2int(double number)
+    {
+        return (int)number;
+    }
+
     //=====================Audio APIs=====================
 
     //支持相对路径与绝对路径
@@ -490,6 +497,25 @@ namespace ClashEngine
         font->DrawString(StringConverter::To_UTF32(s), x, y, olc::Pixel(r, g, b));
     }
 
+    //interval:字符与字符之间间隔的像素数量
+    static void draw_font_ex(olc::Font* font, const string& s, int x, int y, int r, int g, int b, int interval)
+    {
+        int nextX = x;
+        wstring ws = String::StringToWstring(s, Encoding::UTF8);
+        for (const wchar& item : ws)
+        {
+            string str = String::WstringToString(wstring(1, item), Encoding::UTF8);
+            u32string u32String = StringConverter::To_UTF32(str);
+            //new:
+            olc::Sprite* charSprite = font->RenderStringToSprite(u32String, olc::Pixel(r, g, b));
+            //draw sprite:
+            draw_png_image(nextX, y, charSprite);
+            nextX += (interval + charSprite->width);
+            //delete:
+            delete charSprite;
+        }
+    }
+
     //!!!注意:渲染该olc::Sprite*需要开启Alpha混合
     //!!!需要回收返回值
     static olc::Sprite* render_font_to_sprite(olc::Font* font, const string& s, int r, int g, int b)
@@ -662,6 +688,8 @@ namespace ClashEngine
             .addFunction("x", &Vector2::x)
             .addFunction("y", &Vector2::y)
         );
+        //Math APIs:
+        (*this->vm)["double2int"] = &double2int;
         //Audio APIs:
         (*this->vm)["init_audio"] = &init_audio;
         (*this->vm)["deinit_audio"] = &deinit_audio;
@@ -859,6 +887,7 @@ namespace ClashEngine
         (*this->vm)["init_font"] = &init_font;
         (*this->vm)["deinit_font"] = &deinit_font;
         (*this->vm)["draw_font"] = &draw_font;
+        (*this->vm)["draw_font_ex"] = &draw_font_ex;
         (*this->vm)["render_font_to_sprite"] = &render_font_to_sprite;
         (*this->vm)["get_font_width"] = &get_font_width;
         (*this->vm)["get_font_height"] = &get_font_height;
