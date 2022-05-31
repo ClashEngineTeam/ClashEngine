@@ -293,6 +293,9 @@ namespace olc
             olc::Pixel color)
         {
             olc::FontRect rect = GetStringBounds(string);
+            //size fix:
+            rect.size.x += rect.offset.x; //maybe use abs(rect.offset.x)
+
             olc::Sprite* sprite = new olc::Sprite{ rect.size.x, rect.size.y };
 
             for (int x = 0; x < rect.size.x; x++)
