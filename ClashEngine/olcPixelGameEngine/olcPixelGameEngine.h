@@ -1035,6 +1035,9 @@ namespace olc
 	class PixelGameEngine
 	{
 	public:
+		HWND hInstance; //zmcj21:For Windows :)
+
+	public:
 		PixelGameEngine();
 		virtual ~PixelGameEngine();
 	public:
@@ -5106,6 +5109,9 @@ namespace olc
 
 			olc_hWnd = CreateWindowEx(dwExStyle, olcT("OLC_PIXEL_GAME_ENGINE"), olcT(""), dwStyle,
 				vTopLeft.x, vTopLeft.y, width, height, NULL, NULL, GetModuleHandle(nullptr), this);
+
+			//Add HWND :)
+			this->ptrPGE->hInstance = olc_hWnd;
 
 			// Create Keyboard Mapping
 			mapKeys[0x00] = Key::NONE;
