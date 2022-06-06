@@ -855,7 +855,7 @@ namespace ClashEngine
         (*this->vm)("Key_Down = " + std::to_string(VK_DOWN));
         (*this->vm)("Key_Left = " + std::to_string(VK_LEFT));
         (*this->vm)("Key_Right = " + std::to_string(VK_RIGHT));
-        //Space, Enter, Shift, Tab, Backspace, Escape, Ctrl, Alt, Caps,Home,End,Delete:
+        //Space, Enter, Shift, Tab, Backspace, Escape, Ctrl, Alt, Caps, Home, End, Delete:
         (*this->vm)("Key_Space = " + std::to_string(VK_SPACE));
         (*this->vm)("Key_Enter = " + std::to_string(VK_RETURN));
         (*this->vm)("Key_Shift = " + std::to_string(VK_SHIFT));
@@ -880,22 +880,22 @@ namespace ClashEngine
         (*this->vm)("Key_9 = " + std::to_string((int)('9')));
         (*this->vm)("Key_0 = " + std::to_string((int)('0')));
         //小键盘的0-9:
-        (*this->vm)("Key_Number1  = " + std::to_string(VK_NUMPAD1));
-        (*this->vm)("Key_Number2  = " + std::to_string(VK_NUMPAD2));
-        (*this->vm)("Key_Number3  = " + std::to_string(VK_NUMPAD3));
-        (*this->vm)("Key_Number4  = " + std::to_string(VK_NUMPAD4));
-        (*this->vm)("Key_Number5  = " + std::to_string(VK_NUMPAD5));
-        (*this->vm)("Key_Number6  = " + std::to_string(VK_NUMPAD6));
-        (*this->vm)("Key_Number7  = " + std::to_string(VK_NUMPAD7));
-        (*this->vm)("Key_Number8  = " + std::to_string(VK_NUMPAD8));
-        (*this->vm)("Key_Number9  = " + std::to_string(VK_NUMPAD9));
-        (*this->vm)("Key_Number0  = " + std::to_string(VK_NUMPAD0));
+        (*this->vm)("Key_Number1 = " + std::to_string(VK_NUMPAD1));
+        (*this->vm)("Key_Number2 = " + std::to_string(VK_NUMPAD2));
+        (*this->vm)("Key_Number3 = " + std::to_string(VK_NUMPAD3));
+        (*this->vm)("Key_Number4 = " + std::to_string(VK_NUMPAD4));
+        (*this->vm)("Key_Number5 = " + std::to_string(VK_NUMPAD5));
+        (*this->vm)("Key_Number6 = " + std::to_string(VK_NUMPAD6));
+        (*this->vm)("Key_Number7 = " + std::to_string(VK_NUMPAD7));
+        (*this->vm)("Key_Number8 = " + std::to_string(VK_NUMPAD8));
+        (*this->vm)("Key_Number9 = " + std::to_string(VK_NUMPAD9));
+        (*this->vm)("Key_Number0 = " + std::to_string(VK_NUMPAD0));
         //计算符号
-        (*this->vm)("Key_*  = " + std::to_string(VK_MULTIPLY));
-        (*this->vm)("Key_-  = " + std::to_string(VK_SUBTRACT));
-        (*this->vm)("Key_+  = " + std::to_string(VK_ADD));
-        (*this->vm)("Key_/  = " + std::to_string(VK_DIVIDE));
-        (*this->vm)("Key_.  = " + std::to_string(VK_DECIMAL));
+        (*this->vm)("Key_Multiply = " + std::to_string(VK_MULTIPLY));
+        (*this->vm)("Key_Subtract = " + std::to_string(VK_SUBTRACT));
+        (*this->vm)("Key_Add = " + std::to_string(VK_ADD));
+        (*this->vm)("Key_Divide = " + std::to_string(VK_DIVIDE));
+        (*this->vm)("Key_Decimal = " + std::to_string(VK_DECIMAL));
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
