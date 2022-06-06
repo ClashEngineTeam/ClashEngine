@@ -239,6 +239,9 @@
     <ClCompile Include="Engine\EngineAPI.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\WinIMEHelper.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -502,6 +505,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\EngineAPI.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\WinIMEHelper.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

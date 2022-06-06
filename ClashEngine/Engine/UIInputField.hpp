@@ -4,6 +4,8 @@
 #include "String.hpp"
 #include "StringConverter.hpp"
 #include "EngineAPI.hpp"
+#include "LuaBinding.hpp"
+#include "WinIMEHelper.hpp"
 #include <string>
 
 using namespace std;
@@ -14,9 +16,9 @@ namespace ClashEngine
     class UIInputField : public UIObject
     {
     private:
-        bool flash_cursor = false;                  //是否开始闪烁光标
+        bool flash_cursor = false;                  //是否开始闪烁光标(该标签可以判断输入框是否被激活)
         const float cursor_flash_interval = 0.5f;   //闪烁光标的间隔时间
-        const int offset = 5;                       //坐标偏移
+        const int offset = 8;                       //坐标偏移
         float cursor_timer = 0.0f;                  //计时器
         bool cursor_switch = false;                 //光标亮灭开关
 
@@ -32,6 +34,8 @@ namespace ClashEngine
 
         void OnKeyInput(olc::PixelGameEngine* engine, WCHAR c) override
         {
+            if (!flash_cursor) return;
+
             if (c == VK_BACK)
             {
                 if (inputData.size() > 0)
@@ -43,6 +47,10 @@ namespace ClashEngine
             {
                 inputData.push_back(c);
             }
+            //将输入法窗体显示在合适的位置:
+            Vector2 pos = GetPosition();
+            Vector2 size = GetSize();
+            WinIMEHelper::ShowIMEWindow(LuaBinding::engine->hInstance, pos.x, pos.y + size.y);
         }
 
         void OnMouseEnter(olc::PixelGameEngine* engine) override
@@ -78,7 +86,8 @@ namespace ClashEngine
             {
                 olc::vi2d cursorOriginPos(pos.x + offset, pos.y + offset);
                 olc::vi2d cursorTargetPos(pos.x + offset, pos.y + offset + size.y - offset * 2);
-                engine->DrawLine(cursorOriginPos, cursorTargetPos, olc::Pixel(0, 0, 0));
+                olc::Pixel cursorColor(0, 0, 0);
+                EngineAPI::DrawLine(LuaBinding::engine, cursorOriginPos.x, cursorOriginPos.y, cursorTargetPos.x, cursorTargetPos.y, cursorColor.r, cursorColor.g, cursorColor.b, 1);
             }
             //draw string:
             if (inputData.size() > 0)

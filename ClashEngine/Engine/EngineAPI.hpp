@@ -4,6 +4,7 @@
 #include "../olcPGEX_TTF/olcPGEX_TTF.h"
 #include "String.hpp"
 #include "StringConverter.hpp"
+#include "Vector2.hpp"
 #include <vector>
 #include <string>
 
@@ -32,6 +33,20 @@ namespace ClashEngine
     class EngineAPI
     {
     public:
+        static void DrawLine(olc::PixelGameEngine* engine, int x1, int y1, int x2, int y2, int r, int g, int b, int thick)
+        {
+            Vector2 start(x1 - thick, y1 - thick);
+            Vector2 end(x2 - thick, y2 - thick);
+            int count = 1 + 2 * thick;
+            for (int i = 0; i < count; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    engine->DrawLine(start.x + j, start.y + i, end.x + j, end.y + i, olc::Pixel(r, g, b));
+                }
+            }
+        }
+
         static void DrawSprite(olc::PixelGameEngine* engine, int x, int y, olc::Sprite* sprite)
         {
             engine->DrawSprite(x, y, sprite);

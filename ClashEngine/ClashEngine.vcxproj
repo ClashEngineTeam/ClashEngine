@@ -198,6 +198,7 @@
     <ClCompile Include="Engine\Vector3.cpp" />
     <ClCompile Include="Engine\VTConverter.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
+    <ClCompile Include="Engine\WinIMEHelper.cpp" />
     <ClCompile Include="Engine\WinNetwork.cpp" />
     <ClCompile Include="Engine\WinVersion.cpp" />
     <ClCompile Include="LuaSourceCode\lapi.c" />
@@ -284,6 +285,7 @@
     <ClInclude Include="Engine\Vector3.hpp" />
     <ClInclude Include="Engine\VTConverter.hpp" />
     <ClInclude Include="Engine\Window.hpp" />
+    <ClInclude Include="Engine\WinIMEHelper.hpp" />
     <ClInclude Include="Engine\WinNetwork.hpp" />
     <ClInclude Include="Engine\WinVersion.hpp" />
     <ClInclude Include="Kaguya\kaguya.hpp" />

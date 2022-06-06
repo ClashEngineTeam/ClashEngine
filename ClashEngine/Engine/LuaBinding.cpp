@@ -188,16 +188,7 @@ namespace ClashEngine
 
     static void draw_line_bold(int x1, int y1, int x2, int y2, int r, int g, int b, int thick)
     {
-        Vector2 start(x1 - thick, y1 - thick);
-        Vector2 end(x2 - thick, y2 - thick);
-        int count = 1 + 2 * thick;
-        for (int i = 0; i < count; i++)
-        {
-            for (int j = 0; j < count; j++)
-            {
-                LuaBinding::engine->DrawLine(start.x + j, start.y + i, end.x + j, end.y + i, olc::Pixel(r, g, b));
-            }
-        }
+        EngineAPI::DrawLine(LuaBinding::engine, x1, y1, x2, y2, r, g, b, thick);
     }
 
     static void draw_rect(int x, int y, int w, int h, int r, int g, int b)
