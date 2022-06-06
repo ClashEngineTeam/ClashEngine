@@ -658,6 +658,13 @@ namespace ClashEngine
         delete inputField;
     }
 
+    static std::string get_input_field_data(UIInputField* inputField)
+    {
+        std::wstring inputData = inputField->GetInputData();
+        std::string data = String::WstringToString(inputData, Encoding::UTF8);
+        return data;
+    }
+
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
@@ -929,5 +936,6 @@ namespace ClashEngine
         //InputField APIs:
         (*this->vm)["init_input_field"] = &init_input_field;
         (*this->vm)["deinit_input_field"] = &deinit_input_field;
+        (*this->vm)["get_input_field_data"] = &get_input_field_data;
     }
 }

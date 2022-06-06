@@ -27,6 +27,12 @@ namespace ClashEngine
         olc::Font* font;                            //输入框显示文字所需的字体
 
     public:
+        std::wstring GetInputData()
+        {
+            return this->inputData;
+        }
+
+    public:
         UIInputField(Vector2 position, Vector2 size, olc::Font* font) : UIObject(position, size)
         {
             this->font = font;
