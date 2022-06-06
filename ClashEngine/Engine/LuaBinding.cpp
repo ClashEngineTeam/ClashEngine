@@ -855,7 +855,7 @@ namespace ClashEngine
         (*this->vm)("Key_Down = " + std::to_string(VK_DOWN));
         (*this->vm)("Key_Left = " + std::to_string(VK_LEFT));
         (*this->vm)("Key_Right = " + std::to_string(VK_RIGHT));
-        //Space, Enter, Shift, Tab, Backspace, Escape, Ctrl, Alt, Caps:
+        //Space, Enter, Shift, Tab, Backspace, Escape, Ctrl, Alt, Caps,Home,End,Delete:
         (*this->vm)("Key_Space = " + std::to_string(VK_SPACE));
         (*this->vm)("Key_Enter = " + std::to_string(VK_RETURN));
         (*this->vm)("Key_Shift = " + std::to_string(VK_SHIFT));
@@ -865,6 +865,9 @@ namespace ClashEngine
         (*this->vm)("Key_Ctrl = " + std::to_string(VK_CONTROL));
         (*this->vm)("Key_Caps = " + std::to_string(VK_CAPITAL));
         (*this->vm)("Key_Alt = " + std::to_string(VK_MENU));
+        (*this->vm)("Key_Home = " + std::to_string(VK_HOME));
+        (*this->vm)("Key_End = " + std::to_string(VK_END));
+        (*this->vm)("Key_Delete = " + std::to_string(VK_DELETE));
         //大键盘的0-9
         (*this->vm)("Key_1 = " + std::to_string((int)('1')));
         (*this->vm)("Key_2 = " + std::to_string((int)('2')));
@@ -887,6 +890,12 @@ namespace ClashEngine
         (*this->vm)("Key_Number8  = " + std::to_string(VK_NUMPAD8));
         (*this->vm)("Key_Number9  = " + std::to_string(VK_NUMPAD9));
         (*this->vm)("Key_Number0  = " + std::to_string(VK_NUMPAD0));
+        //计算符号
+        (*this->vm)("Key_*  = " + std::to_string(VK_MULTIPLY));
+        (*this->vm)("Key_-  = " + std::to_string(VK_SUBTRACT));
+        (*this->vm)("Key_+  = " + std::to_string(VK_ADD));
+        (*this->vm)("Key_/  = " + std::to_string(VK_DIVIDE));
+        (*this->vm)("Key_.  = " + std::to_string(VK_DECIMAL));
         //Console APIs:
         (*this->vm)["init_console"] = &init_console;
         (*this->vm)["deinit_console"] = &deinit_console;
