@@ -670,7 +670,7 @@ namespace ClashEngine
 
     static Video* init_video(const string& path)
     {
-        wstring wpath = String::StringToWstring(path, Encoding::UTF8);
+        wstring wpath = File::GetAbsolutePath(String::StringToWstring(path, Encoding::UTF8));
         Video* video = new Video(wpath);
         return video;
     }
