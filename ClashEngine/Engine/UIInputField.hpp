@@ -56,6 +56,9 @@ namespace ClashEngine
                     }
                 }
             }
+            else if (c == VK_RETURN) //回车
+            {
+            }
             else
             {
                 inputData.insert(inputData.begin() + inputDataIndex, c);
