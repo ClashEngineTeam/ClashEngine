@@ -28,11 +28,17 @@ namespace ClashEngine
         olc::Font* font;                            //输入框显示文字所需的字体
         std::wstring inputData = L"";               //输入的内容字符串
         int inputDataIndex = 0;                     //输入的内容下标
+        int maximumInputDataSize = 100;             //输入字符数量上限
 
     public:
         std::wstring GetInputData()
         {
             return this->inputData;
+        }
+
+        void SetInputDataLimit(int maximumInputDataSize)
+        {
+            this->maximumInputDataSize = maximumInputDataSize;
         }
 
     public:
@@ -44,6 +50,14 @@ namespace ClashEngine
         void OnKeyInput(olc::PixelGameEngine* engine, WCHAR c) override
         {
             if (!flash_cursor) return;
+
+            //保持光标闪烁:
+            cursor_timer = 0;
+            cursor_switch = true;
+            //将输入法窗体显示在合适的位置:
+            Vector2 pos = GetPosition();
+            Vector2 size = GetSize();
+            WinIMEHelper::ShowIMEWindow(LuaBinding::engine->hInstance, pos.x, pos.y + size.y);
 
             if (c == VK_BACK) //退格
             {
@@ -61,17 +75,12 @@ namespace ClashEngine
             }
             else
             {
-                inputData.insert(inputData.begin() + inputDataIndex, c);
-                inputDataIndex++;
+                if (this->inputData.size() < this->maximumInputDataSize)
+                {
+                    inputData.insert(inputData.begin() + inputDataIndex, c);
+                    inputDataIndex++;
+                }
             }
-
-            cursor_timer = 0;
-            cursor_switch = true;
-
-            //将输入法窗体显示在合适的位置:
-            Vector2 pos = GetPosition();
-            Vector2 size = GetSize();
-            WinIMEHelper::ShowIMEWindow(LuaBinding::engine->hInstance, pos.x, pos.y + size.y);
         }
 
         void OnMouseEnter(olc::PixelGameEngine* engine) override

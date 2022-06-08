@@ -666,6 +666,11 @@ namespace ClashEngine
         return data;
     }
 
+    static void set_input_field_limit(UIInputField* inputField, int limit)
+    {
+        inputField->SetInputDataLimit(limit);
+    }
+
     //=====================Video APIs=====================
 
     static Video* init_video(const string& path)
@@ -968,6 +973,7 @@ namespace ClashEngine
         (*this->vm)["init_input_field"] = &init_input_field;
         (*this->vm)["deinit_input_field"] = &deinit_input_field;
         (*this->vm)["get_input_field_data"] = &get_input_field_data;
+        (*this->vm)["set_input_field_limit"] = &set_input_field_limit;
         //Video APIs:
         (*this->vm)["init_video"] = &init_video;
         (*this->vm)["deinit_video"] = &deinit_video;
