@@ -84,6 +84,8 @@ function start()
 
     inputField = init_input_field(400, 320, 400, 40, hello_world)
 
+    video = init_video("res/videos/Yasuo.mp4")
+
 end
 
 function update()
@@ -158,6 +160,9 @@ function update()
 
     --draw_png_image(400,100,test_font)
     draw_png_image(500, 200, font_sprite)
+
+    frameSprite = get_video_next_frame(video)
+    draw_image_scaling(0, 0, frameSprite, 600, 300)
 
     --draw_font_ex(hello_world, title, 400, 100, 0,0,0,30)
     --draw_png_image_scalingf(400, 100, font_sprite, 2, 2)
