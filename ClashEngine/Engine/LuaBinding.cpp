@@ -165,6 +165,11 @@ namespace ClashEngine
         return LuaBinding::engine->ScreenHeight();
     }
 
+    static std::string get_engine_version()
+    {
+        return "Dev_0.0.1";
+    }
+
     //=====================Draw APIs=====================
 
     static void clear()
@@ -760,6 +765,7 @@ namespace ClashEngine
         (*this->vm)["set_window_title"] = &set_window_title;
         (*this->vm)["get_screen_width"] = &get_screen_width;
         (*this->vm)["get_screen_height"] = &get_screen_height;
+        (*this->vm)["get_engine_version"] = &get_engine_version;
         //Draw APIs:
         (*this->vm)["clear"] = &clear;
         (*this->vm)["clear_color"] = &clear_color;
