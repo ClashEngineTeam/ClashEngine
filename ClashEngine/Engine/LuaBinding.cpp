@@ -678,6 +678,7 @@ namespace ClashEngine
 
     //=====================Video APIs=====================
 
+#if !defined(DISABLE_FFMPEG)
     static Video* init_video(const string& path)
     {
         wstring wpath = File::GetAbsolutePath(String::StringToWstring(path, Encoding::UTF8));
@@ -705,6 +706,7 @@ namespace ClashEngine
     {
         return video->GetNextFrame();
     }
+#endif
 
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
@@ -981,10 +983,12 @@ namespace ClashEngine
         (*this->vm)["get_input_field_data"] = &get_input_field_data;
         (*this->vm)["set_input_field_limit"] = &set_input_field_limit;
         //Video APIs:
+#if !defined(DISABLE_FFMPEG)
         (*this->vm)["init_video"] = &init_video;
         (*this->vm)["deinit_video"] = &deinit_video;
         (*this->vm)["get_video_width"] = &get_video_width;
         (*this->vm)["get_video_height"] = &get_video_height;
         (*this->vm)["get_video_next_frame"] = &get_video_next_frame;
+#endif
     }
 }

@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#if !defined(DISABLE_FFMPEG)
+
 #include <string>
 #include "String.hpp"
 #include "../olcPixelGameEngine/olcPixelGameEngine.h"
@@ -141,3 +143,5 @@ namespace ClashEngine
         }
     };
 }
+
+#endif
