@@ -6,6 +6,7 @@
 #include "EngineAPI.hpp"
 #include "LuaBinding.hpp"
 #include "WinIMEHelper.hpp"
+#include "Input.hpp"
 #include <string>
 
 using namespace std;
@@ -18,13 +19,15 @@ namespace ClashEngine
     private:
         bool flash_cursor = false;                  //是否开始闪烁光标(该标签可以判断输入框是否被激活)
         const float cursor_flash_interval = 0.5f;   //闪烁光标的间隔时间
-        const int offset = 8;                       //坐标偏移
+        const int cursorOffsetX = 10;               //坐标X方向偏移
+        const int cursorOffsetY = 8;                //坐标Y方向偏移
         float cursor_timer = 0.0f;                  //计时器
         bool cursor_switch = false;                 //光标亮灭开关
 
     private:
-        std::wstring inputData = L"";               //输入的内容字符串
         olc::Font* font;                            //输入框显示文字所需的字体
+        std::wstring inputData = L"";               //输入的内容字符串
+        int inputDataIndex = 0;                     //输入的内容下标
 
     public:
         std::wstring GetInputData()
@@ -42,17 +45,26 @@ namespace ClashEngine
         {
             if (!flash_cursor) return;
 
-            if (c == VK_BACK)
+            if (c == VK_BACK) //退格
             {
                 if (inputData.size() > 0)
                 {
-                    inputData.pop_back();
+                    if (inputDataIndex > 0)
+                    {
+                        inputDataIndex--;
+                        inputData.erase(inputData.begin() + inputDataIndex);
+                    }
                 }
             }
             else
             {
-                inputData.push_back(c);
+                inputData.insert(inputData.begin() + inputDataIndex, c);
+                inputDataIndex++;
             }
+
+            cursor_timer = 0;
+            cursor_switch = true;
+
             //将输入法窗体显示在合适的位置:
             Vector2 pos = GetPosition();
             Vector2 size = GetSize();
@@ -85,16 +97,11 @@ namespace ClashEngine
         {
             Vector2 pos = GetPosition();
             Vector2 size = GetSize();
+            //zoom ratio:
+            double yZoomRatio = 0.0;
+            //draw rect:
             engine->FillRect(pos.x, pos.y, size.x, size.y, olc::Pixel(155, 155, 155));
             engine->DrawRect(pos.x, pos.y, size.x, size.y, olc::Pixel(0, 0, 0));
-            //draw cursor:
-            if (cursor_switch && flash_cursor)
-            {
-                olc::vi2d cursorOriginPos(pos.x + offset, pos.y + offset);
-                olc::vi2d cursorTargetPos(pos.x + offset, pos.y + offset + size.y - offset * 2);
-                olc::Pixel cursorColor(0, 0, 0);
-                EngineAPI::DrawLine(LuaBinding::engine, cursorOriginPos.x, cursorOriginPos.y, cursorTargetPos.x, cursorTargetPos.y, cursorColor.r, cursorColor.g, cursorColor.b, 1);
-            }
             //draw string:
             if (inputData.size() > 0)
             {
@@ -111,7 +118,7 @@ namespace ClashEngine
                 }
                 EngineAPI::DeleteSprites(sprites);
 #else
-                wstring sample = L"你好abAB12,./<>?-=_+`~";
+                wstring sample = L"你好abAB12,./<>?-=_+`~"; //为了辅助字符排版而存在
 
                 std::string sampleStr = String::WstringToString(sample, Encoding::UTF8);
                 u32string u32SampleStr = StringConverter::To_UTF32(sampleStr);
@@ -132,13 +139,32 @@ namespace ClashEngine
                     }
                 }
 
-                double yZoomRatio = (double)size.y / fontSprite->height;
+                yZoomRatio = (double)size.y / fontSprite->height;
                 EngineAPI::DrawPNGSprite(engine, pos.x, pos.y, diffSprite, yZoomRatio, yZoomRatio);
 
                 delete sampleSprite;
                 delete fontSprite;
                 delete diffSprite;
 #endif
+            }
+            //draw cursor:
+            if (cursor_switch && flash_cursor)
+            {
+                olc::FontRect fontRect;
+                if (!this->inputData.empty())
+                {
+                    wstring subString = this->inputData.substr(0, this->inputDataIndex);
+                    if (!subString.empty())
+                    {
+                        std::string str = String::WstringToString(subString, Encoding::UTF8);
+                        u32string u32str = StringConverter::To_UTF32(str);
+                        fontRect = font->GetStringBounds(u32str);
+                    }
+                }
+                olc::vi2d cursorOriginPos(pos.x + fontRect.size.x * yZoomRatio + cursorOffsetX, pos.y + cursorOffsetY);
+                olc::vi2d cursorTargetPos(pos.x + fontRect.size.x * yZoomRatio + cursorOffsetX, pos.y + size.y - cursorOffsetY);
+                olc::Pixel cursorColor(0, 240, 0);
+                EngineAPI::DrawLine(LuaBinding::engine, cursorOriginPos.x, cursorOriginPos.y, cursorTargetPos.x, cursorTargetPos.y, cursorColor.r, cursorColor.g, cursorColor.b, 1);
             }
         }
 
@@ -149,6 +175,52 @@ namespace ClashEngine
             {
                 if (flash_cursor) flash_cursor = false;
             }
+            //点击输入框可以使用方向键控制光标移动:
+            if (flash_cursor)
+            {
+                if (Input::GetKeyPressed(VK_LEFT))
+                {
+                    inputDataIndex--;
+                    if (inputDataIndex < 0)
+                    {
+                        inputDataIndex = 0;
+                    }
+                    cursor_timer = 0;
+                    cursor_switch = true;
+                }
+                else if (Input::GetKeyPressed(VK_RIGHT))
+                {
+                    inputDataIndex++;
+                    if (inputDataIndex > inputData.size())
+                    {
+                        inputDataIndex = inputData.size();
+                    }
+                    cursor_timer = 0;
+                    cursor_switch = true;
+                }
+                else if (Input::GetKeyPressed(VK_HOME))
+                {
+                    inputDataIndex = 0;
+                    cursor_timer = 0;
+                    cursor_switch = true;
+                }
+                else if (Input::GetKeyPressed(VK_END))
+                {
+                    inputDataIndex = this->inputData.size();
+                    cursor_timer = 0;
+                    cursor_switch = true;
+                }
+                else if (Input::GetKeyPressed(VK_DELETE))
+                {
+                    if (inputData.size() > 0)
+                    {
+                        inputData.erase(inputData.begin() + inputDataIndex);
+                    }
+                    cursor_timer = 0;
+                    cursor_switch = true;
+                }
+            }
+            //update timer:
             float deltaTime = engine->GetElapsedTime();
             cursor_timer += deltaTime;
             if (cursor_timer >= cursor_flash_interval)
