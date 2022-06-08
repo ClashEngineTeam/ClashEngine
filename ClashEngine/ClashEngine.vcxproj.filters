@@ -242,6 +242,9 @@
     <ClCompile Include="Engine\WinIMEHelper.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Video.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -508,6 +511,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\WinIMEHelper.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Video.hpp">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

@@ -93,12 +93,12 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -110,14 +110,14 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,12 +127,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,14 +144,14 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -196,6 +196,7 @@
     <ClCompile Include="Engine\UnusualMethods.cpp" />
     <ClCompile Include="Engine\Vector2.cpp" />
     <ClCompile Include="Engine\Vector3.cpp" />
+    <ClCompile Include="Engine\Video.cpp" />
     <ClCompile Include="Engine\VTConverter.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\WinIMEHelper.cpp" />
@@ -233,7 +234,12 @@
     <ClCompile Include="LuaSourceCode\lutf8lib.c" />
     <ClCompile Include="LuaSourceCode\lvm.c" />
     <ClCompile Include="LuaSourceCode\lzio.c" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="olcPGEX_TTF\olcPGEX_TTF.cpp" />
     <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp" />
   </ItemGroup>
@@ -283,6 +289,7 @@
     <ClInclude Include="Engine\Vector.hpp" />
     <ClInclude Include="Engine\Vector2.hpp" />
     <ClInclude Include="Engine\Vector3.hpp" />
+    <ClInclude Include="Engine\Video.hpp" />
     <ClInclude Include="Engine\VTConverter.hpp" />
     <ClInclude Include="Engine\Window.hpp" />
     <ClInclude Include="Engine\WinIMEHelper.hpp" />

@@ -12,6 +12,7 @@
 #include "UIInputField.hpp"
 #include "Vector.hpp"
 #include "EngineAPI.hpp"
+#include "Video.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -665,6 +666,36 @@ namespace ClashEngine
         return data;
     }
 
+    //=====================Video APIs=====================
+
+    static Video* init_video(const string& path)
+    {
+        wstring wpath = String::StringToWstring(path, Encoding::UTF8);
+        Video* video = new Video(wpath);
+        return video;
+    }
+
+    static void deinit_video(Video* video)
+    {
+        delete video;
+    }
+
+    static int get_video_width(Video* video)
+    {
+        return video->GetWidth();
+    }
+
+    static int get_video_height(Video* video)
+    {
+        return video->GetHeight();
+    }
+
+    //不需要释放该返回值, 该Sprite会在Video对象销毁时自动销毁
+    static olc::Sprite* get_video_next_frame(Video* video)
+    {
+        return video->GetNextFrame();
+    }
+
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
@@ -937,5 +968,11 @@ namespace ClashEngine
         (*this->vm)["init_input_field"] = &init_input_field;
         (*this->vm)["deinit_input_field"] = &deinit_input_field;
         (*this->vm)["get_input_field_data"] = &get_input_field_data;
+        //Video APIs:
+        (*this->vm)["init_video"] = &init_video;
+        (*this->vm)["deinit_video"] = &deinit_video;
+        (*this->vm)["get_video_width"] = &get_video_width;
+        (*this->vm)["get_video_height"] = &get_video_height;
+        (*this->vm)["get_video_next_frame"] = &get_video_next_frame;
     }
 }
