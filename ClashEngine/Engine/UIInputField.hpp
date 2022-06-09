@@ -170,7 +170,28 @@ namespace ClashEngine
                     {
                         std::string str = String::WstringToString(subString, Encoding::UTF8);
                         u32string u32str = StringConverter::To_UTF32(str);
+                        //GetStringBounds存在BUG, 如果字符串为空字符串, 返回的FontRect将为0
+                        //所以这里采取替代的方式绕开这个BUG:
+                        //olc::FontRect _aRect;
+                        //_aRect.size.x = 0;
+                        //_aRect.size.y = 0;
+                        ////wstring subString2 = this->inputData.substr(this->inputDataIndex);
+                        ////std::string stringAfterIndex = String::WstringToString(subString2, Encoding::UTF8);
+                        //std::string _a = "";
+                        //for (const auto& item : str)
+                        //{
+                        //    if (item == ' ')
+                        //    {
+                        //        _a += "a";
+                        //    }
+                        //}
+                        //if (!_a.empty())
+                        //{
+                        //    _aRect = font->GetStringBounds(StringConverter::To_UTF32(_a));
+                        //}
                         fontRect = font->GetStringBounds(u32str);
+                        //加上_a的宽度:
+                        //fontRect.size.x += _aRect.size.x;
                     }
                 }
                 olc::vi2d cursorOriginPos(pos.x + fontRect.size.x * yZoomRatio + cursorOffsetX, pos.y + cursorOffsetY);
