@@ -167,7 +167,7 @@ namespace ClashEngine
 
     static std::string get_engine_version()
     {
-        return "Dev_0.0.1";
+        return "Dev_0.0.2";
     }
 
     //=====================Draw APIs=====================
@@ -189,7 +189,7 @@ namespace ClashEngine
 
     static void draw_line(int x1, int y1, int x2, int y2, int r, int g, int b)
     {
-        LuaBinding::engine->DrawLine(x1, y1, x2, y2, olc::Pixel(r, g, b));
+        EngineAPI::DrawLine(LuaBinding::engine, x1, y1, x2, y2, r, g, b);
     }
 
     static void draw_line_bold(int x1, int y1, int x2, int y2, int r, int g, int b, int thick)
@@ -230,14 +230,12 @@ namespace ClashEngine
 
     static void draw_image(int x, int y, olc::Sprite* sprite)
     {
-        LuaBinding::engine->DrawSprite(x, y, sprite);
+        EngineAPI::DrawSprite(LuaBinding::engine, x, y, sprite);
     }
 
     static void draw_png_image(int x, int y, olc::Sprite* sprite)
     {
-        LuaBinding::engine->SetPixelMode(olc::Pixel::ALPHA);
-        LuaBinding::engine->DrawSprite(x, y, sprite);
-        LuaBinding::engine->SetPixelMode(olc::Pixel::NORMAL);
+        EngineAPI::DrawPNGSprite(LuaBinding::engine, x, y, sprite);
     }
 
     //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
@@ -255,17 +253,13 @@ namespace ClashEngine
     //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
     static void draw_png_image_scaling(int x, int y, olc::Sprite* sprite, int w, int h)
     {
-        LuaBinding::engine->SetPixelMode(olc::Pixel::ALPHA);
-        draw_image_scaling(x, y, sprite, w, h);
-        LuaBinding::engine->SetPixelMode(olc::Pixel::NORMAL);
+        EngineAPI::DrawPNGSprite(LuaBinding::engine, x, y, sprite, w, h);
     }
 
     //基于等间隔采样的图像缩放算法:https://blog.csdn.net/qq_37394634/article/details/99675686
     static void draw_png_image_scalingf(int x, int y, olc::Sprite* sprite, double sx, double sy)
     {
-        LuaBinding::engine->SetPixelMode(olc::Pixel::ALPHA);
-        draw_image_scalingf(x, y, sprite, sx, sy);
-        LuaBinding::engine->SetPixelMode(olc::Pixel::NORMAL);
+        EngineAPI::DrawPNGSprite(LuaBinding::engine, x, y, sprite, sx, sy);
     }
 
     static int get_image_width(olc::Sprite* sprite)
@@ -428,110 +422,51 @@ namespace ClashEngine
         delete font;
     }
 
-    static void draw_font(olc::Font* font, const string& s, int x, int y, int r, int g, int b)
+    static void draw_string(olc::Font* font, const string& s, int x, int y, int r, int g, int b)
     {
-        font->DrawString(StringConverter::To_UTF32(s), x, y, olc::Pixel(r, g, b));
+        EngineAPI::DrawString(LuaBinding::engine, font, s, x, y, r, g, b);
     }
 
     //interval:字符与字符之间间隔的像素数量
-    static void draw_font_ex(olc::Font* font, const string& s, int x, int y, int r, int g, int b, int interval)
+    static void draw_string_ex(olc::Font* font, const string& s, int x, int y, int r, int g, int b, int interval)
     {
-        int nextX = x;
-        wstring ws = String::StringToWstring(s, Encoding::UTF8);
-        for (const wchar& item : ws)
-        {
-            string str = String::WstringToString(wstring(1, item), Encoding::UTF8);
-            u32string u32String = StringConverter::To_UTF32(str);
-            //new:
-            olc::Sprite* charSprite = font->RenderStringToSprite(u32String, olc::Pixel(r, g, b));
-            //draw sprite:
-            draw_png_image(nextX, y, charSprite);
-            nextX += (interval + charSprite->width);
-            //delete:
-            delete charSprite;
-        }
+        EngineAPI::DrawString(LuaBinding::engine, font, s, x, y, r, g, b, interval);
     }
 
     //!!!注意:渲染该olc::Sprite*需要开启Alpha混合
     //!!!需要回收返回值
-    static olc::Sprite* render_font_to_sprite(olc::Font* font, const string& s, int r, int g, int b)
+    static olc::Sprite* render_string_to_sprite(olc::Font* font, const string& s, int r, int g, int b)
     {
-        return font->RenderStringToSprite(StringConverter::To_UTF32(s), olc::Pixel(r, g, b));
+        return EngineAPI::RenderStringToSprite(LuaBinding::engine, font, s, r, g, b);
     }
 
     //!!!注意:渲染该olc::Sprite*需要开启Alpha混合
     //!!!需要回收返回值
     //interval:字符与字符之间间隔的像素数量
-    static olc::Sprite* render_font_to_sprite_ex(olc::Font* font, const string& s, int r, int g, int b, int interval)
+    static olc::Sprite* render_string_to_sprite_ex(olc::Font* font, const string& s, int r, int g, int b, int interval)
     {
-        wstring ws = String::StringToWstring(s, Encoding::UTF8);
-        int fontWidth = font->GetStringBounds(StringConverter::To_UTF32(s)).size.x;
-        int fontHeight = font->GetStringBounds(StringConverter::To_UTF32(s)).size.y;
-
-        int spriteWidth = fontWidth + (ws.size() - 1) * interval;
-        int spriteHeight = fontHeight;
-        olc::Sprite* fontSprite = new olc::Sprite(spriteWidth, spriteHeight);
-
-        int x = 0;
-        for (const wchar& item : ws)
-        {
-            string str = String::WstringToString(wstring(1, item), Encoding::UTF8);
-            u32string u32String = StringConverter::To_UTF32(str);
-            //new:
-            olc::Sprite* charSprite = font->RenderStringToSprite(u32String, olc::Pixel(r, g, b));
-            //draw char:
-            for (int i = 0; i < spriteHeight; i++)
-            {
-                for (int j = 0; j < charSprite->width; j++)
-                {
-                    olc::Pixel pixel;
-                    if (i < charSprite->height)
-                    {
-                        pixel = charSprite->GetPixel(j, i);
-                    }
-                    else
-                    {
-                        pixel = olc::Pixel(0, 0, 0, 0);
-                    }
-                    fontSprite->SetPixel(j + x, i, pixel);
-                }
-            }
-            x += charSprite->width;
-            //draw interval:
-            for (int i = 0; i < spriteHeight; i++)
-            {
-                for (int j = 0; j < spriteWidth; j++)
-                {
-                    fontSprite->SetPixel(j + x, i, olc::Pixel(0, 0, 0, 0));
-                }
-            }
-            x += interval;
-            //delete:
-            delete charSprite;
-        }
-
-        return fontSprite;
+        return EngineAPI::RenderStringToSprite(LuaBinding::engine, font, s, r, g, b, interval);
     }
 
-    static int get_font_width(olc::Font* font, const string& s)
+    static int get_string_width(olc::Font* font, const string& s)
     {
         olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
         return rect.size.x;
     }
 
-    static int get_font_height(olc::Font* font, const string& s)
+    static int get_string_height(olc::Font* font, const string& s)
     {
         olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
         return rect.size.y;
     }
 
-    static int get_font_offset_x(olc::Font* font, const string& s)
+    static int get_string_offset_x(olc::Font* font, const string& s)
     {
         olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
         return rect.offset.x;
     }
 
-    static int get_font_offset_y(olc::Font* font, const string& s)
+    static int get_string_offset_y(olc::Font* font, const string& s)
     {
         olc::FontRect rect = font->GetStringBounds(StringConverter::To_UTF32(s));
         return rect.offset.y;
@@ -948,14 +883,14 @@ namespace ClashEngine
         //Font APIs:
         (*this->vm)["init_font"] = &init_font;
         (*this->vm)["deinit_font"] = &deinit_font;
-        (*this->vm)["draw_font"] = &draw_font;
-        (*this->vm)["draw_font_ex"] = &draw_font_ex;
-        (*this->vm)["render_font_to_sprite"] = &render_font_to_sprite;
-        (*this->vm)["render_font_to_sprite_ex"] = &render_font_to_sprite_ex;
-        (*this->vm)["get_font_width"] = &get_font_width;
-        (*this->vm)["get_font_height"] = &get_font_height;
-        (*this->vm)["get_font_offset_x"] = &get_font_offset_x;
-        (*this->vm)["get_font_offset_y"] = &get_font_offset_y;
+        (*this->vm)["draw_string"] = &draw_string;
+        (*this->vm)["draw_string_ex"] = &draw_string_ex;
+        (*this->vm)["render_string_to_sprite"] = &render_string_to_sprite;
+        (*this->vm)["render_string_to_sprite_ex"] = &render_string_to_sprite_ex;
+        (*this->vm)["get_string_width"] = &get_string_width;
+        (*this->vm)["get_string_height"] = &get_string_height;
+        (*this->vm)["get_string_offset_x"] = &get_string_offset_x;
+        (*this->vm)["get_string_offset_y"] = &get_string_offset_y;
         //UI APIs:
         (*this->vm)["ui_active"] = &ui_active;
         (*this->vm)["enable_ui"] = &enable_ui;

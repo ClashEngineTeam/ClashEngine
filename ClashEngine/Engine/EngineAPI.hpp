@@ -33,6 +33,11 @@ namespace ClashEngine
     class EngineAPI
     {
     public:
+        static void DrawLine(olc::PixelGameEngine* engine, int x1, int y1, int x2, int y2, int r, int g, int b)
+        {
+            engine->DrawLine(x1, y1, x2, y2, olc::Pixel(r, g, b));
+        }
+
         static void DrawLine(olc::PixelGameEngine* engine, int x1, int y1, int x2, int y2, int r, int g, int b, int thick)
         {
             Vector2 start(x1 - thick, y1 - thick);
@@ -163,6 +168,85 @@ namespace ClashEngine
             engine->SetPixelMode(olc::Pixel::ALPHA);
             DrawSprite(engine, x, y, sprite, sx, sy);
             engine->SetPixelMode(olc::Pixel::NORMAL);
+        }
+
+        static void DrawString(olc::PixelGameEngine* engine, olc::Font* font, const std::string& s, int x, int y, int r, int g, int b)
+        {
+            font->DrawString(StringConverter::To_UTF32(s), x, y, olc::Pixel(r, g, b));
+        }
+
+        static void DrawString(olc::PixelGameEngine* engine, olc::Font* font, const std::string& s, int x, int y, int r, int g, int b, int interval)
+        {
+            int nextX = x;
+            std::wstring ws = String::StringToWstring(s, Encoding::UTF8);
+            for (const wchar& item : ws)
+            {
+                std::string str = String::WstringToString(std::wstring(1, item), Encoding::UTF8);
+                std::u32string u32String = StringConverter::To_UTF32(str);
+                //new:
+                olc::Sprite* charSprite = font->RenderStringToSprite(u32String, olc::Pixel(r, g, b));
+                //draw sprite:
+                EngineAPI::DrawPNGSprite(engine, nextX, y, charSprite);
+                nextX += (interval + charSprite->width);
+                //delete:
+                delete charSprite;
+            }
+        }
+
+        static olc::Sprite* RenderStringToSprite(olc::PixelGameEngine* engine, olc::Font* font, const std::string& s, int r, int g, int b)
+        {
+            return font->RenderStringToSprite(StringConverter::To_UTF32(s), olc::Pixel(r, g, b));
+        }
+
+        static olc::Sprite* RenderStringToSprite(olc::PixelGameEngine* engine, olc::Font* font, const std::string& s, int r, int g, int b, int interval)
+        {
+            std::wstring ws = String::StringToWstring(s, Encoding::UTF8);
+            int fontWidth = font->GetStringBounds(StringConverter::To_UTF32(s)).size.x;
+            int fontHeight = font->GetStringBounds(StringConverter::To_UTF32(s)).size.y;
+
+            int spriteWidth = fontWidth + (ws.size() - 1) * interval;
+            int spriteHeight = fontHeight;
+            olc::Sprite* fontSprite = new olc::Sprite(spriteWidth, spriteHeight);
+
+            int x = 0;
+            for (const wchar& item : ws)
+            {
+                std::string str = String::WstringToString(std::wstring(1, item), Encoding::UTF8);
+                std::u32string u32String = StringConverter::To_UTF32(str);
+                //new:
+                olc::Sprite* charSprite = font->RenderStringToSprite(u32String, olc::Pixel(r, g, b));
+                //draw char:
+                for (int i = 0; i < spriteHeight; i++)
+                {
+                    for (int j = 0; j < charSprite->width; j++)
+                    {
+                        olc::Pixel pixel;
+                        if (i < charSprite->height)
+                        {
+                            pixel = charSprite->GetPixel(j, i);
+                        }
+                        else
+                        {
+                            pixel = olc::Pixel(0, 0, 0, 0);
+                        }
+                        fontSprite->SetPixel(j + x, i, pixel);
+                    }
+                }
+                x += charSprite->width;
+                //draw interval:
+                for (int i = 0; i < spriteHeight; i++)
+                {
+                    for (int j = 0; j < spriteWidth; j++)
+                    {
+                        fontSprite->SetPixel(j + x, i, olc::Pixel(0, 0, 0, 0));
+                    }
+                }
+                x += interval;
+                //delete:
+                delete charSprite;
+            }
+
+            return fontSprite;
         }
 
         //!!!需要使用DeleteSprites来释放创建的所有Sprite*
