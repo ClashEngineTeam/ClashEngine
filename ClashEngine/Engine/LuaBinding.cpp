@@ -167,7 +167,7 @@ namespace ClashEngine
 
     static std::string get_engine_version()
     {
-        return "Dev_0.0.2";
+        return "Dev_0.0.3";
     }
 
     //=====================Draw APIs=====================
@@ -578,10 +578,22 @@ namespace ClashEngine
         return button;
     }
 
+    static UIButton* init_button2(int x, int y, olc::Sprite* image)
+    {
+        UIButton* button = new UIButton(Vector2(x, y), image);
+        LuaBinding::ui_objects.push_back(button);
+        return button;
+    }
+
     static void deinit_button(UIButton* button)
     {
         Vector<UIObject*>::Remove(LuaBinding::ui_objects, button);
         delete button;
+    }
+
+    static olc::Sprite* get_button_image(UIButton* button)
+    {
+        return button->image;
     }
 
     //=====================InputField APIs=====================
@@ -911,7 +923,9 @@ namespace ClashEngine
         (*this->vm)["bind_draw"] = &bind_draw;
         //Button APIs:
         (*this->vm)["init_button"] = &init_button;
+        (*this->vm)["init_button2"] = &init_button2;
         (*this->vm)["deinit_button"] = &deinit_button;
+        (*this->vm)["get_button_image"] = &get_button_image;
         //InputField APIs:
         (*this->vm)["init_input_field"] = &init_input_field;
         (*this->vm)["deinit_input_field"] = &deinit_input_field;

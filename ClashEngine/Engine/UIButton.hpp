@@ -1,12 +1,13 @@
 ﻿#pragma once
 
 #include "UIObject.hpp"
+#include "EngineAPI.hpp"
 
 namespace ClashEngine
 {
     class UIButton : public UIObject
     {
-    public:
+    private:
         olc::Pixel backColor;
         olc::Pixel borderColor;
         //默认颜色:
@@ -15,8 +16,20 @@ namespace ClashEngine
         bool change_border_color = true;
 
     public:
+        olc::Sprite* image = nullptr;
+
+    public:
         UIButton(Vector2 position, Vector2 size) : UIObject(position, size)
         {
+            defaultBackColor = olc::Pixel(128, 128, 128); //Gray
+            defaultBorderColor = olc::Pixel(255, 215, 0); //Gold
+            backColor = defaultBackColor;
+            borderColor = defaultBorderColor;
+        }
+
+        UIButton(Vector2 position, olc::Sprite* image) : UIObject(position, Vector2(image->width, image->height))
+        {
+            this->image = image;
             defaultBackColor = olc::Pixel(128, 128, 128); //Gray
             defaultBorderColor = olc::Pixel(255, 215, 0); //Gold
             backColor = defaultBackColor;
@@ -54,14 +67,23 @@ namespace ClashEngine
         {
             Vector2 pos = GetPosition();
             Vector2 size = GetSize();
-            for (int i = 0; i < size.y; i++)
+            if (this->image == nullptr)
             {
-                for (int j = 0; j < size.x; j++)
+                for (int i = 0; i < size.y; i++)
                 {
-                    engine->Draw(j + pos.x, i + pos.y, this->backColor);
+                    for (int j = 0; j < size.x; j++)
+                    {
+                        engine->Draw(j + pos.x, i + pos.y, this->backColor);
+                    }
                 }
+                engine->DrawRect(pos.x, pos.y, size.x, size.y, this->borderColor);
             }
-            engine->DrawRect(pos.x, pos.y, size.x, size.y, this->borderColor);
+            else
+            {
+                //EngineAPI::DrawSprite(engine, pos.x, pos.y, this->image);
+                EngineAPI::DrawPNGSprite(engine, pos.x, pos.y, this->image);
+                engine->DrawRect(pos.x, pos.y, size.x, size.y, this->borderColor);
+            }
         }
     };
 }
