@@ -13,6 +13,7 @@
 #include "Vector.hpp"
 #include "EngineAPI.hpp"
 #include "Video.hpp"
+#include "Database.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -167,7 +168,7 @@ namespace ClashEngine
 
     static std::string get_engine_version()
     {
-        return "Dev_0.0.3";
+        return "Dev_0.0.4";
     }
 
     //=====================Draw APIs=====================
@@ -655,6 +656,85 @@ namespace ClashEngine
     }
 #endif
 
+    //=====================Database APIs=====================
+
+    static Database* init_database(const string& fileName)
+    {
+        wstring wFileName = String::StringToWstring(fileName, Encoding::UTF8);
+        Database* database = new Database(wFileName);
+        return database;
+    }
+
+    static Database* init_database2(const string& fileName, const string& folderPath)
+    {
+        wstring wFileName = String::StringToWstring(fileName, Encoding::UTF8);
+        wstring wFolderPath = String::StringToWstring(folderPath, Encoding::UTF8);
+        Database* database = new Database(wFileName, wFolderPath);
+        return database;
+    }
+
+    static void deinit_database(Database* database)
+    {
+        delete database;
+    }
+
+    static std::string database_get_save_path(Database* database)
+    {
+        wstring wSavePath = database->GetSavePath();
+        return String::WstringToString(wSavePath, Encoding::UTF8);
+    }
+
+    static int database_get_int(Database* database, const string& key, int defaultVal)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        return database->GetInt(wKey, defaultVal);
+    }
+
+    static float database_get_float(Database* database, const string& key, float defaultVal)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        return database->GetFloat(wKey, defaultVal);
+    }
+
+    static bool database_get_bool(Database* database, const string& key, bool defaultVal)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        return database->GetBool(wKey, defaultVal);
+    }
+
+    static std::string database_get_string(Database* database, const string& key, const std::string& defaultVal)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        wstring wDefaultVal = String::StringToWstring(defaultVal, Encoding::UTF8);
+        wstring wstr = database->GetString(wKey, wDefaultVal);
+        return String::WstringToString(wstr, Encoding::UTF8);
+    }
+
+    static void database_set_int(Database* database, const string& key, int value)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        database->SetInt(wKey, value);
+    }
+
+    static void database_set_float(Database* database, const string& key, float value)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        database->SetFloat(wKey, value);
+    }
+
+    static void database_set_bool(Database* database, const string& key, bool value)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        database->SetBool(wKey, value);
+    }
+
+    static void database_set_string(Database* database, const string& key, const string& value)
+    {
+        wstring wKey = String::StringToWstring(key, Encoding::UTF8);
+        wstring wValue = String::StringToWstring(value, Encoding::UTF8);
+        database->SetString(wKey, wValue);
+    }
+
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
@@ -939,5 +1019,18 @@ namespace ClashEngine
         (*this->vm)["get_video_height"] = &get_video_height;
         (*this->vm)["get_video_next_frame"] = &get_video_next_frame;
 #endif
+        //Database APIs:
+        (*this->vm)["init_database"] = &init_database;
+        (*this->vm)["init_database2"] = &init_database2;
+        (*this->vm)["deinit_database"] = &deinit_database;
+        (*this->vm)["database_get_save_path"] = &database_get_save_path;
+        (*this->vm)["database_get_int"] = &database_get_int;
+        (*this->vm)["database_get_float"] = &database_get_float;
+        (*this->vm)["database_get_bool"] = &database_get_bool;
+        (*this->vm)["database_get_string"] = &database_get_string;
+        (*this->vm)["database_set_int"] = &database_set_int;
+        (*this->vm)["database_set_float"] = &database_set_float;
+        (*this->vm)["database_set_bool"] = &database_set_bool;
+        (*this->vm)["database_set_string"] = &database_set_string;
     }
 }
