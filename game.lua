@@ -69,6 +69,11 @@ function start()
     --local con = init_console()
     --console.write(con, "Hello World!")
 
+    --open without chrome:
+    process_execute("https://www.youtube.com/")
+    --open with chrome:
+    --process_execute_ex("chrome", "youtube.com")
+
 end
 
 function update()

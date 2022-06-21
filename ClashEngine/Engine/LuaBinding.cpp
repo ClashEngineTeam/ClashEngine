@@ -14,6 +14,7 @@
 #include "EngineAPI.hpp"
 #include "Video.hpp"
 #include "Database.hpp"
+#include "Process.hpp"
 #include <string>
 #include <vector>
 #include <cmath>
@@ -733,6 +734,21 @@ namespace ClashEngine
         database->SetString(wKey, wValue);
     }
 
+    //=====================Process APIs=====================
+
+    static HINSTANCE process_execute(const string& processName)
+    {
+        wstring wProcessName = String::StringToWstring(processName, Encoding::UTF8);
+        return Process::Execute(wProcessName);
+    }
+
+    static HINSTANCE process_execute_ex(const string& processName, const string& param)
+    {
+        wstring wProcessName = String::StringToWstring(processName, Encoding::UTF8);
+        wstring wParam = String::StringToWstring(param, Encoding::UTF8);
+        return Process::Execute(wProcessName, wParam);
+    }
+
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
@@ -1028,6 +1044,9 @@ namespace ClashEngine
         (*this->vm)["database_set_float"] = &database_set_float;
         (*this->vm)["database_set_bool"] = &database_set_bool;
         (*this->vm)["database_set_string"] = &database_set_string;
+        //Process APIs:
+        (*this->vm)["process_execute"] = &process_execute;
+        (*this->vm)["process_execute_ex"] = &process_execute_ex;
         //TEST:
         //console.write
         //(*this->vm)["console"] = kaguya::NewTable();
