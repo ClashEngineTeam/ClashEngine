@@ -66,6 +66,9 @@ function start()
 
     video = init_video("res/videos/Yasuo.mp4")
 
+    --local con = init_console()
+    --console.write(con, "Hello World!")
+
 end
 
 function update()
@@ -122,8 +125,10 @@ function update()
 
     draw_png_image(500, 200, font_sprite)
 
-    frameSprite = get_video_next_frame(video)
-    draw_image_scaling(0, 0, frameSprite, 600, 300)
+    local frameSprite = get_video_next_frame(video)
+    if frameSprite ~= nil then
+        draw_image_scaling(0, 0, frameSprite, 600, 300)
+    end
 end
 
 function destroy()

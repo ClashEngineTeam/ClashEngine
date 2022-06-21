@@ -626,7 +626,6 @@ namespace ClashEngine
 
     //=====================Video APIs=====================
 
-#if !defined(DISABLE_FFMPEG)
     static Video* init_video(const string& path)
     {
         wstring wpath = File::GetAbsolutePath(String::StringToWstring(path, Encoding::UTF8));
@@ -654,7 +653,6 @@ namespace ClashEngine
     {
         return video->GetNextFrame();
     }
-#endif
 
     //=====================Database APIs=====================
 
@@ -1012,13 +1010,11 @@ namespace ClashEngine
         (*this->vm)["get_input_field_data"] = &get_input_field_data;
         (*this->vm)["set_input_field_limit"] = &set_input_field_limit;
         //Video APIs:
-#if !defined(DISABLE_FFMPEG)
         (*this->vm)["init_video"] = &init_video;
         (*this->vm)["deinit_video"] = &deinit_video;
         (*this->vm)["get_video_width"] = &get_video_width;
         (*this->vm)["get_video_height"] = &get_video_height;
         (*this->vm)["get_video_next_frame"] = &get_video_next_frame;
-#endif
         //Database APIs:
         (*this->vm)["init_database"] = &init_database;
         (*this->vm)["init_database2"] = &init_database2;
@@ -1032,5 +1028,9 @@ namespace ClashEngine
         (*this->vm)["database_set_float"] = &database_set_float;
         (*this->vm)["database_set_bool"] = &database_set_bool;
         (*this->vm)["database_set_string"] = &database_set_string;
+        //TEST:
+        //console.write
+        //(*this->vm)["console"] = kaguya::NewTable();
+        //(*this->vm)["console"]["write"] = &write_console;
     }
 }

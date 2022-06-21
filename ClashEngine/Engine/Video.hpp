@@ -144,4 +144,40 @@ namespace ClashEngine
     };
 }
 
+#else
+
+#include <string>
+#include "../olcPixelGameEngine/olcPixelGameEngine.h"
+
+namespace ClashEngine
+{
+    //空壳Video
+    class Video
+    {
+    public:
+        Video(const std::wstring& path)
+        {
+        }
+
+        ~Video()
+        {
+        }
+
+        int GetWidth()
+        {
+            return 0;
+        }
+
+        int GetHeight()
+        {
+            return 0;
+        }
+
+        olc::Sprite* GetNextFrame()
+        {
+            return nullptr;
+        }
+    };
+}
+
 #endif
