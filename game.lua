@@ -70,9 +70,25 @@ function start()
     --console.write(con, "Hello World!")
 
     --open without chrome:
-    process_execute("https://www.youtube.com/")
+    --process_execute("https://www.youtube.com/")
     --open with chrome:
     --process_execute_ex("chrome", "youtube.com")
+
+    local console = init_console()
+    processes = process_get_all()
+    for k,v in ipairs(processes) do
+        local processName = process_get_name(v)
+        write_console(console, v)
+        write_console(console, " ")
+        writeline_console(console, processName)
+        if processName == "League of Legends.exe" then
+            local processHandle = process_get_handle(v)
+            local processClosed = process_kill(processHandle)
+            if processClosed then
+                writeline_console(console, "League of Legends.exe closed")
+            end
+        end
+    end
 
 end
 

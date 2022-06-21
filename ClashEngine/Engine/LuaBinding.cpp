@@ -749,6 +749,27 @@ namespace ClashEngine
         return Process::Execute(wProcessName, wParam);
     }
 
+    static std::vector<DWORD> process_get_all()
+    {
+        return Process::GetAllProcess();
+    }
+
+    static std::string process_get_name(int pid)
+    {
+        wstring wName = Process::GetName(pid);
+        return String::WstringToString(wName);
+    }
+
+    static HANDLE process_get_handle(int pid)
+    {
+        return Process::GetHandle(pid);
+    }
+
+    static bool process_kill(HANDLE handle)
+    {
+        return Process::Kill(handle);
+    }
+
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
@@ -1047,6 +1068,10 @@ namespace ClashEngine
         //Process APIs:
         (*this->vm)["process_execute"] = &process_execute;
         (*this->vm)["process_execute_ex"] = &process_execute_ex;
+        (*this->vm)["process_get_all"] = &process_get_all;
+        (*this->vm)["process_get_name"] = &process_get_name;
+        (*this->vm)["process_get_handle"] = &process_get_handle;
+        (*this->vm)["process_kill"] = &process_kill;
         //TEST:
         //console.write
         //(*this->vm)["console"] = kaguya::NewTable();
