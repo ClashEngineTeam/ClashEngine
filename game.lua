@@ -74,7 +74,7 @@ function start()
     --open with chrome:
     --process_execute_ex("chrome", "youtube.com")
 
-    local console = init_console()
+    console = init_console()
     processes = process_get_all()
     for k,v in ipairs(processes) do
         local processName = process_get_name(v)
@@ -97,9 +97,23 @@ function start()
         end
     end
 
+    --networking:
+    enet_server = server.create(8848)
+    writeline_console(console, "Server start!")
+
 end
 
 function update()
+
+    --poll network event:
+    local enet_event = server.poll_event(enet_server)
+    local enet_event_type = server.get_event_type(enet_event)
+    if enet_event_type ~= 0 then
+        writeline_console(console, enet_event_type)
+    end
+    --release event:
+    server.release_event(enet_event)
+
     clear_color(155,55,155)
 
     if GetKey(Key_A) then

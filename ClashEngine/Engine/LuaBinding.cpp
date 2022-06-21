@@ -1,4 +1,6 @@
-﻿#include "../Random/random.hpp"
+﻿#include "MinDefines.hpp"
+#include "../Random/random.hpp"
+#include "../ENet/enet/enet.h"
 #include "LuaBinding.hpp"
 #include "Audio.hpp"
 #include "String.hpp"
@@ -770,6 +772,80 @@ namespace ClashEngine
         return Process::Kill(handle);
     }
 
+    //=====================Network APIs=====================
+
+    //Server:
+
+    static ENetHost* enet_create_server(int port)
+    {
+        ENetAddress address;
+        address.host = ENET_HOST_ANY;
+        address.port = port;
+
+        const int MAX_CLIENT_COUNT_LIMIT = 32;
+        const int MAX_CHANNEL_COUNT_LIMIT = 1;
+
+        return enet_host_create(&address, MAX_CLIENT_COUNT_LIMIT, MAX_CHANNEL_COUNT_LIMIT, 0, 0);
+    }
+
+    static ENetHost* enet_create_server_ex(uint host, int port, int maxClients, int maxChannels)
+    {
+        ENetAddress address;
+        address.host = host;
+        address.port = port;
+
+        return enet_host_create(&address, maxClients, maxChannels, 0, 0);
+    }
+
+    static void enet_close_server(ENetHost* server)
+    {
+        enet_host_destroy(server);
+    }
+
+    static ENetEvent* enet_poll_event(ENetHost* server)
+    {
+        ENetEvent* event_ptr = new ENetEvent();
+        int ret = enet_host_service(server, event_ptr, 0);
+        if (ret >= 0)
+        {
+            return event_ptr;
+        }
+        else
+        {
+            delete event_ptr;
+            return nullptr;
+        }
+    }
+
+    static void enet_release_event(ENetEvent* event_ptr)
+    {
+        if (event_ptr != nullptr)
+        {
+            enet_packet_destroy(event_ptr->packet);
+            delete event_ptr;
+        }
+    }
+
+    static ENetEventType enet_get_event_type(ENetEvent* event_ptr)
+    {
+        return event_ptr->type;
+    }
+
+    //Client:
+
+    static ENetHost* enet_create_client()
+    {
+        const int MAX_CHANNEL_COUNT_LIMIT = 1;
+
+        ENetHost* client = enet_host_create(nullptr, 1, MAX_CHANNEL_COUNT_LIMIT, 0, 0);
+        return client;
+    }
+
+    static void enet_close_client(ENetHost* client)
+    {
+        enet_host_destroy(client);
+    }
+
     kaguya::State* LuaBinding::state = nullptr;
     int LuaBinding::screenWidth = 0;
     int LuaBinding::screenHeight = 0;
@@ -1072,6 +1148,14 @@ namespace ClashEngine
         (*this->vm)["process_get_name"] = &process_get_name;
         (*this->vm)["process_get_handle"] = &process_get_handle;
         (*this->vm)["process_kill"] = &process_kill;
+        //=====================Network APIs=====================
+        (*this->vm)["server"] = kaguya::NewTable();
+        (*this->vm)["server"]["create"] = &enet_create_server;
+        (*this->vm)["server"]["create_ex"] = &enet_create_server_ex;
+        (*this->vm)["server"]["close"] = &enet_close_server;
+        (*this->vm)["server"]["poll_event"] = &enet_poll_event;
+        (*this->vm)["server"]["release_event"] = &enet_release_event;
+        (*this->vm)["server"]["get_event_type"] = &enet_get_event_type;
         //TEST:
         //console.write
         //(*this->vm)["console"] = kaguya::NewTable();

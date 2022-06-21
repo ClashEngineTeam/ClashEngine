@@ -4,6 +4,7 @@
 #include "olcPixelGameEngine/olcPixelGameEngine.h"
 #include "Random/random.hpp"
 #include "olcPGEX_TTF/olcPGEX_TTF.h"
+#include "ENet\enet\enet.h"
 #include "Engine/LuaBinding.hpp"
 #include "Engine/Console.hpp"
 #include "Engine/String.hpp"
@@ -79,6 +80,9 @@ int main
     //init olc font:
     olc::Font::init();
 
+    //init enet:
+    bool initEnetSuccess = (enet_initialize() == 0);
+
     //load and execute lua code:
     std::string path = String::WstringToString(File::GetAbsolutePath(mainPath));
     kaguya::LuaFunction code = state.loadfile(path.c_str());
@@ -97,6 +101,12 @@ int main
         {
             program.Start();
         }
+    }
+
+    //deinit enet:
+    if (initEnetSuccess)
+    {
+        enet_deinitialize();
     }
 
     return 0;
