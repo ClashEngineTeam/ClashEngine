@@ -20,6 +20,8 @@ Charlie's Flash
 
 1. ffmpeg : [newest](https://github.com/BtbN/FFmpeg-Builds)
 
+1. ENet : 1.3.17
+
 ### Third Party Links :
 
 1. [Download Lua Source Code](https://www.lua.org/versions.html#5.4)
@@ -35,6 +37,8 @@ Charlie's Flash
 1. [freetype-windows-binaries](https://github.com/ubawurinna/freetype-windows-binaries)
 
 1. [ffmpeg](https://github.com/BtbN/FFmpeg-Builds/releases/tag/latest)
+
+1. [ENet](http://enet.bespin.org/index.html)
 
 ## Links : 
 

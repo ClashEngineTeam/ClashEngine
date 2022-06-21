@@ -245,6 +245,33 @@
     <ClCompile Include="Engine\Video.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="ENet\callbacks.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\compress.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\host.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\list.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\packet.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\peer.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\protocol.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\unix.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
+    <ClCompile Include="ENet\win32.c">
+      <Filter>ENet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -264,6 +291,12 @@
     </Filter>
     <Filter Include="olcPGEX_TTF">
       <UniqueIdentifier>{6f9d91b2-a6b1-4cbf-9df3-f694b6c48ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ENet">
+      <UniqueIdentifier>{761036cf-31a5-42f4-9ead-f887f2325eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ENet\enet">
+      <UniqueIdentifier>{0afbb881-e604-4964-b63d-1f8aa58a0566}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -515,6 +548,33 @@
     </ClInclude>
     <ClInclude Include="Engine\Video.hpp">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\callbacks.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\enet.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\list.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\protocol.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\time.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\types.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\unix.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\utility.h">
+      <Filter>ENet\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="ENet\enet\win32.h">
+      <Filter>ENet\enet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

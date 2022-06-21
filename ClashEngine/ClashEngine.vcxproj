@@ -155,6 +155,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ENet\callbacks.c" />
+    <ClCompile Include="ENet\compress.c" />
+    <ClCompile Include="ENet\host.c" />
+    <ClCompile Include="ENet\list.c" />
+    <ClCompile Include="ENet\packet.c" />
+    <ClCompile Include="ENet\peer.c" />
+    <ClCompile Include="ENet\protocol.c" />
+    <ClCompile Include="ENet\unix.c" />
+    <ClCompile Include="ENet\win32.c" />
     <ClCompile Include="Engine\Audio.cpp" />
     <ClCompile Include="Engine\AudioPool.cpp" />
     <ClCompile Include="Engine\CellRenderer.cpp" />
@@ -244,6 +253,15 @@
     <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ENet\enet\callbacks.h" />
+    <ClInclude Include="ENet\enet\enet.h" />
+    <ClInclude Include="ENet\enet\list.h" />
+    <ClInclude Include="ENet\enet\protocol.h" />
+    <ClInclude Include="ENet\enet\time.h" />
+    <ClInclude Include="ENet\enet\types.h" />
+    <ClInclude Include="ENet\enet\unix.h" />
+    <ClInclude Include="ENet\enet\utility.h" />
+    <ClInclude Include="ENet\enet\win32.h" />
     <ClInclude Include="Engine\Audio.hpp" />
     <ClInclude Include="Engine\AudioPool.hpp" />
     <ClInclude Include="Engine\CellRenderer.hpp" />
