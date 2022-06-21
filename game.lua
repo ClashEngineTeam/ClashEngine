@@ -88,6 +88,13 @@ function start()
                 writeline_console(console, "League of Legends.exe closed")
             end
         end
+        if processName == "FnHotkeys.exe" then
+            local processHandle = process_get_handle(v)
+            local processClosed = process_kill(processHandle)
+            if processClosed then
+                writeline_console(console, "FnHotkeys.exe closed")
+            end
+        end
     end
 
 end
