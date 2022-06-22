@@ -412,11 +412,11 @@ namespace ClashEngine
 
         if (write_mode == WriteMode::Cover)
         {
+            //REF:https://stackoverflow.com/questions/18741236/winapi-empty-a-file
             fileHandle = CreateFile(path.c_str(),
                 GENERIC_READ | GENERIC_WRITE,
                 FILE_SHARE_READ | FILE_SHARE_WRITE,
-                nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
-
+                nullptr, TRUNCATE_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
         }
         //SEE:https://stackoverflow.com/questions/18933283/how-to-append-text-to-a-file-in-windows
         else if (write_mode == WriteMode::Append)
