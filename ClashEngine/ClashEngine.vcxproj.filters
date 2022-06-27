@@ -298,9 +298,6 @@
     <Filter Include="ENet\enet">
       <UniqueIdentifier>{0afbb881-e604-4964-b63d-1f8aa58a0566}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FreeType">
-      <UniqueIdentifier>{862203d2-7e89-4787-9a94-18fed40a886d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LuaSourceCode\lapi.h">
