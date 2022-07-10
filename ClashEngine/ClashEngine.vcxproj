@@ -98,7 +98,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -117,7 +117,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,7 +132,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,7 +151,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/;../lib/freetype-windows-binaries-2.12.1/release static/vs2015-2022/win64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/lib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -291,6 +291,8 @@
     <ClCompile Include="FreeType\src\type1\type1.c" />
     <ClCompile Include="FreeType\src\type42\type42.c" />
     <ClCompile Include="FreeType\src\winfonts\winfnt.c" />
+    <ClCompile Include="FreeType\builds\windows\ftdebug.c" />
+    <ClCompile Include="FreeType\builds\windows\ftsystem.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ENet\enet\callbacks.h" />

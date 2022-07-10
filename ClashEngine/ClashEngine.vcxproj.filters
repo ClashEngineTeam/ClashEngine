@@ -392,6 +392,12 @@
     <ClCompile Include="FreeType\src\winfonts\winfnt.c">
       <Filter>FreeType</Filter>
     </ClCompile>
+    <ClCompile Include="FreeType\builds\windows\ftdebug.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\builds\windows\ftsystem.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">

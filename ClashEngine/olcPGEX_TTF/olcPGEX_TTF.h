@@ -5,7 +5,8 @@
 
 #ifdef WIN32
 #include <ft2build.h>
-#pragma comment(lib, "freetype.lib")
+//Now we use source code instead of binary lib:
+//#pragma comment(lib, "freetype.lib")
 #else
 #include <freetype2/ft2build.h>
 #endif
