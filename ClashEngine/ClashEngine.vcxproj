@@ -90,10 +90,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;FT2_BUILD_LIBRARY</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./FreeType/config;../lib/ffmpeg-master-latest-win64-gpl-shared/include/;./FreeType/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -107,10 +107,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;FT2_BUILD_LIBRARY</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./FreeType/config;../lib/ffmpeg-master-latest-win64-gpl-shared/include/;./FreeType/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,10 +124,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;FT2_BUILD_LIBRARY</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./FreeType/config;../lib/ffmpeg-master-latest-win64-gpl-shared/include/;./FreeType/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,10 +141,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISABLE_FFMPEG;UNICODE;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;FT2_BUILD_LIBRARY</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>Default</LanguageStandard>
-      <AdditionalIncludeDirectories>../lib/ffmpeg-master-latest-win64-gpl-shared/include/;../lib/freetype-windows-binaries-2.12.1/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./FreeType/config;../lib/ffmpeg-master-latest-win64-gpl-shared/include/;./FreeType/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -251,6 +251,46 @@
     </ClCompile>
     <ClCompile Include="olcPGEX_TTF\olcPGEX_TTF.cpp" />
     <ClCompile Include="olcPixelGameEngine\olcPixelGameEngine.cpp" />
+    <ClCompile Include="FreeType\src\autofit\autofit.c" />
+    <ClCompile Include="FreeType\src\base\ftbase.c" />
+    <ClCompile Include="FreeType\src\base\ftbbox.c" />
+    <ClCompile Include="FreeType\src\base\ftbdf.c" />
+    <ClCompile Include="FreeType\src\base\ftbitmap.c" />
+    <ClCompile Include="FreeType\src\base\ftcid.c" />
+    <ClCompile Include="FreeType\src\base\ftfstype.c" />
+    <ClCompile Include="FreeType\src\base\ftgasp.c" />
+    <ClCompile Include="FreeType\src\base\ftglyph.c" />
+    <ClCompile Include="FreeType\src\base\ftgxval.c" />
+    <ClCompile Include="FreeType\src\base\ftinit.c" />
+    <ClCompile Include="FreeType\src\base\ftmm.c" />
+    <ClCompile Include="FreeType\src\base\ftotval.c" />
+    <ClCompile Include="FreeType\src\base\ftpatent.c" />
+    <ClCompile Include="FreeType\src\base\ftpfr.c" />
+    <ClCompile Include="FreeType\src\base\ftstroke.c" />
+    <ClCompile Include="FreeType\src\base\ftsynth.c" />
+    <ClCompile Include="FreeType\src\base\fttype1.c" />
+    <ClCompile Include="FreeType\src\base\ftwinfnt.c" />
+    <ClCompile Include="FreeType\src\bdf\bdf.c" />
+    <ClCompile Include="FreeType\src\bzip2\ftbzip2.c" />
+    <ClCompile Include="FreeType\src\cache\ftcache.c" />
+    <ClCompile Include="FreeType\src\cff\cff.c" />
+    <ClCompile Include="FreeType\src\cid\type1cid.c" />
+    <ClCompile Include="FreeType\src\gzip\ftgzip.c" />
+    <ClCompile Include="FreeType\src\lzw\ftlzw.c" />
+    <ClCompile Include="FreeType\src\pcf\pcf.c" />
+    <ClCompile Include="FreeType\src\pfr\pfr.c" />
+    <ClCompile Include="FreeType\src\psaux\psaux.c" />
+    <ClCompile Include="FreeType\src\pshinter\pshinter.c" />
+    <ClCompile Include="FreeType\src\psnames\psnames.c" />
+    <ClCompile Include="FreeType\src\raster\raster.c" />
+    <ClCompile Include="FreeType\src\sdf\sdf.c" />
+    <ClCompile Include="FreeType\src\sfnt\sfnt.c" />
+    <ClCompile Include="FreeType\src\smooth\smooth.c" />
+    <ClCompile Include="FreeType\src\svg\svg.c" />
+    <ClCompile Include="FreeType\src\truetype\truetype.c" />
+    <ClCompile Include="FreeType\src\type1\type1.c" />
+    <ClCompile Include="FreeType\src\type42\type42.c" />
+    <ClCompile Include="FreeType\src\winfonts\winfnt.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ENet\enet\callbacks.h" />

@@ -272,6 +272,132 @@
     <ClCompile Include="ENet\win32.c">
       <Filter>ENet</Filter>
     </ClCompile>
+    <ClCompile Include="FreeType\src\autofit\autofit.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbase.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbbox.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbdf.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbitmap.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftcid.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftfstype.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftgasp.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftglyph.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftgxval.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftinit.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftmm.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftotval.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftpatent.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftpfr.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftstroke.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftsynth.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\fttype1.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftwinfnt.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\bdf\bdf.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\bzip2\ftbzip2.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\cache\ftcache.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\cff\cff.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\cid\type1cid.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\gzip\ftgzip.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\lzw\ftlzw.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\pcf\pcf.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\pfr\pfr.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\psaux\psaux.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\pshinter\pshinter.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\psnames\psnames.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\raster\raster.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\sdf\sdf.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\sfnt\sfnt.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\smooth\smooth.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\svg\svg.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\truetype\truetype.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\type1\type1.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\type42\type42.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\winfonts\winfnt.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\builds\windows\ftsystem.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\builds\windows\ftdebug.c">
+      <Filter>FreeType</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LuaSourceCode">
@@ -297,6 +423,9 @@
     </Filter>
     <Filter Include="ENet\enet">
       <UniqueIdentifier>{0afbb881-e604-4964-b63d-1f8aa58a0566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeType">
+      <UniqueIdentifier>{5f24cbc7-5a09-4ae4-831f-8e1f7436832d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
