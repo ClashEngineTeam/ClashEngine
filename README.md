@@ -2,6 +2,12 @@
 
 Charlie's Flash
 
+### Build on Linux
+
+cd build
+cmake .
+make
+
 ### License : MIT
 
 ### Third Party Version : 
