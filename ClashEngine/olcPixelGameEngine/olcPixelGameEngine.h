@@ -1034,8 +1034,10 @@ namespace olc
 	// O------------------------------------------------------------------------------O
 	class PixelGameEngine
 	{
+#ifdef _WIN32
 	public:
 		HWND hInstance; //zmcj21:For Windows :)
+#endif
 
 	public:
 		PixelGameEngine();
@@ -1319,10 +1321,9 @@ namespace olc
 		bool olc_IsRunning();
 
 	public:
+#ifdef _WIN32
 		typedef void (*OnWindowInputChar)(WCHAR c);
 		OnWindowInputChar onWindowInputChar = nullptr;
-
-		//ZMCJ21 Functions:
 		void Windows_GetWindowCharInput(WCHAR c)
 		{
 			if (onWindowInputChar != nullptr)
@@ -1330,6 +1331,7 @@ namespace olc
 				onWindowInputChar(c);
 			}
 		}
+#endif
 
 		// At the very end of this file, chooses which
 		// components to compile
