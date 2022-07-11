@@ -705,5 +705,8 @@
     <ClInclude Include="ENet\enet\win32.h">
       <Filter>ENet\enet</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Format.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
