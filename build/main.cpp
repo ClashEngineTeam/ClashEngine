@@ -1,6 +1,11 @@
 ﻿#ifdef __linux__
 
+//olcPixelGameEngine:
+#define OLC_PGE_APPLICATION
+#include "../ClashEngine/olcPixelGameEngine/olcPixelGameEngine.h"
+//format:
 #include "../ClashEngine/Engine/Format.hpp"
+//std:
 #include <iostream>
 
 int main()

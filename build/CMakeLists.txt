@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # add the executable
 add_executable(ClashEngine
+    ../ClashEngine/olcPixelGameEngine/olcPixelGameEngine.h
     ../ClashEngine/Engine/Format.hpp
     main.cpp
 )
